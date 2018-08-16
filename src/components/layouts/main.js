@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import '../css/master.css';
-import About from './about';
-import Portfolio from './portfolio';
-import Yoga from './yoga';
-import Hobbies from './hobbies';
-import Contact from './contact';
-import Follow from './follow';
-import Footer from './footer';
-
+import '../../css/master.css';
+import About from './sections/about';
+import Portfolio from './sections/portfolio';
+import Yoga from './sections/yoga';
+import Hobbies from './sections/hobbies';
+import Contact from './sections/contact';
+import Follow from './sections/follow';
 
 class Main extends Component {
     render() {
@@ -19,7 +17,6 @@ class Main extends Component {
                 <Hobbies/>
                 <Contact/>
                 <Follow/>
-                <Footer/>
             </div>
         );
     }

@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 // import logo from '../logo.svg';
 // import '../css/App.css';
-import Nav from './nav';
-import Header from './header';
-import Main from './main';
+import Nav from './layouts/nav';
+import Header from './layouts/header';
+import Main from './layouts/main';
+import Footer from './layouts/footer';
 
 class App extends Component {
     render() {
         return (
-            <div className="App" id="pageTop">
+            <div id="pageTop">
                 <Nav/>
                 <Header/>
                 <Main/>
+                <Footer/>
             </div>
             // <div className="App">
             //     <header className="App-header">

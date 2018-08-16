@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import '../css/master.css';
+import '../../../css/master.css';
 
-class Hobbies extends Component {
+class Contact extends Component {
     render() {
         return (
             <div className="" id="hobbies">
-                <h1>Hobbies</h1>
+                <h1>Contact</h1>
                 <div className="">
-                    SLIDES
+                    FORM
                 </div>
             </div>
         );
     }
 }
 
-export default Hobbies;
+export default Contact;
