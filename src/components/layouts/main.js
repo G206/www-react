@@ -10,14 +10,14 @@ import Follow from './sections/follow';
 class Main extends Component {
     render() {
         return (
-            <div className="" id="mainWeb">
+            <main className="" id="mainWeb">
                 <About/>
                 <Portfolio/>
                 <Yoga/>
                 <Hobbies/>
                 <Contact/>
                 <Follow/>
-            </div>
+            </main>
         );
     }
 }

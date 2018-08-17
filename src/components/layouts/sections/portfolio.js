@@ -4,12 +4,12 @@ import '../../../css/master.css';
 class Portfoloio extends Component {
     render() {
         return (
-            <div className="" id="portfolio">
+            <section className="" id="portfolio">
                 <h1>Portfolio</h1>
                 <div className="">
                     SLIDES
                 </div>
-            </div>
+            </section>
         );
     }
 }

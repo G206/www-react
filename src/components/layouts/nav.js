@@ -15,11 +15,18 @@ const styles = {
     },
     flex: {
         flexGrow: 1,
+        fontFamily: "Avengeance"
     },
     menuButton: {
         marginLeft: -12,
         marginRight: 20,
     },
+    logo: {
+        maxHeight: 40
+    },
+    navBar: {
+        backgroundColor: "rgba(255, 0, 0, .6)"
+    }
 };
 
 class Nav extends Component {
@@ -28,13 +35,13 @@ class Nav extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.root} id="mainNav">
-                <AppBar position="static">
+                <AppBar position="sticky" className={classes.navBar}>
                     <Toolbar>
                         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="title" color="inherit" className={classes.flex}>
-                            <img src={logo} className="" alt="logo"/> G.Dev
+                            <img src={logo} className={classes.logo} alt="logo"/> G.Dev
                         </Typography>
                     </Toolbar>
                 </AppBar>

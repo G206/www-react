@@ -4,12 +4,12 @@ import '../../../css/master.css';
 class Contact extends Component {
     render() {
         return (
-            <div className="" id="hobbies">
-                <h1>Contact</h1>
+            <section className="" id="contact">
+                <h1>Contact Me</h1>
                 <div className="">
                     FORM
                 </div>
-            </div>
+            </section>
         );
     }
 }
