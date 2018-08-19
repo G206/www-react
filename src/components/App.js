@@ -1,11 +1,24 @@
 import React, {Component} from 'react';
-// import logo from '../logo.svg';
+import logo from '../images/yinyang.png';
 // import '../css/App.css';
 import Nav from './layouts/nav';
 import Header from './layouts/header';
 import Main from './layouts/main';
 import Footer from './layouts/footer';
 import { createMuiTheme } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
+import {Grid} from '@material-ui/core'
+
+const styles = {
+    container: {
+        flexGrow: 1,
+        backgroundImage: "url(" + logo + ")",
+        backgroundSize: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundPosition: "center 0%"
+    },
+};
 
 const theme = createMuiTheme({
     palette: {
@@ -26,8 +39,9 @@ const theme = createMuiTheme({
 
 class App extends Component {
     render() {
+        const { classes } = this.props;
         return (
-            <div id="pageTop">
+            <div id="pageTop" className={classes.container}>
                 <Nav/>
                 <Header/>
                 <Main/>
@@ -46,4 +60,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withStyles(styles)(App);

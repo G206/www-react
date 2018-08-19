@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
 import '../../../css/master.css';
 import { withStyles } from '@material-ui/core/styles';
-import {Grid, Paper} from '@material-ui/core'
+import {Grid, Paper, Typography} from '@material-ui/core';
 
 const styles = {
     container: {
-        flexGrow: 1
+        flexGrow: 1,
+        backgroundColor: "rgba(0, 0, 0, .6)",
+        color: "black",
+        margin: "10% 0"
+    },
+    heading: {
+        fontFamily: "Avengeance",
+        color: "red",
+        margin: "2% 0",
+        textAlign: "center"
+    },
+    paper: {
+        backgroundColor: "rgba(255, 255, 255, .6)",
+        color: "black",
     },
     text: {
-        padding: "1% 3%",
-        backgroundColor: "rgba(255, 255, 255, .6)",
-        color: "black"
+        padding: "5%",
+        fontFamily: "Xolonium",
+        textAlign: "justify"
     },
 };
 
@@ -21,14 +34,16 @@ class About extends Component {
             <section className={classes.container} id="about">
                 <Grid container>
                     <Grid item xs={12}>
-                        <h1>About</h1>
+                        <Typography className={classes.heading} variant="display2">
+                            About
+                        </Typography>
                         <Grid container
                               direction="row"
                               justify="center"
                               alignItems="center">
                             <Grid item xs={10} lg={8}>
-                                <Paper className={classes.text}>
-                                    <p>
+                                <Paper className={classes.paper}>
+                                    <Typography variant="headline" className={classes.text}>
                                         My Name is Gabe and I am a full stack Mobile and Web Developer.
                                         I just completed the Mobile and Web Development Programming
                                         Certification and Mobile Technology Certification Programs at
@@ -39,7 +54,7 @@ class About extends Component {
                                         of the work I have done while at Bellevue College. You can use the
                                         Contact form to send me an email if you wish to discuss anything
                                         with me. Thank you for visiting my site.
-                                    </p>
+                                    </Typography>
                                 </Paper>
                             </Grid>
                         </Grid>
@@ -50,4 +65,4 @@ class About extends Component {
     }
 }
 
-export default withStyles(styles) (About);
+export default withStyles(styles)(About);
