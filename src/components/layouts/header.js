@@ -18,8 +18,8 @@ class Header extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.container} id="bannerWeb">
-                <Grid container xs={12}>
-                    <Grid item>
+                <Grid container>
+                    <Grid item xs={12}>
                         <img src={logo} className={classes.headerImg} alt="Banner Image" />
                     </Grid>
                 </Grid>

@@ -26,7 +26,6 @@ const styles = {
         padding: "5% 0 1% 0"
     },
     mediaItem: {
-        margin: "0 5%",
         textAlign: "center",
         fontSize: "3em"
     },
@@ -60,7 +59,8 @@ class Follow extends Component {
                               direction="row"
                               justify="center"
                               alignItems="center"
-                        className={classes.mediaBox}>
+                              spacing={40}
+                                className={classes.mediaBox}>
                             <Grid item xs className={classes.mediaItem}>
                                 <a href="#followMeBox" className="followMeLink">
                                     <i className="fab fa-facebook-f" aria-hidden="true"></i>
