@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import '../../../css/master.css';
-import classNames from 'classnames';
 import {withStyles} from '@material-ui/core/styles';
-import {Grid, Paper, Typography, FormControl, Input, InputLabel, Button} from '@material-ui/core';
-import {AccountCircle, AlternateEmail, ContactPhone, Message, Send, Clear} from '@material-ui/icons';
+import {Grid, Typography} from '@material-ui/core';
+import {AccountCircle, AlternateEmail, ContactPhone, Message} from '@material-ui/icons';
+import ContactField from './contact/contactField';
+import ContactMultiLine from './contact/contactMultiLine';
+import ContactButtons from './contact/contactButtons';
 
 const styles = {
     container: {
@@ -13,8 +15,7 @@ const styles = {
         margin: '10% 0'
     },
     innerContainer: {
-        margin: 0,
-        padding: 0
+
     },
     heading: {
         fontFamily: 'Avengeance',
@@ -32,7 +33,7 @@ const styles = {
         fontSize: '2.5em'
     },
     inputBox: {
-        width: '90%'
+        width: '85%'
     },
     form: {
         width: '100%'
@@ -42,7 +43,9 @@ const styles = {
     },
     paper: {
         margin: '1% 0 3% 0',
-        padding: '0 5% 0 1%'
+    },
+    btnBox: {
+
     },
     button: {
         width: '100%',
@@ -57,6 +60,49 @@ const styles = {
 };
 
 class Contact extends Component {
+    constructor(props){
+        super(props);
+        this.state ={
+            EMAIL: "gabe@w3dev.io",
+            contactName: "",
+            contactEmail: "",
+            contactPhone: "",
+            contactMessage: "",
+            mailToLink:""
+        }
+
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleReset = this.handleReset.bind(this);
+    }
+    createMailTo(){
+        this.setState({mailToLink:'mailto:' + this.state.EMAIL + '?'
+            + 'subject=Email%20from%20' + this.state.contactName
+            + '.%20Email:%20' + this.state.contactEmail + '.%20Contact%20Phone:%20'
+            + this.state.contactPhone + '&body=' + this.state.contactMessage});
+    }
+    handleInput(event){
+        const target = event.target;
+        const value = target.value;
+        const id = target.id;
+        this.setState({
+            [id]: value
+        });
+        this.createMailTo();
+    }
+    handleSubmit() {
+        console.log("MailToLink: " + this.state.mailToLink);
+    }
+    handleReset() {
+        this.setState({
+            contactName: "",
+            contactEmail: "",
+            contactPhone: "",
+            contactMessage: "",
+            mailToLink:""
+        })
+    }
+
     render() {
         const {classes} = this.props;
         return (
@@ -71,125 +117,70 @@ class Contact extends Component {
                               justify="center"
                               alignItems="center">
                             <Grid item xs={10}>
-                                <Paper className={classes.paper}>
-                                    <Grid container
-                                          direction="row"
-                                          spacing={16}
-                                          justify="flex-start"
-                                          alignItems="flex-end"
-                                          className={classes.innerContainer}>
-                                        <Grid item className={classes.iconBox}>
-                                            <AccountCircle className={classes.icon}/>
-                                        </Grid>
-                                        <Grid item className={classes.inputBox}>
-                                            <FormControl className={classes.form}>
-                                                <InputLabel htmlFor="contactName">Enter Your Name</InputLabel>
-                                                <Input id="contactName"
-                                                       fullWidth
-                                                       type="text"
-                                                       className={classes.formField}
-                                                />
-                                            </FormControl>
-                                        </Grid>
-                                    </Grid>
-                                </Paper>
-                                <Paper className={classes.paper}>
-                                    <Grid container
-                                          direction="row"
-                                          spacing={16}
-                                          justify="flex-start"
-                                          alignItems="flex-end"
-                                          className={classes.innerContainer}>
-                                        <Grid item className={classes.iconBox}>
-                                            <AlternateEmail className={classes.icon}/>
-                                        </Grid>
-                                        <Grid item className={classes.inputBox}>
-                                            <FormControl className={classes.form}>
-                                                <InputLabel htmlFor="contactEmail">Enter Your Email</InputLabel>
-                                                <Input id="contactEmail"
-                                                       fullWidth
-                                                       type="text"
-                                                       className={classes.formField}
-                                                />
-                                            </FormControl>
-                                        </Grid>
-                                    </Grid>
-                                </Paper>
-                                <Paper className={classes.paper}>
-                                    <Grid container
-                                          direction="row"
-                                          spacing={16}
-                                          justify="flex-start"
-                                          alignItems="flex-end"
-                                          className={classes.innerContainer}>
-                                        <Grid item className={classes.iconBox}>
-                                            <ContactPhone className={classes.icon}/>
-                                        </Grid>
-                                        <Grid item className={classes.inputBox}>
-                                            <FormControl className={classes.form}>
-                                                <InputLabel htmlFor="contactPhone">Enter Your Phone Number</InputLabel>
-                                                <Input id="contactPhone"
-                                                       fullWidth
-                                                       type="text"
-                                                       className={classes.formField}
-                                                />
-                                            </FormControl>
-                                        </Grid>
-                                    </Grid>
-                                </Paper>
-                                <Paper className={classes.paper}>
-                                    <Grid container
-                                          direction="row"
-                                          spacing={16}
-                                          justify="flex-start"
-                                          alignItems="flex-end"
-                                          className={classes.innerContainer}>
-                                        <Grid item className={classes.iconBox}>
-                                            <Message className={classes.icon}/>
-                                        </Grid>
-                                        <Grid item className={classes.inputBox}>
-                                            <FormControl className={classes.form}>
-                                                <InputLabel htmlFor="contactMessage">Enter Your Message</InputLabel>
-                                                <Input id="contactMessage"
-                                                       fullWidth
-                                                       type="text"
-                                                       multiline
-                                                       rowsMax="3"
-                                                       className={classes.formField}
-                                                />
-                                            </FormControl>
-                                        </Grid>
-                                    </Grid>
-                                </Paper>
-                                <Grid container
-                                      direction="row"
-                                      spacing={16}
-                                      justify="space-between"
-                                      alignItems="center"
-                                      className={classes.innerContainer}>
-                                    <Grid item xs>
-                                        <Button variant="contained"
-                                                size="large"
-                                                id="btnSubmit"
-                                                color="primary"
-                                                className={classNames(classes.button, classes.primaryC)}
-                                        >
-                                            Submit
-                                            <Send/>
-                                        </Button>
-                                    </Grid>
-                                    <Grid item xs>
-                                        <Button variant="contained"
-                                                size="large"
-                                                id="btnReset"
-                                                color="secondary"
-                                                className={classNames(classes.button, classes.secondaryC)}
-                                        >
-                                            Reset
-                                            <Clear/>
-                                        </Button>
-                                    </Grid>
-                                </Grid>
+                                <form id="contactForm">
+                                    <ContactField
+                                        classPaper={classes.paper}
+                                        classIconBox={classes.iconBox}
+                                        classInputBox={classes.inputBox}
+                                        classForm={classes.form}
+                                        classFormField={classes.formField}
+                                        label="Enter Your Name"
+                                        id="contactName"
+                                        contactField={this.state.contactName}
+                                        handleInput={this.handleInput}
+                                    >
+                                        <AccountCircle className={classes.icon} />
+                                    </ContactField>
+                                    <ContactField
+                                        classPaper={classes.paper}
+                                        classIconBox={classes.iconBox}
+                                        classInputBox={classes.inputBox}
+                                        classForm={classes.form}
+                                        classFormField={classes.formField}
+                                        label="Enter Your Email"
+                                        id="contactEmail"
+                                        contactField={this.state.contactEmail}
+                                        handleInput={this.handleInput}
+                                    >
+                                        <AlternateEmail className={classes.icon}/>
+                                    </ContactField>
+                                    <ContactField
+                                        classPaper={classes.paper}
+                                        classIconBox={classes.iconBox}
+                                        classInputBox={classes.inputBox}
+                                        classForm={classes.form}
+                                        classFormField={classes.formField}
+                                        label="Enter Your Phone Number"
+                                        id="contactPhone"
+                                        contactField={this.state.contactPhone}
+                                        handleInput={this.handleInput}
+                                    >
+                                        <ContactPhone className={classes.icon}/>
+                                    </ContactField>
+                                    <ContactMultiLine
+                                        classPaper={classes.paper}
+                                        classIconBox={classes.iconBox}
+                                        classInputBox={classes.inputBox}
+                                        classForm={classes.form}
+                                        classFormField={classes.formField}
+                                        label="Enter Your Message"
+                                        id="contactMessage"
+                                        contactField={this.state.contactMessage}
+                                        handleInput={this.handleInput}
+                                    >
+                                        <Message className={classes.icon}/>
+                                    </ContactMultiLine>
+                                    <ContactButtons
+                                        classBtnBox={classes.btnBox}
+                                        classButton={classes.button}
+                                        classPrimaryC={classes.primaryC}
+                                        classSecondaryC={classes.secondaryC}
+                                        mailToLink={this.state.mailToLink}
+                                        handleSubmit={this.handleSubmit}
+                                        handleReset={this.handleReset}
+
+                                    />
+                                </form>
                             </Grid>
                         </Grid>
                     </Grid>
