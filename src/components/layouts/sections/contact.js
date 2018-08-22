@@ -4,7 +4,6 @@ import {withStyles} from '@material-ui/core/styles';
 import {Grid, Typography} from '@material-ui/core';
 import {AccountCircle, AlternateEmail, ContactPhone, Message} from '@material-ui/icons';
 import ContactField from './contact/contactField';
-import ContactMultiLine from './contact/contactMultiLine';
 import ContactButtons from './contact/contactButtons';
 
 const styles = {
@@ -128,6 +127,8 @@ class Contact extends Component {
                                         id="contactName"
                                         contactField={this.state.contactName}
                                         handleInput={this.handleInput}
+                                        multiline={false}
+                                        rowsMax="1"
                                     >
                                         <AccountCircle className={classes.icon} />
                                     </ContactField>
@@ -141,6 +142,8 @@ class Contact extends Component {
                                         id="contactEmail"
                                         contactField={this.state.contactEmail}
                                         handleInput={this.handleInput}
+                                        multiline={false}
+                                        rowsMax="1"
                                     >
                                         <AlternateEmail className={classes.icon}/>
                                     </ContactField>
@@ -154,10 +157,12 @@ class Contact extends Component {
                                         id="contactPhone"
                                         contactField={this.state.contactPhone}
                                         handleInput={this.handleInput}
+                                        multiline={false}
+                                        rowsMax="1"
                                     >
                                         <ContactPhone className={classes.icon}/>
                                     </ContactField>
-                                    <ContactMultiLine
+                                    <ContactField
                                         classPaper={classes.paper}
                                         classIconBox={classes.iconBox}
                                         classInputBox={classes.inputBox}
@@ -167,9 +172,11 @@ class Contact extends Component {
                                         id="contactMessage"
                                         contactField={this.state.contactMessage}
                                         handleInput={this.handleInput}
+                                        multiline={true}
+                                        rowsMax="3"
                                     >
                                         <Message className={classes.icon}/>
-                                    </ContactMultiLine>
+                                    </ContactField>
                                     <ContactButtons
                                         classBtnBox={classes.btnBox}
                                         classButton={classes.button}

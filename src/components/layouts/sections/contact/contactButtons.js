@@ -12,7 +12,7 @@ const styles = {
 
 class ContactButtons extends Component {
     render() {
-        const {classes} = this.props;
+
         return (
             <Grid container
                   direction="row"

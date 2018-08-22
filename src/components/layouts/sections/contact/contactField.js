@@ -10,7 +10,7 @@ const styles = {
 
 class ContactField extends Component {
     render() {
-        const {classes} = this.props;
+
         return (
             <Paper className={this.props.classPaper}>
                 <Grid container
@@ -29,6 +29,8 @@ class ContactField extends Component {
                                    type="text"
                                    value={this.props.contactField}
                                    onChange={this.props.handleInput}
+                                   multiline={this.props.multiline}
+                                   rowsMax={this.props.rowsMax}
                                    className={this.props.classFormField}
                             />
                         </FormControl>
@@ -49,6 +51,8 @@ ContactField.propTypes = {
     label: PropTypes.string,
     id: PropTypes.string,
     contactField: PropTypes.string,
+    multiline: PropTypes.bool,
+    rowsMax: PropTypes.string,
     handleInput: PropTypes.func
 }
 
