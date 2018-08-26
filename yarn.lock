@@ -5720,6 +5720,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-carousel-slider@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/react-carousel-slider/-/react-carousel-slider-2.0.13.tgz#b6c8fd4fddfaa15a573a5cc56dda624858110e89"
+
 react-dev-utils@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.1.tgz#1f396e161fe44b595db1b186a40067289bf06613"

@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import '../../../css/master.css';
+import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
+import {portfolioList} from './slides/itemList';
+import Carousel from './slides/carousel';
+import CarouselReactSlider from './slides/carouselReactSlider';
 
 const styles = {
     container: {
         flexGrow: 1,
         backgroundColor: "rgba(255, 255, 255, .6)",
         color: "black",
-        margin: "10% 0"
+        margin: "10% 0",
+        padding: "2% 0"
     },
     heading: {
         fontFamily: "Avengeance",
@@ -22,8 +27,20 @@ const styles = {
 };
 
 class Portfoloio extends Component {
+    constructor(props){
+        super(props);
+
+    }
+
     render() {
         const { classes } = this.props;
+        let assetsPath = require.context('./slides/images', false, /\.(png|jpe?g|svg)$/);
+
+        // Substituting the imgSrc from file name in ./images to their corresponding path after they are bundled.
+        portfolioList.map((item, index) => {
+            // console.log(assetsPath.keys(), assetsPath.id);
+            item.imgSrc = assetsPath('./' + item.imgSrc);
+        });
         return (
             <section className={classes.container} id="portfolio">
                 <Grid container>
@@ -31,23 +48,32 @@ class Portfoloio extends Component {
                         <Typography className={classes.heading} variant="display2">
                             Portfolio
                         </Typography>
-                        <Grid container
-                              direction="row"
-                              justify="center"
-                              alignItems="center">
-                            <Grid item xs={10}>
-                                <Paper className={classes.slides}>
-                                    <div>
-                                        SLIDES
-                                    </div>
-                                </Paper>
-                            </Grid>
-                        </Grid>
                     </Grid>
+                    <Grid item xs={12}>
+                        <Paper className={classes.slides}>
+                            {/*<Grid container*/}
+                            {/*direction="row"*/}
+                            {/*justify="center"*/}
+                            {/*alignItems="center">*/}
+                            {/**/}
+                            {/*</Grid>*/}
+                            <Carousel slides={portfolioList} />
+                            <CarouselReactSlider
+                                slides={portfolioList}
+                            />
+                        </Paper>
+                    </Grid>
+
                 </Grid>
             </section>
         );
     }
 }
+
+
+Portfoloio.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
 
 export default withStyles(styles)(Portfoloio);
