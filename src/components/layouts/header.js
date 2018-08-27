@@ -20,7 +20,7 @@ class Header extends Component {
             <div className={classes.container} id="bannerWeb">
                 <Grid container>
                     <Grid item xs={12}>
-                        <img src={logo} className={classes.headerImg} alt="Banner Image" />
+                        <img src={logo} className={classes.headerImg} alt="Banner Logo" />
                     </Grid>
                 </Grid>
 

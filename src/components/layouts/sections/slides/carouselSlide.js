@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from "prop-types";
-import {Grid, Paper, Typography, Button} from '@material-ui/core';
-import { red, blue, green } from '@material-ui/core/colors';
 import '../../../../css/master.css';
 
 const styles = {
@@ -22,7 +20,7 @@ class CarouselSlide extends Component {
         return (
             <li
                 className={
-                    this.props.index == this.props.activeIndex
+                    this.props.index === this.props.activeIndex
                         ? "carousel__slide carousel__slide--active"
                         : "carousel__slide"
                 }

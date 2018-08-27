@@ -17,7 +17,7 @@ class CarouselIndicator extends Component {
             <li>
                 <a
                     className={
-                        this.props.index == this.props.activeIndex
+                        this.props.index === this.props.activeIndex
                             ? "carousel__indicator carousel__indicator--active"
                             : "carousel__indicator"
                     }

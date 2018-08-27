@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import '../../../css/master.css';
+import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
+import {yogaList} from "./slides/itemList";
+import CarouselReactSlider from './slides/carouselReactSlider';
 
 const styles = {
     container: {
@@ -17,13 +20,15 @@ const styles = {
         textAlign: "center"
     },
     slides: {
-
+        backgroundColor: "rgba(255, 255, 255, .2)",
+        padding: "2%"
     },
 };
 
 class Yoga extends Component {
     render() {
         const { classes } = this.props;
+
         return (
             <section className={classes.container} id="yoga">
                 <Grid container>
@@ -31,23 +36,25 @@ class Yoga extends Component {
                         <Typography className={classes.heading} variant="display2">
                             Yoga
                         </Typography>
-                        <Grid container
-                              direction="row"
-                              justify="center"
-                              alignItems="center">
-                            <Grid item xs={10}>
-                                <Paper className={classes.slides}>
-                                    <div>
-                                        SLIDES
-                                    </div>
-                                </Paper>
-                            </Grid>
-                        </Grid>
                     </Grid>
+                    <Grid item xs={12}>
+                        <Paper className={classes.slides}>
+
+                            <CarouselReactSlider
+                                slides={yogaList}
+                            />
+                        </Paper>
+                    </Grid>
+
                 </Grid>
             </section>
         );
     }
 }
+
+Yoga.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
 
 export default withStyles(styles)(Yoga);

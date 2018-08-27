@@ -262,6 +262,7 @@ export const yogaList = [
         className: 'item',
     }
 ];
+
 export const hobbyList = [
     {
         imgSrc: 'stage1.jpg',
