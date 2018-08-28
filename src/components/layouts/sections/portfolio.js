@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import {portfolioList} from './slides/itemList';
+import {portfolioList} from '../../../data/itemList';
 // import Carousel from './slides/carousel';
 // import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselCustomSlider from './slides/carouselCustomSlider';
-import ModalBox from './modalBox';
 
 const styles = {
     container: {
@@ -30,19 +29,6 @@ const styles = {
 };
 
 class Portfoloio extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            open: false,
-        };
-    }
-    handleOpen = () => {
-        this.setState({ open: true });
-    };
-
-    handleClose = () => {
-        this.setState({ open: false });
-    };
 
     render() {
         const { classes } = this.props;
@@ -64,15 +50,12 @@ class Portfoloio extends Component {
                             {/*/>*/}
                             <CarouselCustomSlider
                                 slides={portfolioList}
-                                handleOpen={this.handleOpen}
+                                openModal={this.props.openModal}
+                                handleModalOpen={this.props.handleModalOpen}
                             />
                         </Paper>
                     </Grid>
                 </Grid>
-                <ModalBox
-                    openBox={this.state.open}
-                    handleClose={this.handleClose}
-                />
             </section>
         );
     }

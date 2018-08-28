@@ -6,7 +6,7 @@ export const portfolioList = [
         des: 'DMA 263 Project 1',
         className: 'item active',
         id: 'dma263_p1',
-        href: '#modalBox',
+        href: 'w3dev.io/src/dma263_p1/index.html',
         target: ''
     },
     {
@@ -15,7 +15,7 @@ export const portfolioList = [
         des: 'DMA263 Project 2',
         className: 'item',
         id: 'dma263_p2',
-        href: '#modalBox',
+        href: 'w3dev.io/src/dma263_p2/index.html',
         target: ''
     },
     {
@@ -24,7 +24,7 @@ export const portfolioList = [
         des: 'PROG 109 Assignment 4',
         className: 'item',
         id: 'prog109_a4',
-        href: '#modalBox',
+        href: 'w3dev.io/src/prog109_a4/index.html',
         target: ''
     },
     {
@@ -33,7 +33,7 @@ export const portfolioList = [
         des: 'PROG 109 Project 3',
         className: 'item',
         id: 'prog109_p3',
-        href: '#modalBox',
+        href: 'w3dev.io/src/prog109_p3/index.html',
         target: ''
     },
     {
@@ -42,7 +42,7 @@ export const portfolioList = [
         des: 'PROG 209 Assignment 2',
         className: 'item',
         id: 'prog209_a2',
-        href: '#modalBox',
+        href: 'w3dev.io/src/prog209_a2/index.html',
         target: ''
     },
     {
@@ -51,7 +51,7 @@ export const portfolioList = [
         des: 'PROG 209 Assignment 7',
         className: 'item',
         id: 'prog209_a7',
-        href: '#modalBox',
+        href: 'w3dev.io/src/prog209_a7/index.html',
         target: ''
     },
     {
@@ -60,7 +60,7 @@ export const portfolioList = [
         des: 'PROG 209 Project 1',
         className: 'item',
         id: 'prog209_p1',
-        href: '#modalBox',
+        href: 'w3dev.io/src/prog209_p1/index.html',
         target: ''
     },
     {
@@ -69,7 +69,7 @@ export const portfolioList = [
         des: 'PROG 209 Project 2',
         className: 'item',
         id: 'prog209_p2',
-        href: '#modalBox',
+        href: 'w3dev.io/src/prog209_p2/index.html',
         target: ''
     },
     {
@@ -78,7 +78,7 @@ export const portfolioList = [
         des: 'PROG 209 Project 3',
         className: 'item',
         id: 'prog209_p3',
-        href: '#modalBox',
+        href: 'w3dev.io/src/prog209_p3/index.html',
         target: ''
     },
     {
@@ -87,7 +87,7 @@ export const portfolioList = [
         des: 'GALAGA - Play in New Window',
         className: 'item',
         id: 'galaga',
-        href: '#modalBox',
+        href: 'galaga.w3dev.io/index.html',
         target: ''
     }
 ];

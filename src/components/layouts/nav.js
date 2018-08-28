@@ -4,17 +4,21 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import {AppBar, Toolbar, IconButton, Typography,
-    Drawer, List, Divider } from '@material-ui/core';
+    Drawer, List, Divider} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import logo from '../../images/web_design.png';
-import {NavList} from './sections/nav/navList';
+import NavList from './sections/nav/navList';
+import Header from './header';
+import Main from './main';
+import Footer from './footer';
 
 const drawerWidth = 240;
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
+        backgroundColor: "rgba(0,0,0,0)"
     },
     text: {
         fontFamily: "Avengeance"
@@ -24,16 +28,6 @@ const styles = theme => ({
     },
     navBar: {
         backgroundColor: "rgba(255, 0, 0, .6)",
-        // position: "fixed",
-        // top: 0
-    },
-    appFrame: {
-        // height: 430,
-        // zIndex: 1,
-        // overflow: 'hidden',
-        // position: 'relative',
-        // display: 'flex',
-        // width: '100%',
     },
     appBar: {
         position: 'fixed',
@@ -64,6 +58,7 @@ const styles = theme => ({
     drawerPaper: {
         position: 'fixed',
         width: drawerWidth,
+        backgroundColor: "rgba(255,214,0,.6)"
     },
     drawerHeader: {
         // display: 'flex',
@@ -74,8 +69,8 @@ const styles = theme => ({
     },
     content: {
         flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 3,
+        backgroundColor: "rgba(0,0,0,0)",
+        // backgroundColor: theme.palette.background.default,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -102,48 +97,54 @@ const styles = theme => ({
 });
 
 class Nav extends Component {
-    state = {
-        open: false,
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            openDrawer: false,
+        };
+    }
 
     handleDrawerOpen = () => {
-        this.setState({ open: true });
+        this.setState({ openDrawer: true });
     };
 
     handleDrawerClose = () => {
-        this.setState({ open: false });
+        this.setState({ openDrawer: false });
     };
 
     render() {
         const { classes } = this.props;
+        const {anchor, openDrawer} = this.state;
+
         return (
-            <div className={classNames(classes.root, classes.appFrame)} id="mainNav">
+            <div className={classNames(classes.root)} id="mainNav">
                 <AppBar
                     position="sticky"
                     className={classNames(classes.navBar, classes.appBar, {
-                        [classes.appBarShift]: this.state.open,
-                        [classes[`appBarShift-left`]]: this.state.open,
+                        [classes.appBarShift]: openDrawer,
+                        [classes[`appBarShift-${anchor}`]]: openDrawer,
                     })}
 
                 >
                     <Toolbar>
                         <IconButton
                             color="inherit"
-                            aria-label="Open drawer"
+                            aria-label="Nav Bar"
                             onClick={this.handleDrawerOpen}
-                            className={classNames(classes.menuButton, this.state.open && classes.hide)}
+                            className={classNames(classes.menuButton, this.state.openDrawer && classes.hide)}
                         >
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="display1" color="inherit" className={classes.text}>
-                            <img src={logo} className={classes.logo} alt="logo"/> G.Dev
+                            <img src={logo} className={classes.logo} alt="logo"/> <a href="/index.html">G.Dev</a>
                         </Typography>
                     </Toolbar>
                 </AppBar>
+
                 <Drawer
                     variant="persistent"
                     anchor="left"
-                    open={this.state.open}
+                    open={this.state.openDrawer}
                     classes={{
                         paper: classes.drawerPaper,
                     }}
@@ -159,10 +160,20 @@ class Nav extends Component {
                         </Typography>
                         <Divider/>
                         <List>
-                            {NavList}
+                            <NavList/>
                         </List>
                     </div>
                 </Drawer>
+                <div
+                    className={classNames(classes.content, classes[`content-${anchor}`], {
+                        [classes.contentShift]: openDrawer,
+                        [classes[`contentShift-${anchor}`]]: openDrawer,
+                    })}
+                >
+                    <Header/>
+                    <Main/>
+                    <Footer/>
+                </div>
             </div>
         );
     }

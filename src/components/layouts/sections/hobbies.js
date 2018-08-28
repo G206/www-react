@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../../css/master.css';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import {hobbyList} from "./slides/itemList";
+import {hobbyList} from "../../../data/itemList";
 import CarouselReactSlider from './slides/carouselReactSlider';
 
 const styles = {

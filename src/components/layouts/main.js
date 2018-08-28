@@ -8,7 +8,7 @@ import Yoga from './sections/yoga';
 import Hobbies from './sections/hobbies';
 import Contact from './sections/contact';
 import Follow from './sections/follow';
-import {portfolioList, yogaList, hobbyList} from "./sections/slides/itemList";
+import ModalBox from './sections/modalBox';
 
 const styles = {
     container: {
@@ -18,30 +18,48 @@ const styles = {
 };
 
 class Main extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            open: false,
+            url: '/'
+        };
+    }
+    handleModalOpen = (pURL) => {
+        this.setState({
+            open: true,
+            url: '/' + pURL
+        });
+    };
+
+    handleModalClose = () => {
+        this.setState({ open: false });
+    };
+
     render() {
         const { classes } = this.props;
-        let assetsPath = require.context('./sections/slides/images', false, /\.(png|jpe?g|svg)$/);
 
-        // Substituting the imgSrc from file name in ./images to their corresponding path after they are bundled.
-        portfolioList.map((item, index) => {
-            // console.log(assetsPath.keys(), assetsPath.id);
-            item.imgSrc = assetsPath('./' + item.imgSrc);
-        });
-        yogaList.map((item, index) => {
-            item.imgSrc = assetsPath('./' + item.imgSrc);
-        });
-        hobbyList.map((item, index) => {
-            item.imgSrc = assetsPath('./' + item.imgSrc);
-        });
         return (
-            <main className={classes.container} id="mainWeb">
-                <About/>
-                <Portfolio/>
-                <Yoga/>
-                <Hobbies/>
-                <Contact/>
-                <Follow/>
-            </main>
+            <div>
+                <main className={classes.container} id="mainWeb">
+                    <About/>
+                    <Portfolio
+                        openModal={this.state.open}
+                        handleModalClose={this.handleModalClose}
+                        handleModalOpen={this.handleModalOpen}
+                    />
+                    <Yoga/>
+                    <Hobbies/>
+                    <Contact/>
+                    <Follow/>
+                </main>
+                <ModalBox
+                    openModal={this.state.open}
+                    handleModalClose={this.handleModalClose}
+                    modalURL={this.state.url}
+                />
+            </div>
+
         );
     }
 }

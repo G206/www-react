@@ -59,8 +59,8 @@ render() {
         };
 
         const customSlideCpnts = this.props.slides.map((item, index) =>
-            <Link to = '#modalBox' key = {index}
-                  onClick={this.props.handleOpen}
+            <Link to = {'/'+item.href} key = {index}
+                  onClick={event => this.props.handleModalOpen(item.href, event)}
             >
                 <img
                     src = {item.imgSrc}

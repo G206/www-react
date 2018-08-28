@@ -1,70 +1,113 @@
-import React from 'react';
-import {ListItem, ListItemIcon, ListItemText, Divider } from '@material-ui/core';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import {ListItem, ListItemIcon, ListItemText, Divider, Button } from '@material-ui/core';
 import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
     ContactMail, GroupAdd} from '@material-ui/icons';
+import NavPortfolio from './navPortfolio';
+import {portfolioList} from '../../../../data/itemList';
 
-export const NavList = (
-    <div>
-        <a href="#pageTop">
-            <ListItem button>
-                <ListItemIcon>
-                    <Home />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-            </ListItem>
-        </a>
-        <a href="#about">
-            <ListItem button>
+const styles = {
+    container: {
+        flexGrow: 1,
+    },
+};
 
-                <ListItemIcon>
-                    <Work />
-                </ListItemIcon>
-                <ListItemText primary="About" />
-            </ListItem>
-        </a>
-        <a href="#portfolio">
-            <ListItem button>
+class NavList extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            open: false,
+        };
+    }
 
-                <ListItemIcon>
-                    <Web />
-                </ListItemIcon>
-                <ListItemText primary="Portfolio" />
-            </ListItem>
-        </a>
-        <Divider/>
-        <a href="#yoga">
-            <ListItem button>
+    handleToggle = () => {
+        this.setState(state => ({ open: !state.open }));
+    };
 
-                <ListItemIcon>
-                    <AccessibilityNew />
-                </ListItemIcon>
-                <ListItemText primary="Yoga" />
-            </ListItem>
-        </a>
-        <a href="#hobbies">
-            <ListItem button>
-                <ListItemIcon>
-                    <PhotoLibrary />
-                </ListItemIcon>
-                <ListItemText primary="Hobbies" />
-            </ListItem>
-        </a>
-        <Divider/>
-        <a href="#contact">
-            <ListItem button>
-                <ListItemIcon>
-                    <ContactMail />
-                </ListItemIcon>
-                <ListItemText primary="Contact" />
-            </ListItem>
-        </a>
-        <a href="#followMe">
-            <ListItem button>
-                <ListItemIcon>
-                    <GroupAdd />
-                </ListItemIcon>
-                <ListItemText primary="Follow Me" />
-            </ListItem>
-        </a>
-    </div>
-);
+    handleClose = event => {
+        if (this.anchorEl.contains(event.target)) {
+            return;
+        }
+
+        this.setState({ open: false });
+    };
+
+    render() {
+        const { classes } = this.props;
+        const { open } = this.state;
+
+        return (
+            <div>
+                <a href="/index.html">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Home />
+                        </ListItemIcon>
+                        <ListItemText primary="Home" />
+                    </ListItem>
+                </a>
+                <a href="/#about">
+                    <ListItem button>
+
+                        <ListItemIcon>
+                            <Work />
+                        </ListItemIcon>
+                        <ListItemText primary="About" />
+                    </ListItem>
+                </a>
+                <NavPortfolio
+                    open={this.state.open}
+                    handleClose={this.handleClose}
+                    handleToggle={this.handleToggle}
+                    list={portfolioList}
+                >
+                    <Web/>
+                </NavPortfolio>
+                <Divider/>
+                <a href="/#yoga">
+                    <ListItem button>
+
+                        <ListItemIcon>
+                            <AccessibilityNew />
+                        </ListItemIcon>
+                        <ListItemText primary="Yoga" />
+                    </ListItem>
+                </a>
+                <a href="/#hobbies">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <PhotoLibrary />
+                        </ListItemIcon>
+                        <ListItemText primary="Hobbies" />
+                    </ListItem>
+                </a>
+                <Divider/>
+                <a href="/#contact">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <ContactMail />
+                        </ListItemIcon>
+                        <ListItemText primary="Contact" />
+                    </ListItem>
+                </a>
+                <a href="/#followMe">
+                    <ListItem button>
+                        <ListItemIcon>
+                            <GroupAdd />
+                        </ListItemIcon>
+                        <ListItemText primary="Follow Me" />
+                    </ListItem>
+                </a>
+            </div>
+        );
+
+    }
+}
+
+NavList.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
+
+export default withStyles(styles)(NavList);

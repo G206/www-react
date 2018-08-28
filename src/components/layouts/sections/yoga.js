@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import {yogaList} from "./slides/itemList";
+import {yogaList} from "../../../data/itemList";
 import CarouselReactSlider from './slides/carouselReactSlider';
 
 const styles = {

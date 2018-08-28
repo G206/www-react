@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import logo from '../images/yinyang.png';
 // import '../css/App.css';
 import Nav from './layouts/nav';
-import Header from './layouts/header';
-import Main from './layouts/main';
-import Footer from './layouts/footer';
+// import Header from './layouts/header';
+// import Main from './layouts/main';
+// import Footer from './layouts/footer';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
+import {hobbyList, portfolioList, yogaList} from "../data/itemList";
 
 const theme = createMuiTheme(
     {
@@ -44,6 +46,7 @@ const theme = createMuiTheme(
 const styles = {
     container: {
         flexGrow: 1,
+        backgroundColor: "rgba(0,0,0,1)",
         backgroundImage: "url(" + logo + ")",
         backgroundSize: "100%",
         backgroundRepeat: "no-repeat",
@@ -53,19 +56,39 @@ const styles = {
 };
 
 class App extends Component {
+
     render() {
         const { classes } = this.props;
+        const assetsPath = require.context('./layouts/sections/slides/images', false, /\.(png|jpe?g|svg)$/);
+
+        // Substituting the imgSrc from file name in .../images to their corresponding path after they are bundled.
+        portfolioList.map((item, index) => {
+            // console.log(assetsPath.keys(), assetsPath.id);
+            item.imgSrc = assetsPath('./' + item.imgSrc);
+        });
+        yogaList.map((item, index) => {
+            item.imgSrc = assetsPath('./' + item.imgSrc);
+        });
+        hobbyList.map((item, index) => {
+            item.imgSrc = assetsPath('./' + item.imgSrc);
+        });
         return (
             <MuiThemeProvider theme={theme}>
                 <div id="pageTop" className={classes.container}>
                     <Nav/>
-                    <Header/>
-                    <Main/>
-                    <Footer/>
+                    {/*<Header/>*/}
+                    {/*<Main/>*/}
+                    {/*<Footer/>*/}
                 </div>
             </MuiThemeProvider>
         );
     }
 }
+
+App.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object,
+    imgSrc: PropTypes.string
+};
 
 export default withStyles(styles)(App);

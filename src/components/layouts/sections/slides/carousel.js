@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import {portfolioList} from './itemList';
+import {portfolioList} from '../../../../data/itemList';
 import CarouselSlide from './carouselSlide';
 import CarouselIndicator from './carouselIndicator';
 import CarouselLeftArrow from './carouselLeftArrow';
