@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../../css/master.css';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
+import FollowList from './follow/followList';
 
 const styles = {
     container: {
@@ -46,52 +47,16 @@ class Follow extends Component {
                               direction="row"
                               justify="center"
                               alignItems="center">
-                            <Grid item xs={10}>
+                            <Grid item xs={12}>
                                 <Paper >
-                                    <Typography variant="headline" className={classes.text}>
+                                    <Typography variant="title" className={classes.text}>
                                         Follow me around the internet as I build projects, develop my
                                         portfolio, and blog about technology.
                                     </Typography>
                                 </Paper>
                             </Grid>
                         </Grid>
-                        <Grid container
-                              direction="row"
-                              justify="center"
-                              alignItems="center"
-                              spacing={40}
-                                className={classes.mediaBox}>
-                            <Grid item xs className={classes.mediaItem}>
-                                <a href="#followMeBox" className="followMeLink">
-                                    <i className="fab fa-facebook-f" aria-hidden="true"></i>
-                                </a>
-                            </Grid>
-                            <Grid item xs className={classes.mediaItem}>
-                                <a href="#followMeBox" className="followMeLink">
-                                    <i className="fab fa-twitter" aria-hidden="true"></i>
-                                </a>
-                            </Grid>
-                            <Grid item xs className={classes.mediaItem}>
-                                <a href="#followMeBox" className="followMeLink">
-                                    <i className="fab fa-google-plus" aria-hidden="true"></i>
-                                </a>
-                            </Grid>
-                            <Grid item xs className={classes.mediaItem}>
-                                <a href="#followMeBox" className="followMeLink">
-                                    <i className="fab fa-youtube" aria-hidden="true"></i>
-                                </a>
-                            </Grid>
-                            <Grid item xs className={classes.mediaItem}>
-                                <a href="#followMeBox" className="followMeLink">
-                                    <i className="fab fa-instagram" aria-hidden="true"></i>
-                                </a>
-                            </Grid>
-                            <Grid item xs className={classes.mediaItem}>
-                                <a href="#followMeBox" className="followMeLink">
-                                    <i className="fab fa-linkedin" aria-hidden="true"></i>
-                                </a>
-                            </Grid>
-                        </Grid>
+                        <FollowList/>
                     </Grid>
                 </Grid>
             </section>

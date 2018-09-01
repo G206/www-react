@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {ListItem, ListItemIcon, ListItemText, Divider, Button } from '@material-ui/core';
+import {ListItem, ListItemIcon, ListItemText, Divider } from '@material-ui/core';
 import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
     ContactMail, GroupAdd} from '@material-ui/icons';
 import NavPortfolio from './navPortfolio';
@@ -19,18 +19,21 @@ class NavList extends Component {
         this.state = {
             open: false,
         };
+        this.anchorEl = null;
+
     }
 
     handleToggle = () => {
-        this.setState(state => ({ open: !state.open }));
+        this.setState({
+            open: !this.state.open
+        });
     };
 
-    handleClose = event => {
-        if (this.anchorEl.contains(event.target)) {
-            return;
-        }
 
-        this.setState({ open: false });
+    handleClose = () => {
+        this.setState({
+            open: false,
+        });
     };
 
     render() {
@@ -56,13 +59,29 @@ class NavList extends Component {
                         <ListItemText primary="About" />
                     </ListItem>
                 </a>
+                <a href="/#portfolio">
+                    <ListItem
+                        button
+                        buttonRef={node => {
+                            this.anchorEl = node;
+                        }}
+                        aria-owns={this.state.open ? 'NAV-list-grow' : null}
+                        aria-haspopup="true"
+                        onClick={this.handleToggle}
+                    >
+                        <ListItemIcon>
+                            <Web/>
+                        </ListItemIcon>
+                        <ListItemText primary="Portfolio" />
+                    </ListItem>
+                </a>
                 <NavPortfolio
                     open={this.state.open}
                     handleClose={this.handleClose}
                     handleToggle={this.handleToggle}
                     list={portfolioList}
+                    anchorEl = {this.anchorEl}
                 >
-                    <Web/>
                 </NavPortfolio>
                 <Divider/>
                 <a href="/#yoga">

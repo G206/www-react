@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import {ListItem, ListItemIcon, ListItemText, Divider, Button, ClickAwayListener, Grow,
-    Paper, Popper, MenuItem, MenuList, Popover } from '@material-ui/core';
+import {ClickAwayListener, Paper, MenuItem, MenuList, Popover } from '@material-ui/core';
 
 const styles = theme => ({
     container: {
@@ -27,26 +25,12 @@ class NavPortfolio extends Component {
         );
 
         return (
-            <ListItem
-                button
-                buttonRef={node => {
-                    this.anchorEl = node;
-                }}
-                aria-owns={this.props.open ? 'menu-list-grow' : null}
-                aria-haspopup="true"
-                onClick={this.props.handleToggle}
-            >
-                <a href="/#portfolio">
-                    <ListItemIcon>
-                        {this.props.children}
-                    </ListItemIcon>
-                    <ListItemText primary="Portfolio" />
-                </a>
+            <ClickAwayListener onClickAway={this.props.handleClose}>
                 <Popover
                     open={this.props.open}
-                    onClose={event => this.props.handleClose(event)}
-                    anchorEl={this.anchorEl}
-                    anchorReference={this.anchorEl}
+                    onClose={this.props.handleClose}
+                    anchorEl={this.props.anchorEl}
+                    anchorReference={'anchorEl'}
                     anchorOrigin={{
                         vertical: 'bottom',
                         horizontal: 'right',
@@ -57,15 +41,12 @@ class NavPortfolio extends Component {
                     }}
                 >
                     <Paper>
-                        <ClickAwayListener onClickAway={event => this.props.handleClose(event)}>
-                            <MenuList>
-                                {createMenuItems}
-                            </MenuList>
-                        </ClickAwayListener>
+                        <MenuList>
+                            {createMenuItems}
+                        </MenuList>
                     </Paper>
                 </Popover>
-            </ListItem>
-
+            </ClickAwayListener>
         );
     }
 }

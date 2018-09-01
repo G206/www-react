@@ -115,7 +115,7 @@ class Contact extends Component {
                               direction="row"
                               justify="center"
                               alignItems="center">
-                            <Grid item xs={10}>
+                            <Grid item xs={12}>
                                 <form id="contactForm">
                                     <ContactField
                                         classPaper={classes.paper}

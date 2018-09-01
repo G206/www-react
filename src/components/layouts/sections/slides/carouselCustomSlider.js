@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import CarouselSlider from 'react-carousel-slider';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 const styles = {
@@ -72,14 +72,17 @@ render() {
         );
 
         return (
-            <Router>
-                <CarouselSlider
-                    slideCpnts  = {customSlideCpnts}
-                    manner = {manner}
-                    buttonSetting = {buttonSetting}
-                    sliderBoxStyle = {sliderBoxStyle}
-                />
-            </Router>
+            <div id="carousel-tilePortfolio">
+                <Router>
+                    <CarouselSlider
+                        id="carousel-tilePortfolio"
+                        slideCpnts  = {customSlideCpnts}
+                        manner = {manner}
+                        buttonSetting = {buttonSetting}
+                        sliderBoxStyle = {sliderBoxStyle}
+                    />
+                </Router>
+            </div>
         );
     }
 }
