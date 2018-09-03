@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import '../../css/master.css';
 import About from './sections/about';
 import Portfolio from './sections/portfolio';
 import Yoga from './sections/yoga';

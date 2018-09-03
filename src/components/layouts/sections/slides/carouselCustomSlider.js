@@ -26,7 +26,11 @@ render() {
             duration: "2s"
         }
 
-        const buttonSetting = {
+        const accEle = {
+            dots: true
+        }
+
+    const buttonSetting = {
             placeOn: "middle-inside",
             style: {
                 left: {
@@ -78,6 +82,7 @@ render() {
                         id="carousel-tilePortfolio"
                         slideCpnts  = {customSlideCpnts}
                         manner = {manner}
+                        accEle = {accEle}
                         buttonSetting = {buttonSetting}
                         sliderBoxStyle = {sliderBoxStyle}
                     />

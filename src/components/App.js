@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import logo from '../images/yinyang.png';
 import Nav from './layouts/nav';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
@@ -41,13 +40,7 @@ const theme = createMuiTheme(
 
 const styles = {
     container: {
-        flexGrow: 1,
-        // backgroundColor: "rgba(0,0,0,1)",
-        // backgroundImage: "url(" + logo + ")",
-        // backgroundSize: "100%",
-        // backgroundRepeat: "no-repeat",
-        // backgroundAttachment: "fixed",
-        // backgroundPosition: "center 0%"
+        flexGrow: 1
     },
 };
 

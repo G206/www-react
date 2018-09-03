@@ -50,7 +50,7 @@ class NavList extends Component {
                         <ListItemText primary="Home" />
                     </ListItem>
                 </a>
-                <a href="/#about">
+                <a href="/index.html#about">
                     <ListItem button>
 
                         <ListItemIcon>
@@ -59,7 +59,7 @@ class NavList extends Component {
                         <ListItemText primary="About" />
                     </ListItem>
                 </a>
-                <a href="/#portfolio">
+                <a href="/index.html#portfolio">
                     <ListItem
                         button
                         buttonRef={node => {
@@ -84,7 +84,7 @@ class NavList extends Component {
                 >
                 </NavPortfolio>
                 <Divider/>
-                <a href="/#yoga">
+                <a href="/index.html#yoga">
                     <ListItem button>
 
                         <ListItemIcon>
@@ -93,7 +93,7 @@ class NavList extends Component {
                         <ListItemText primary="Yoga" />
                     </ListItem>
                 </a>
-                <a href="/#hobbies">
+                <a href="/index.html#hobbies">
                     <ListItem button>
                         <ListItemIcon>
                             <PhotoLibrary />
@@ -102,7 +102,7 @@ class NavList extends Component {
                     </ListItem>
                 </a>
                 <Divider/>
-                <a href="/#contact">
+                <a href="/index.html#contact">
                     <ListItem button>
                         <ListItemIcon>
                             <ContactMail />
@@ -110,7 +110,7 @@ class NavList extends Component {
                         <ListItemText primary="Contact" />
                     </ListItem>
                 </a>
-                <a href="/#followMe">
+                <a href="/index.html#followMe">
                     <ListItem button>
                         <ListItemIcon>
                             <GroupAdd />

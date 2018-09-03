@@ -7,6 +7,7 @@ import {portfolioList} from '../../../data/itemList';
 // import Carousel from './slides/carousel';
 // import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselCustomSlider from './slides/carouselCustomSlider';
+import CarouselPure from './slides/carouselPure';
 
 const styles = {
     container: {
@@ -53,6 +54,7 @@ class Portfoloio extends Component {
                                 openModal={this.props.openModal}
                                 handleModalOpen={this.props.handleModalOpen}
                             />
+                            <CarouselPure/>
                         </Paper>
                     </Grid>
                 </Grid>
