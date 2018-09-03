@@ -137,7 +137,7 @@ class Nav extends Component {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="display1" color="inherit" className={classes.text}>
-                            <img src={logo} className={classes.logo} alt="logo"/> <a href="/index.html">G.Dev</a>
+                            <img src={logo} className={classes.logo} alt="logo"/> <a href="/index.html">G.Dev</a> - React JS
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -173,8 +173,8 @@ class Nav extends Component {
                 >
                     <Header/>
                     <Main/>
-                    <Footer/>
                 </div>
+                <Footer/>
             </div>
         );
     }

@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import logo from '../images/yinyang.png';
-// import '../css/App.css';
 import Nav from './layouts/nav';
-// import Header from './layouts/header';
-// import Main from './layouts/main';
-// import Footer from './layouts/footer';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 import {hobbyList, portfolioList, yogaList} from "../data/itemList";
@@ -46,12 +42,12 @@ const theme = createMuiTheme(
 const styles = {
     container: {
         flexGrow: 1,
-        backgroundColor: "rgba(0,0,0,1)",
-        backgroundImage: "url(" + logo + ")",
-        backgroundSize: "100%",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        backgroundPosition: "center 0%"
+        // backgroundColor: "rgba(0,0,0,1)",
+        // backgroundImage: "url(" + logo + ")",
+        // backgroundSize: "100%",
+        // backgroundRepeat: "no-repeat",
+        // backgroundAttachment: "fixed",
+        // backgroundPosition: "center 0%"
     },
 };
 

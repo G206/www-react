@@ -301,3 +301,42 @@ export const hobbyList = [
         className: 'item',
     }
 ];
+
+export const socialMediaList = [
+    {
+        href: '/#followMeBox',
+        icon: 'fab fa-facebook-f',
+        des: 'Facebook',
+        pos: 0,
+    },
+    {
+        href: '/#followMeBox',
+        icon: 'fab fa-twitter',
+        des: 'Twitter',
+        pos: 1,
+    },
+    {
+        href: '/#followMeBox',
+        icon: 'fab fa-google-plus',
+        des: 'Google Plus',
+        pos: 2,
+    },
+    {
+        href: '/#followMeBox',
+        icon: 'fab fa-youtube',
+        des: 'YouTube',
+        pos: 3,
+    },
+    {
+        href: '/#followMeBox',
+        icon: 'fab fa-instagram',
+        des: 'Instagram',
+        pos: 4,
+    },
+    {
+        href: '/#followMeBox',
+        icon: 'fab fa-linkedin',
+        des: 'LinkedIn',
+        pos: 5,
+    }
+];

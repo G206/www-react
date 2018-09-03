@@ -45,6 +45,7 @@ class About extends Component {
                                 <Paper className={classes.paper}>
                                     <Typography variant="headline" className={classes.text}>
                                         My Name is Gabe and I am a full stack Mobile and Web Developer.
+                                        This version of my web site has been created using React JS.
                                         I just completed the Mobile and Web Development Programming
                                         Certification and Mobile Technology Certification Programs at
                                         Bellevue College. I also have a Bachelor of Arts in Business

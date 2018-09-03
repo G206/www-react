@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import {ListItem, ListItemIcon, ClickAwayListener,
-    Paper, Popover, Typography, Grid} from '@material-ui/core';
+    Popover, Typography, Grid, IconButton } from '@material-ui/core';
+import {socialMediaList} from "../../../../data/itemList";
 
 const styles = {
     container: {
@@ -14,8 +15,9 @@ const styles = {
         maxWidth: "1170px"
     },
     mediaItem: {
-        textAlign: "center",
-        fontSize: "3em"
+        fontSize: "3em",
+        height: "2em",
+        width: "2em"
     },
 
 };
@@ -26,15 +28,17 @@ class FollowList extends Component {
         this.state = {
             open: false,
         };
-        this.anchorEl = null;
+        this.anchorEl= null
+        this.anchors = [null, null, null, null, null, null];
 
     }
 
-    handleToggle = () => {
+    handleToggle = (node) => {
 
         this.setState({
-            open: !this.state.open
+            open: !this.state.open,
         });
+        this.anchorEl= node
 
     };
 
@@ -48,18 +52,26 @@ class FollowList extends Component {
 
         const { classes } = this.props;
 
-        // const customSlideCpnts = this.props.slides.map((item, index) =>
-        //     <Link to = {'/'+item.href} key = {index}
-        //           onClick={event => this.props.handleModalOpen(item.href, event)}
-        //     >
-        //         <img
-        //             src = {item.imgSrc}
-        //             alt = {item.alt}
-        //             id = {item.id}
-        //         />
-        //         <p style = {textBoxStyle} >{item.des}</p>
-        //     </Link>
-        // );
+        const SocialMediaLinks = socialMediaList.map((item, index) =>
+            <Grid item xs
+                  key = {index}
+            >
+                <a
+                    href = {item.href}
+                >
+                    <IconButton
+                        buttonRef={node => {
+                            this.anchors[item.pos] = node;
+                        }}
+                        onClick={event => this.handleToggle(this.anchors[item.pos], event)}
+                        aria-label={item.des}
+                        className={classes.mediaItem}
+                    >
+                        <i className={item.icon}></i>
+                    </IconButton >
+                </a>
+            </Grid>
+        );
 
         return (
             <Grid container
@@ -69,104 +81,8 @@ class FollowList extends Component {
                   spacing={40}
                   className={classes.mediaBox}
             >
-                <Grid item xs>
-                    {/*<ListItem*/}
-                        {/*button*/}
-                        {/*buttonRef={node => {*/}
-                            {/*this.anchorEl = node;*/}
-                        {/*}}*/}
-                        {/*aria-owns={this.state.open ? 'FollowMe-grow' : null}*/}
-                        {/*aria-haspopup="true"*/}
-                        {/*onClick={this.handleToggle}*/}
-                        {/*className={classes.mediaItem}*/}
-                    {/*>*/}
-                        {/*<ListItemIcon>*/}
-                            {/*<i className="fab fa-facebook-f" aria-hidden="true"></i>*/}
-                        {/*</ListItemIcon>*/}
-                    {/*</ListItem>*/}
-                    <a
-                        href = '/#followMeBox'
-                        onClick={this.handleToggle}
-                        className={classes.mediaItem}
-                    >
-                        <i className="fab fa-facebook-f" aria-hidden="true"></i>
-                    </a>
-                </Grid>
-                <Grid item xs>
-                    <ListItem
-                        button
-                        buttonRef={node => {
-                            this.anchorEl = node;
-                        }}
-                        aria-owns={this.state.open ? 'FollowMe-grow' : null}
-                        aria-haspopup="true"
-                        onClick={this.handleToggle}
-                    >
-                        <ListItemIcon className={classes.mediaItem}>
-                            <i className="fab fa-twitter" aria-hidden="true"></i>
-                        </ListItemIcon>
-                    </ListItem>
-                </Grid>
-                <Grid item xs>
-                    <ListItem
-                        button
-                        buttonRef={node => {
-                            this.anchorEl = node;
-                        }}
-                        aria-owns={this.state.open ? 'FollowMe-grow' : null}
-                        aria-haspopup="true"
-                        onClick={this.handleToggle}
-                    >
-                        <ListItemIcon className={classes.mediaItem}>
-                            <i className="fab fa-google-plus" aria-hidden="true"></i>
-                        </ListItemIcon>
-                    </ListItem>
-                </Grid>
-                <Grid item xs>
-                    <ListItem
-                        button
-                        buttonRef={node => {
-                            this.anchorEl = node;
-                        }}
-                        aria-owns={this.state.open ? 'FollowMe-grow' : null}
-                        aria-haspopup="true"
-                        onClick={this.handleToggle}
-                    >
-                        <ListItemIcon className={classes.mediaItem}>
-                            <i className="fab fa-youtube" aria-hidden="true"></i>
-                        </ListItemIcon>
-                    </ListItem>
-                </Grid>
-                <Grid item xs>
-                    <ListItem
-                        button
-                        buttonRef={node => {
-                            this.anchorEl = node;
-                        }}
-                        aria-owns={this.state.open ? 'FollowMe-grow' : null}
-                        aria-haspopup="true"
-                        onClick={this.handleToggle}
-                    >
-                        <ListItemIcon className={classes.mediaItem}>
-                            <i className="fab fa-instagram" aria-hidden="true"></i>
-                        </ListItemIcon>
-                    </ListItem>
-                </Grid>
-                <Grid item xs>
-                    <ListItem
-                        button
-                        buttonRef={node => {
-                            this.anchorEl = node;
-                        }}
-                        aria-owns={this.state.open ? 'FollowMe-grow' : null}
-                        aria-haspopup="true"
-                        onClick={this.handleToggle}
-                    >
-                        <ListItemIcon className={classes.mediaItem}>
-                            <i className="fab fa-linkedin" aria-hidden="true"></i>
-                        </ListItemIcon>
-                    </ListItem>
-                </Grid>
+
+                {SocialMediaLinks}
                 <ClickAwayListener onClickAway={this.handleClose}>
                     <Popover
                         open={this.state.open}

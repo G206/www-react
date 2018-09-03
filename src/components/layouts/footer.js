@@ -16,7 +16,7 @@ class Footer extends Component {
         const { classes } = this.props;
         return (
             <footer className={classes.container}>
-                Copyright Gabe &copy; 2017 - Social Media Links Not Active Yet - Please
+                Copyright Gabe &copy; 2018 - This site has been created using React JS. Social Media Links Not Active Yet - Please
                 Email Gabe@w3dev.io
             </footer>
         );
