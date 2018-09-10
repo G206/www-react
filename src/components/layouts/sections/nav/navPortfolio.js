@@ -19,6 +19,7 @@ class NavPortfolio extends Component {
         const createMenuItems = this.props.list.map((item, index) =>
             <MenuItem
                 key = {index}
+                onClick={event => this.props.advancePortfolio(index, event)}
             >
                 {item.des}
             </MenuItem>

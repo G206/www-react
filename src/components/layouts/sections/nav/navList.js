@@ -81,6 +81,7 @@ class NavList extends Component {
                     handleToggle={this.handleToggle}
                     list={portfolioList}
                     anchorEl = {this.anchorEl}
+                    advancePortfolio={this.props.advancePortfolio}
                 >
                 </NavPortfolio>
                 <Divider/>

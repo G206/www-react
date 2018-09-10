@@ -9,12 +9,18 @@ import Iframe from 'react-iframe';
 const styles = {
     container: {
         flexGrow: 1,
-
+        maxWidth: '100%',
+        maxHeight: '95%'
     },
     paper: {
         margin: '4% 2% 1% 2%',
         padding: '1%',
-        backgroundColor: "white"
+        backgroundColor: "white",
+        height: '95%',
+    },
+    frame: {
+        maxWidth: '100%',
+        maxHeight: '95%'
     }
 };
 
@@ -48,8 +54,12 @@ class ModalBox extends Component {
                     <Iframe url={'http:/' + this.props.modalURL}
                             position="relative"
                             id="modalIframe"
-                            className=""
-
+                            // width={this.props.frameW}
+                            // height={this.props.frameH}
+                            width="100%"
+                            height="90%"
+                            allowFullScreen
+                            className={classes.frame}
                     />
                 </Paper>
             </Modal>

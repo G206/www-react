@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import '../../../css/master.css';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import {hobbyList} from "../../../data/itemList";
+import {hobbyList, yogaList} from "../../../data/itemList";
 import CarouselReactSlider from './slides/carouselReactSlider';
+import CarouselNuka from './slides/carouselNuka';
 
 const styles = {
     container: {
@@ -37,7 +38,10 @@ class Hobbies extends Component {
                     </Grid>
                     <Grid item xs={12}>
                         <Paper className={classes.slides}>
-                            <CarouselReactSlider
+                            {/*<CarouselReactSlider*/}
+                                {/*slides={hobbyList}*/}
+                            {/*/>*/}
+                            <CarouselNuka
                                 slides={hobbyList}
                             />
                         </Paper>

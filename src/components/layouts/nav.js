@@ -76,10 +76,10 @@ const styles = theme => ({
         }),
     },
     'content-left': {
-        marginLeft: -drawerWidth,
+        marginLeft: 0,
     },
     'content-right': {
-        marginRight: -drawerWidth,
+        marginRight: 0,
     },
     contentShift: {
         transition: theme.transitions.create('margin', {
@@ -88,10 +88,10 @@ const styles = theme => ({
         }),
     },
     'contentShift-left': {
-        marginLeft: 0,
+        marginLeft: drawerWidth,
     },
     'contentShift-right': {
-        marginRight: 0,
+        marginRight: drawerWidth,
     },
 });
 
@@ -101,8 +101,13 @@ class Nav extends Component {
         this.state = {
             anchor: 'left',
             openDrawer: false,
+            portfolioIndex: 0
         };
-    }
+    };
+
+    advancePortfolio = (slideIndex) => {
+        this.setState({ portfolioIndex: slideIndex});
+    };
 
     handleDrawerOpen = () => {
         this.setState({ openDrawer: true });
@@ -160,7 +165,9 @@ class Nav extends Component {
                         </Typography>
                         <Divider/>
                         <List>
-                            <NavList/>
+                            <NavList
+                                advancePortfolio={this.advancePortfolio}
+                            />
                         </List>
                     </div>
                 </Drawer>
@@ -171,7 +178,10 @@ class Nav extends Component {
                     })}
                 >
                     <Header/>
-                    <Main/>
+                    <Main
+                        portfolioIndex={this.state.portfolioIndex}
+                        advancePortfolio={this.advancePortfolio}
+                    />
                 </div>
                 <Footer/>
             </div>

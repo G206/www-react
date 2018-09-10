@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import About from './sections/about';
@@ -21,13 +21,17 @@ class Main extends Component {
         super(props);
         this.state = {
             open: false,
-            url: '/'
+            url: '/',
+            frameW: '100%',
+            frameH: '100%'
         };
     }
-    handleModalOpen = (pURL) => {
+    handleModalOpen = (pURL, pWidth, pHeight) => {
         this.setState({
             open: true,
-            url: '/' + pURL
+            url: '/' + pURL,
+            frameW: pWidth,
+            frameH: pHeight
         });
     };
 
@@ -39,13 +43,15 @@ class Main extends Component {
         const { classes } = this.props;
 
         return (
-            <div>
+            <Fragment>
                 <main className={classes.container} id="mainWeb">
                     <About/>
                     <Portfolio
                         openModal={this.state.open}
                         handleModalClose={this.handleModalClose}
                         handleModalOpen={this.handleModalOpen}
+                        portfolioIndex={this.props.portfolioIndex}
+                        advancePortfolio={this.props.advancePortfolio}
                     />
                     <Yoga/>
                     <Hobbies/>
@@ -56,8 +62,10 @@ class Main extends Component {
                     openModal={this.state.open}
                     handleModalClose={this.handleModalClose}
                     modalURL={this.state.url}
+                    frameW={this.state.frameW}
+                    frameH={this.state.frameH}
                 />
-            </div>
+            </Fragment>
 
         );
     }

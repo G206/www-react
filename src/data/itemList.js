@@ -7,7 +7,9 @@ export const portfolioList = [
         className: 'item active',
         id: 'dma263_p1',
         href: 'w3dev.io/src/dma263_p1/index.html',
-        target: ''
+        target: '',
+        width: '1024px',
+        height: '1200px'
     },
     {
         imgSrc: 'dma263_p2.jpg',
@@ -16,7 +18,9 @@ export const portfolioList = [
         className: 'item',
         id: 'dma263_p2',
         href: 'w3dev.io/src/dma263_p2/index.html',
-        target: ''
+        target: '',
+        width: '1024px',
+        height: '1200px'
     },
     {
         imgSrc: 'prog109_a4.jpg',
@@ -25,7 +29,9 @@ export const portfolioList = [
         className: 'item',
         id: 'prog109_a4',
         href: 'w3dev.io/src/prog109_a4/index.html',
-        target: ''
+        target: '',
+        width: '1024px',
+        height: '1200px'
     },
     {
         imgSrc: 'prog109_p3.jpg',
@@ -34,7 +40,9 @@ export const portfolioList = [
         className: 'item',
         id: 'prog109_p3',
         href: 'w3dev.io/src/prog109_p3/index.html',
-        target: ''
+        target: '',
+        width: '1024px',
+        height: '860px'
     },
     {
         imgSrc: 'prog209_a2.png',
@@ -43,7 +51,9 @@ export const portfolioList = [
         className: 'item',
         id: 'prog209_a2',
         href: 'w3dev.io/src/prog209_a2/index.html',
-        target: ''
+        target: '',
+        width: '500px',
+        height: '440px'
     },
     {
         imgSrc: 'prog209_a7.png',
@@ -52,7 +62,9 @@ export const portfolioList = [
         className: 'item',
         id: 'prog209_a7',
         href: 'w3dev.io/src/prog209_a7/index.html',
-        target: ''
+        target: '',
+        width: '860px',
+        height: '440px'
     },
     {
         imgSrc: 'prog209_p1.jpg',
@@ -61,7 +73,9 @@ export const portfolioList = [
         className: 'item',
         id: 'prog209_p1',
         href: 'w3dev.io/src/prog209_p1/index.html',
-        target: ''
+        target: '',
+        width: '1045px',
+        height: '9350px'
     },
     {
         imgSrc: 'prog209_p2.jpg',
@@ -70,7 +84,9 @@ export const portfolioList = [
         className: 'item',
         id: 'prog209_p2',
         href: 'w3dev.io/src/prog209_p2/index.html',
-        target: ''
+        target: '',
+        width: '1045px',
+        height: '1240px'
     },
     {
         imgSrc: 'prog209_p3.jpg',
@@ -79,7 +95,9 @@ export const portfolioList = [
         className: 'item',
         id: 'prog209_p3',
         href: 'w3dev.io/src/prog209_p3/index.html',
-        target: ''
+        target: '',
+        width: '940px',
+        height: '1024px'
     },
     {
         imgSrc: 'galaga.png',
@@ -88,7 +106,9 @@ export const portfolioList = [
         className: 'item',
         id: 'galaga',
         href: 'galaga.w3dev.io/index.html',
-        target: ''
+        target: '',
+        width: '1024px',
+        height: '1200px'
     }
 ];
 
@@ -98,168 +118,196 @@ export const yogaList = [
         alt: 'One Leg Forward Downward Stretch',
         des: 'One Leg Forward Downward Stretch',
         className: 'item active',
+        id: ''
     },
     {
         imgSrc: 'WideStanceForwardBend.jpg',
         alt: 'Wide Stance Forward Bend',
         des: 'Wide Stance Forward Bend',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'WideStanceRightArmDown.jpg',
         alt: 'Wide Stance One Arm Up One Down',
         des: 'Wide Stance One Arm Up One Down',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'WideStanceBothArmDown.jpg',
         alt: 'Wide Stance Arms to Ankle',
         des: 'Wide Stance Arms to Ankle',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'RunnersPoseUpwardSalute.jpg',
         alt: 'Runners Pose Upward Salute',
         des: 'Runners Pose Upward Salute',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'RunnersPoseDownwardStretch.jpg',
         alt: 'Runners Pose Downward Stretch',
         des: 'Runners Pose Downward Stretch',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'RunnersKneeDownHandtoAnkle.jpg',
         alt: 'Runners Knee Down Hand to Ankle',
         des: 'Runners Knee Down Hand to Ankle',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'UpwardDog.jpg',
         alt: 'Upward Facing Dog',
         des: 'Upward Facing Dog',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'DownwardDogHandtoKnee.jpg',
         alt: 'Downward Facing Dog Hand to Knee',
         des: 'Downward Facing Dog Hand to Knee',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'DownwardDogLegUptoHip.jpg',
         alt: 'Downward Facing Dog Leg Up towards Hip',
         des: 'Downward Facing Dog Leg Up towards Hip',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'Warrior1.jpg',
         alt: 'Warrior One',
         des: 'Warrior One',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'Warrior2.jpg',
         alt: 'Warrior Two',
         des: 'Warrior Two',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'WarriorReverse.jpg',
         alt: 'Reverse Warrior',
         des: 'Reverse Warrior',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'Triangle.jpg',
         alt: 'Triangle',
         des: 'Triangle',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'TriangleReverse.jpg',
         alt: 'Reversed Triangle',
         des: 'Reversed Triangle',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'FourLimbStaff.jpg',
         alt: 'Four Limb Staff',
         des: 'Four Limb Staff',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'FourLimbStaffKneetoElbow.jpg',
         alt: 'Four Limb Staff Variation',
         des: 'Four Limb Staff Variation',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'Chair.jpg',
         alt: 'Chair Prayer',
         des: 'Chair Prayer',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'ChairTwistPrayer.jpg',
         alt: 'Chair Twist Prayer',
         des: 'Chair Twist Prayer',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'ChairTwistArmUpDown.jpg',
         alt: 'Chair Twist Arms Split',
         des: 'Chair Twist Arms Split',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'RightAnglePoseGrab.jpg',
         alt: 'Right Angle Pose Arm Grab',
         des: 'Right Angle Pose Arm Grab',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'RunnersPrayer.jpg',
         alt: 'Runners Prayer',
         des: 'Runners Prayer',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'RunnersTwistPrayer.jpg',
         alt: 'Runners Twist Prayer',
         des: 'Runners Twist Prayer',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'RunnersTwistArmUpDown.jpg',
         alt: 'Runners Twist Arms Split',
         des: 'Runners Twist Arms Split',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'SidePlank.jpg',
         alt: 'Side Plank',
         des: 'Side Plank',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'Warrior3.jpg',
         alt: 'Warrior Three',
         des: 'Warrior Three',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'HalfMoon.jpg',
         alt: 'Half Moon',
         des: 'Half Moon',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'HalfMoonReverse.jpg',
         alt: 'Reversed Half Moon',
         des: 'Reversed Half Moon',
         className: 'item',
+        id: ''
     }
 ];
 
@@ -269,36 +317,42 @@ export const hobbyList = [
         alt: 'E55 Air Intake Stage 1',
         des: 'E55 Air Intake Stage 1',
         className: 'item active',
+        id: ''
     },
     {
         imgSrc: 'stage2.jpg',
         alt: 'E55 Air Intake Stage 2',
         des: 'E55 Air Intake Stage 2',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'stage3.jpg',
         alt: 'E55 Air Intake Stage 3',
         des: 'E55 Air Intake Stage 3',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'stage4.jpg',
         alt: 'E55 Air Intake Stage 4',
         des: 'E55 Air Intake Stage 4',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'stage5.jpg',
         alt: 'E55 Air Intake Stage 5',
         des: 'E55 Air Intake Stage 5',
         className: 'item',
+        id: ''
     },
     {
         imgSrc: 'stage6.jpg',
         alt: 'E55 Air Intake Stage 6',
         des: 'E55 Air Intake Stage 6',
         className: 'item',
+        id: ''
     }
 ];
 

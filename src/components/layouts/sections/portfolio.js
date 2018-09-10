@@ -7,7 +7,7 @@ import {portfolioList} from '../../../data/itemList';
 // import Carousel from './slides/carousel';
 // import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselCustomSlider from './slides/carouselCustomSlider';
-import CarouselPure from './slides/carouselPure';
+import CarouselNukaCustom from './slides/carouselNukaCustom';
 
 const styles = {
     container: {
@@ -49,12 +49,18 @@ class Portfoloio extends Component {
                             {/*<CarouselReactSlider*/}
                                 {/*slides={portfolioList}*/}
                             {/*/>*/}
-                            <CarouselCustomSlider
+                            {/*<CarouselCustomSlider*/}
+                                {/*slides={portfolioList}*/}
+                                {/*openModal={this.props.openModal}*/}
+                                {/*handleModalOpen={this.props.handleModalOpen}*/}
+                            {/*/>*/}
+                            <CarouselNukaCustom
                                 slides={portfolioList}
                                 openModal={this.props.openModal}
                                 handleModalOpen={this.props.handleModalOpen}
+                                portfolioIndex={this.props.portfolioIndex}
+                                advancePortfolio={this.props.advancePortfolio}
                             />
-                            <CarouselPure/>
                         </Paper>
                     </Grid>
                 </Grid>
