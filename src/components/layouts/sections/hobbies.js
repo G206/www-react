@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import '../../../css/master.css';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import {hobbyList, yogaList} from "../../../data/itemList";
-import CarouselReactSlider from './slides/carouselReactSlider';
+import {hobbyList} from "../../../data/itemList";
+// import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselNuka from './slides/carouselNuka';
+import {Element} from 'react-scroll';
 
 const styles = {
     container: {
@@ -29,7 +30,11 @@ class Hobbies extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <section className={classes.container} id="hobbies">
+            <Element
+                className={classes.container}
+                id="hobbies"
+                name="hobbies"
+            >
                 <Grid container>
                     <Grid item xs={12}>
                         <Typography className={classes.heading} variant="display2">
@@ -48,9 +53,13 @@ class Hobbies extends Component {
                     </Grid>
 
                 </Grid>
-            </section>
+            </Element>
         );
     }
 }
+Hobbies.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
 
 export default withStyles(styles)(Hobbies);

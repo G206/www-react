@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {ListItem, ListItemIcon, ClickAwayListener,
     Popover, Typography, Grid, IconButton } from '@material-ui/core';
 import {socialMediaList} from "../../../../data/itemList";
@@ -14,11 +15,21 @@ const styles = {
         padding: "1%",
         maxWidth: "1170px"
     },
+    mediaContainer: {
+        margin: "1% 0"
+    },
+    mediaBox: {
+        margin: "0 auto"
+    },
     mediaItem: {
+        textAlign: "center",
         fontSize: "3em",
         height: "2em",
-        width: "2em"
+        width: "2em",
     },
+    icon: {
+        textAlign: "center",
+    }
 
 };
 
@@ -55,9 +66,11 @@ class FollowList extends Component {
         const SocialMediaLinks = socialMediaList.map((item, index) =>
             <Grid item xs
                   key = {index}
+
             >
                 <a
                     href = {item.href}
+                    className={classes.mediaBox}
                 >
                     <IconButton
                         buttonRef={node => {
@@ -67,7 +80,7 @@ class FollowList extends Component {
                         aria-label={item.des}
                         className={classes.mediaItem}
                     >
-                        <i className={item.icon}></i>
+                        <i className={classNames(item.icon, classes.icon)}/>
                     </IconButton >
                 </a>
             </Grid>
@@ -79,7 +92,7 @@ class FollowList extends Component {
                   justify="center"
                   alignItems="center"
                   spacing={40}
-                  className={classes.mediaBox}
+                  className={classes.mediaContainer}
             >
 
                 {SocialMediaLinks}
@@ -105,7 +118,7 @@ class FollowList extends Component {
                               spacing={40}
                               className={classes.modalBox}
                         >
-                            <Grid item xs={12}>
+                            <Grid item xs={10}>
                                 <Typography variant="title">
                                     Currently, I am not on social media and therefore the links to the various social media sites do not
                                     currently work. Please email me directly at gabe@w3dev.io with any inquiries you might have. You

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
 import {yogaList} from "../../../data/itemList";
-import CarouselReactSlider from './slides/carouselReactSlider';
+// import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselNuka from './slides/carouselNuka';
+import {Element} from 'react-scroll';
 
 const styles = {
     container: {
@@ -31,7 +31,11 @@ class Yoga extends Component {
         const { classes } = this.props;
 
         return (
-            <section className={classes.container} id="yoga">
+            <Element
+                className={classes.container}
+                id="yoga"
+                name="yoga"
+            >
                 <Grid container>
                     <Grid item xs={12}>
                         <Typography className={classes.heading} variant="display2">
@@ -50,7 +54,7 @@ class Yoga extends Component {
                     </Grid>
 
                 </Grid>
-            </section>
+            </Element>
         );
     }
 }

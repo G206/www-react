@@ -65,9 +65,6 @@ class App extends Component {
             <MuiThemeProvider theme={theme}>
                 <div id="pageTop" className={classes.container}>
                     <Nav/>
-                    {/*<Header/>*/}
-                    {/*<Main/>*/}
-                    {/*<Footer/>*/}
                 </div>
             </MuiThemeProvider>
         );

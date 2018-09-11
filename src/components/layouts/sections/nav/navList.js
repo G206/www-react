@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-import {ListItem, ListItemIcon, ListItemText, Divider } from '@material-ui/core';
+import {ListItem, ListItemIcon, ListItemText,
+    Divider, Typography} from '@material-ui/core';
 import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
     ContactMail, GroupAdd} from '@material-ui/icons';
 import NavPortfolio from './navPortfolio';
 import {portfolioList} from '../../../../data/itemList';
+import {Scroll, Link as LinkScroll, Element , Events, animateScroll as scroll,
+    scrollSpy, scroller} from 'react-scroll';
 
 const styles = {
     container: {
@@ -20,13 +24,14 @@ class NavList extends Component {
             open: false,
         };
         this.anchorEl = null;
-
+        this.anchors = [null, null];
     }
 
-    handleToggle = () => {
+    handleToggle = (node) => {
         this.setState({
             open: !this.state.open
         });
+        this.anchorEl= node
     };
 
 
@@ -42,15 +47,30 @@ class NavList extends Component {
 
         return (
             <div>
-                <a href="/index.html">
+                <LinkScroll
+                    activeClass="active"
+                    to="bannerWeb"
+                    spy={true}
+                    smooth={true}
+                    duration={250}
+                    containerId="containerElement"
+                >
                     <ListItem button>
                         <ListItemIcon>
                             <Home />
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItem>
-                </a>
-                <a href="/index.html#about">
+                </LinkScroll>
+                <Divider/>
+                <LinkScroll
+                    activeClass="active"
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    duration={250}
+                    containerId="containerElement"
+                >
                     <ListItem button>
 
                         <ListItemIcon>
@@ -58,23 +78,30 @@ class NavList extends Component {
                         </ListItemIcon>
                         <ListItemText primary="About" />
                     </ListItem>
-                </a>
-                <a href="/index.html#portfolio">
+                </LinkScroll>
+                <LinkScroll
+                    activeClass="active"
+                    to="portfolio"
+                    spy={true}
+                    smooth={true}
+                    duration={250}
+                    containerId="containerElement"
+                >
                     <ListItem
                         button
                         buttonRef={node => {
-                            this.anchorEl = node;
+                            this.anchors[0] = node;
                         }}
                         aria-owns={this.state.open ? 'NAV-list-grow' : null}
                         aria-haspopup="true"
-                        onClick={this.handleToggle}
+                        onClick={event => this.handleToggle(this.anchors[0], event)}
                     >
                         <ListItemIcon>
                             <Web/>
                         </ListItemIcon>
                         <ListItemText primary="Portfolio" />
                     </ListItem>
-                </a>
+                </LinkScroll>
                 <NavPortfolio
                     open={this.state.open}
                     handleClose={this.handleClose}
@@ -85,7 +112,14 @@ class NavList extends Component {
                 >
                 </NavPortfolio>
                 <Divider/>
-                <a href="/index.html#yoga">
+                <LinkScroll
+                    activeClass="active"
+                    to="yoga"
+                    spy={true}
+                    smooth={true}
+                    duration={250}
+                    containerId="containerElement"
+                >
                     <ListItem button>
 
                         <ListItemIcon>
@@ -93,32 +127,127 @@ class NavList extends Component {
                         </ListItemIcon>
                         <ListItemText primary="Yoga" />
                     </ListItem>
-                </a>
-                <a href="/index.html#hobbies">
+                </LinkScroll>
+                <LinkScroll
+                    activeClass="active"
+                    to="hobbies"
+                    spy={true}
+                    smooth={true}
+                    duration={250}
+                    containerId="containerElement"
+                >
                     <ListItem button>
                         <ListItemIcon>
                             <PhotoLibrary />
                         </ListItemIcon>
                         <ListItemText primary="Hobbies" />
                     </ListItem>
-                </a>
+                </LinkScroll>
                 <Divider/>
-                <a href="/index.html#contact">
+                <LinkScroll
+                    activeClass="active"
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    duration={250}
+                    containerId="containerElement"
+                >
                     <ListItem button>
                         <ListItemIcon>
                             <ContactMail />
                         </ListItemIcon>
                         <ListItemText primary="Contact" />
                     </ListItem>
-                </a>
-                <a href="/index.html#followMe">
+                </LinkScroll>
+                <LinkScroll
+                    activeClass="active"
+                    to="followMe"
+                    spy={true}
+                    smooth={true}
+                    duration={250}
+                    containerId="containerElement"
+                >
                     <ListItem button>
                         <ListItemIcon>
                             <GroupAdd />
                         </ListItemIcon>
                         <ListItemText primary="Follow Me" />
                     </ListItem>
-                </a>
+                </LinkScroll>
+                <Divider/>
+                <Typography
+                variant={'headline'}>
+                    Isloated View
+                </Typography>
+
+                <Link
+                    to="/about"
+                >
+                    <ListItem button>
+                        <ListItemIcon>
+                            <Work />
+                        </ListItemIcon>
+                        <ListItemText primary="About" />
+                    </ListItem>
+                </Link>
+                <Link
+                    to="/portfolio"
+                >
+                    <ListItem
+                        button
+                        buttonRef={node => {
+                            this.anchors[1] = node;
+                        }}
+                        aria-owns={this.state.open ? 'NAV-list-grow' : null}
+                        aria-haspopup="true"
+                        onClick={event => this.handleToggle(this.anchors[1], event)}
+                    >
+                        <ListItemIcon>
+                            <Web/>
+                        </ListItemIcon>
+                        <ListItemText primary="Portfolio" />
+                    </ListItem>
+                </Link>
+                <Link
+                    to="/yoga"
+                >
+                    <ListItem button>
+                        <ListItemIcon>
+                            <AccessibilityNew />
+                        </ListItemIcon>
+                        <ListItemText primary="Yoga" />
+                    </ListItem>
+                </Link>
+                <Link
+                    to="/hobbies"
+                >
+                    <ListItem button>
+                        <ListItemIcon>
+                            <PhotoLibrary />
+                        </ListItemIcon>
+                        <ListItemText primary="Hobbies" />
+                    </ListItem>
+                </Link>
+                <Link
+                    to="/contact"
+                >
+                    <ListItem button>
+                        <ListItemIcon>
+                            <ContactMail />
+                        </ListItemIcon>
+                        <ListItemText primary="Contact" />
+                    </ListItem>
+                </Link>
+                <Link
+                    to="/follow"
+                >
+                    <ListItem button>
+                        <ListItemIcon>
+                            <GroupAdd />
+                        </ListItemIcon>
+                        <ListItemText primary="Follow Me" />
+                    </ListItem>
+                </Link>
             </div>
         );
 

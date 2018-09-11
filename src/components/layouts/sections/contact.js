@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import '../../../css/master.css';
+import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import {Grid, Typography} from '@material-ui/core';
 import {AccountCircle, AlternateEmail, ContactPhone, Message} from '@material-ui/icons';
 import ContactField from './contact/contactField';
 import ContactButtons from './contact/contactButtons';
+import {Element} from 'react-scroll';
 
 const styles = {
     container: {
@@ -105,7 +106,11 @@ class Contact extends Component {
     render() {
         const {classes} = this.props;
         return (
-            <section className={classes.container} id="contact">
+            <Element
+                className={classes.container}
+                id="contact"
+                name="contact"
+            >
                 <Grid container>
                     <Grid item xs={12}>
                         <Typography className={classes.heading} variant="display2">
@@ -115,7 +120,7 @@ class Contact extends Component {
                               direction="row"
                               justify="center"
                               alignItems="center">
-                            <Grid item xs={12}>
+                            <Grid item xs={10}>
                                 <form id="contactForm">
                                     <ContactField
                                         classPaper={classes.paper}
@@ -192,9 +197,13 @@ class Contact extends Component {
                         </Grid>
                     </Grid>
                 </Grid>
-            </section>
+            </Element>
         );
     }
 }
+Contact.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
 
 export default withStyles(styles)(Contact);

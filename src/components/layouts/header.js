@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import logo from '../../images/web_ban_bottom.jpg'
-import '../../css/master.css';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core'
+import {Element} from 'react-scroll';
 
 const styles = {
     container: {
@@ -17,16 +18,23 @@ class Header extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className={classes.container} id="bannerWeb">
+            <Element
+                className={classes.container}
+                id="bannerWeb"
+                name="bannerWeb"
+            >
                 <Grid container>
                     <Grid item xs={12}>
                         <img src={logo} className={classes.headerImg} alt="Banner Logo" />
                     </Grid>
                 </Grid>
 
-            </div>
+            </Element>
         );
     }
 }
-
+Header.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
 export default withStyles(styles) (Header);

@@ -1,13 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import ModalBox from './sections/modalBox';
+import Home from './sections/home';
+import { Route } from "react-router-dom";
+import {Element} from 'react-scroll';
 import About from './sections/about';
 import Portfolio from './sections/portfolio';
 import Yoga from './sections/yoga';
 import Hobbies from './sections/hobbies';
 import Contact from './sections/contact';
 import Follow from './sections/follow';
-import ModalBox from './sections/modalBox';
 
 const styles = {
     container: {
@@ -44,20 +47,35 @@ class Main extends Component {
 
         return (
             <Fragment>
-                <main className={classes.container} id="mainWeb">
-                    <About/>
-                    <Portfolio
-                        openModal={this.state.open}
-                        handleModalClose={this.handleModalClose}
-                        handleModalOpen={this.handleModalOpen}
-                        portfolioIndex={this.props.portfolioIndex}
-                        advancePortfolio={this.props.advancePortfolio}
+                <Element
+                    className={classes.container}
+                    id="containerElement"
+                    name="containerElement"
+                >
+                    <Route exact path="/" render={(props) =>
+                        <Home
+                            openModal={this.state.open}
+                            handleModalClose={this.handleModalClose}
+                            handleModalOpen={this.handleModalOpen}
+                            portfolioIndex={this.props.portfolioIndex}
+                            advancePortfolio={this.props.advancePortfolio}
+                        />}
                     />
-                    <Yoga/>
-                    <Hobbies/>
-                    <Contact/>
-                    <Follow/>
-                </main>
+                    <Route path="/about" component={About} />
+                    <Route exact path="/portfolio" render={(props) =>
+                        <Portfolio
+                            openModal={this.state.open}
+                            handleModalClose={this.handleModalClose}
+                            handleModalOpen={this.handleModalOpen}
+                            portfolioIndex={this.props.portfolioIndex}
+                            advancePortfolio={this.props.advancePortfolio}
+                        />}
+                    />
+                    <Route path="/yoga" component={Yoga} />
+                    <Route path="/hobbies" component={Hobbies} />
+                    <Route path="/contact" component={Contact} />
+                    <Route path="/follow" component={Follow} />
+                </Element>
                 <ModalBox
                     openModal={this.state.open}
                     handleModalClose={this.handleModalClose}

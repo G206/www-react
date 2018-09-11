@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../../../css/master.css';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
+import {Element} from 'react-scroll';
 
 const styles = {
     container: {
@@ -19,6 +21,9 @@ const styles = {
     paper: {
         backgroundColor: "rgba(255, 255, 255, .6)",
         color: "black",
+        borderStyle: "solid",
+        borderColor: "white",
+        borderWidth: "thin"
     },
     text: {
         padding: "5%",
@@ -31,7 +36,11 @@ class About extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <section className={classes.container} id="about">
+            <Element
+                className={classes.container}
+                id="about"
+                name="about"
+            >
                 <Grid container>
                     <Grid item xs={12}>
                         <Typography className={classes.heading} variant="display2">
@@ -61,9 +70,13 @@ class About extends Component {
                         </Grid>
                     </Grid>
                 </Grid>
-            </section>
+            </Element>
         );
     }
 }
+About.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
 
 export default withStyles(styles)(About);

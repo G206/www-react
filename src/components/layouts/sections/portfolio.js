@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
 import {portfolioList} from '../../../data/itemList';
 // import Carousel from './slides/carousel';
 // import CarouselReactSlider from './slides/carouselReactSlider';
-import CarouselCustomSlider from './slides/carouselCustomSlider';
+// import CarouselCustomSlider from './slides/carouselCustomSlider';
 import CarouselNukaCustom from './slides/carouselNukaCustom';
+import {Element} from 'react-scroll';
 
 const styles = {
     container: {
@@ -35,7 +35,11 @@ class Portfoloio extends Component {
         const { classes } = this.props;
 
         return (
-            <section className={classes.container} id="portfolio">
+            <Element
+                className={classes.container}
+                id="portfolio"
+                name="portfolio"
+            >
                 <Grid container>
                     <Grid item xs={12}>
                         <Typography className={classes.heading} variant="display2">
@@ -64,7 +68,7 @@ class Portfoloio extends Component {
                         </Paper>
                     </Grid>
                 </Grid>
-            </section>
+            </Element>
         );
     }
 }

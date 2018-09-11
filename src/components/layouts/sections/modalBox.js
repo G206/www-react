@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { withStyles } from '@material-ui/core/styles';
-import {Grid, Paper, Typography, Modal} from '@material-ui/core';
+import {Paper, Typography, Modal} from '@material-ui/core';
 import Iframe from 'react-iframe';
 
 

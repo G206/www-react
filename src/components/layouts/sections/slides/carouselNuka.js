@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 import Carousel from 'nuka-carousel';
 
 

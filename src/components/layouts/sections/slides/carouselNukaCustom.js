@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Carousel from 'nuka-carousel';
 
 
@@ -35,7 +35,7 @@ class CarouselNukaCustom extends Component {
 
         const { classes } = this.props;
         const customSlideCpnts = this.props.slides.map((item, index) =>
-            <Link to = {'/'+item.href} key = {index}
+            <Link to = {'/'} key = {index}
                   onClick={event => this.props.handleModalOpen(item.href,
                       item.width, item.height, event)}
             >
@@ -54,24 +54,22 @@ class CarouselNukaCustom extends Component {
         );
         return (
             <div id="carousel-tilePortfolio">
-                <Router>
-                    <Carousel
-                        slidesToShow={3}
-                        cellAlign="center"
-                        // autoplay={true}
-                        // autoplayInterval={6000}
-                        cellSpacing={24}
-                        heightMode={'max'}
-                        speed={1000}
-                        dragging={true}
-                        swiping={true}
-                        wrapAround={true}
-                        slideIndex={this.props.portfolioIndex}
-                        afterSlide={slideIndex => this.props.advancePortfolio(slideIndex)}
-                    >
-                        {customSlideCpnts}
-                    </Carousel>
-                </Router>
+                <Carousel
+                    slidesToShow={3}
+                    cellAlign="center"
+                    // autoplay={true}
+                    // autoplayInterval={6000}
+                    cellSpacing={24}
+                    heightMode={'max'}
+                    speed={1000}
+                    dragging={true}
+                    swiping={true}
+                    wrapAround={true}
+                    slideIndex={this.props.portfolioIndex}
+                    afterSlide={slideIndex => this.props.advancePortfolio(slideIndex)}
+                >
+                    {customSlideCpnts}
+                </Carousel>
             </div>
         );
     }

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import '../../../css/master.css';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
 import FollowList from './follow/followList';
+import {Element} from 'react-scroll';
 
 const styles = {
     container: {
         flexGrow: 1,
-        backgroundColor: "rgba(0, 0, 0, .6)",
+        backgroundColor: "rgba(255, 255, 255, .6)",
         color: "black",
         margin: "10% 0"
     },
@@ -18,10 +19,11 @@ const styles = {
         textAlign: "center"
     },
     text: {
-        padding: "5% 3%",
+        padding: "3% 2%",
         backgroundColor: "rgba(0, 0, 0, .6)",
         color: "white",
-        fontFamily: "Xolonium"
+        fontFamily: "Xolonium",
+        textAlign: "center"
     },
     mediaBox: {
         padding: "5% 0 1% 0"
@@ -30,6 +32,11 @@ const styles = {
         textAlign: "center",
         fontSize: "3em"
     },
+    paper: {
+        borderStyle: "solid",
+        borderColor: "white",
+        borderWidth: "thin"
+    }
 };
 
 class Follow extends Component {
@@ -37,7 +44,11 @@ class Follow extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <section className={classes.container} id="followMe">
+            <Element
+                className={classes.container}
+                id="followMe"
+                name="followMe"
+            >
                 <Grid container>
                     <Grid item xs={12}>
                         <Typography className={classes.heading} variant="display2">
@@ -47,21 +58,27 @@ class Follow extends Component {
                               direction="row"
                               justify="center"
                               alignItems="center">
-                            <Grid item xs={12}>
-                                <Paper >
+                            <Grid item xs={10}>
+                                <Paper
+                                    className={classes.paper}
+                                >
                                     <Typography variant="title" className={classes.text}>
                                         Follow me around the internet as I build projects, develop my
                                         portfolio, and blog about technology.
                                     </Typography>
                                 </Paper>
+                                <FollowList/>
                             </Grid>
                         </Grid>
-                        <FollowList/>
                     </Grid>
                 </Grid>
-            </section>
+            </Element>
         );
     }
 }
+Follow.propTypes = {
+    classes: PropTypes.object,
+    theme: PropTypes.object
+};
 
 export default withStyles(styles)(Follow);
