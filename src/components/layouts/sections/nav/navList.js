@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import {ListItem, ListItemIcon, ListItemText,
-    Divider, Typography} from '@material-ui/core';
+    Divider, Typography, Collapse } from '@material-ui/core';
 import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
-    ContactMail, GroupAdd} from '@material-ui/icons';
+    ContactMail, GroupAdd, ExpandLess, ExpandMore } from '@material-ui/icons';
 import NavPortfolio from './navPortfolio';
+import NavPortfolioList from './navPortfolioList';
+import NavItem from './navItem';
 import {portfolioList} from '../../../../data/itemList';
 import {goToAnchor } from 'react-scrollable-anchor';
 
@@ -21,6 +23,7 @@ class NavList extends Component {
         super(props);
         this.state = {
             open: false,
+            openNest: false
         };
         this.anchorEl = null;
         this.anchors = [null, null];
@@ -41,33 +44,36 @@ class NavList extends Component {
         });
     };
 
+    handleClick = () => {
+        this.setState({
+            openNest: !this.state.openNest,
+        });
+    };
+
+    scrollToAnchor = (anchor) => {
+        (anchor != null) ? goToAnchor(anchor) : null;
+    };
+
     render() {
         const { classes } = this.props;
 
         return (
             <div>
-                <ListItem
-                    button
-                    onClick={() => {
-                        goToAnchor("bannerWeb");
-                    }}
+                <NavItem
+                    scrollToAnchor={this.scrollToAnchor}
+                    anchor={"bannerWeb"}
+                    text={"Home"}
                 >
-                    <ListItemIcon>
-                        <Home />
-                    </ListItemIcon>
-                    <ListItemText primary="Home" />
-                </ListItem>
+                    <Home />
+                </NavItem>
                 <Divider/>
-                <ListItem
-                    button
-                    onClick={() => goToAnchor("about")}
+                <NavItem
+                    scrollToAnchor={this.scrollToAnchor}
+                    anchor={"about"}
+                    text={"About"}
                 >
-
-                    <ListItemIcon>
-                        <Work />
-                    </ListItemIcon>
-                    <ListItemText primary="About" />
-                </ListItem>
+                    <Work />
+                </NavItem>
                 <ListItem
                     button
                     buttonRef={node => {
@@ -83,126 +89,127 @@ class NavList extends Component {
                     <ListItemText primary="Portfolio" />
                 </ListItem>
                 <Divider/>
-                <ListItem
-                    button
-                    onClick={() => goToAnchor("yoga")}
+                <NavItem
+                    scrollToAnchor={this.scrollToAnchor}
+                    anchor={"yoga"}
+                    text={"Yoga"}
                 >
-
-                    <ListItemIcon>
-                        <AccessibilityNew />
-                    </ListItemIcon>
-                    <ListItemText primary="Yoga" />
-                </ListItem>
-                <ListItem
-                    button
-                    onClick={() => goToAnchor("hobbies")}
+                    <AccessibilityNew />
+                </NavItem>
+                <NavItem
+                    scrollToAnchor={this.scrollToAnchor}
+                    anchor={"hobbies"}
+                    text={"Hobbies"}
                 >
-                    <ListItemIcon>
-                        <PhotoLibrary />
-                    </ListItemIcon>
-                    <ListItemText primary="Hobbies" />
-                </ListItem>
+                    <PhotoLibrary />
+                </NavItem>
                 <Divider/>
-                <ListItem
-                    button
-                    onClick={() => goToAnchor("contact")}
+                <NavItem
+                    scrollToAnchor={this.scrollToAnchor}
+                    anchor={"contact"}
+                    text={"Contact"}
                 >
-                    <ListItemIcon>
-                        <ContactMail />
-                    </ListItemIcon>
-                    <ListItemText primary="Contact" />
-                </ListItem>
-                <ListItem
-                    button
-                    onClick={() => goToAnchor("followMe")}
+                    <ContactMail />
+                </NavItem>
+                <NavItem
+                    scrollToAnchor={this.scrollToAnchor}
+                    anchor={"followMe"}
+                    text={"Follow Me"}
                 >
-                    <ListItemIcon>
-                        <GroupAdd />
-                    </ListItemIcon>
-                    <ListItemText primary="Follow Me" />
-                </ListItem>
+                    <GroupAdd />
+                </NavItem>
                 <Divider/>
                 <Typography
                 variant={'headline'}>
-                    Isloated View
+                    Isloated Sections
                 </Typography>
                 <Link
                     to="/"
                 >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <Home />
-                        </ListItemIcon>
-                        <ListItemText primary="Home" />
-                    </ListItem>
+                    <NavItem
+                        scrollToAnchor={this.scrollToAnchor}
+                        anchor={null}
+                        text={"Home - All Sections"}
+                    >
+                        <Home />
+                    </NavItem>
                 </Link>
                 <Link
                     to="/about"
                 >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <Work />
-                        </ListItemIcon>
-                        <ListItemText primary="About" />
-                    </ListItem>
+                    <NavItem
+                        scrollToAnchor={this.scrollToAnchor}
+                        anchor={null}
+                        text={"About"}
+                    >
+                        <Work />
+                    </NavItem>
                 </Link>
                 <Link
                     to="/portfolio"
                 >
                     <ListItem
                         button
-                        buttonRef={node => {
-                            this.anchors[1] = node;
-                        }}
-                        aria-owns={this.state.open ? 'NAV-list-grow' : null}
+                        aria-owns={this.state.open ? 'Portfolio-list-grow' : null}
                         aria-haspopup="true"
-                        onClick={event => this.handleToggle(this.anchors[1], event)}
+                        onClick={this.handleClick}
                     >
                         <ListItemIcon>
                             <Web/>
                         </ListItemIcon>
                         <ListItemText primary="Portfolio" />
+                        {this.state.openNest ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                 </Link>
+                <Collapse in={this.state.openNest} timeout="auto" unmountOnExit>
+                    <NavPortfolioList
+                        list={portfolioList}
+                        advancePortfolio={this.props.advancePortfolio}
+                    />
+                </Collapse>
                 <Link
                     to="/yoga"
                 >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <AccessibilityNew />
-                        </ListItemIcon>
-                        <ListItemText primary="Yoga" />
-                    </ListItem>
+                    <NavItem
+                        scrollToAnchor={this.scrollToAnchor}
+                        anchor={null}
+                        text={"Yoga"}
+                    >
+                        <AccessibilityNew />
+                    </NavItem>
                 </Link>
                 <Link
                     to="/hobbies"
                 >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <PhotoLibrary />
-                        </ListItemIcon>
-                        <ListItemText primary="Hobbies" />
-                    </ListItem>
+                    <NavItem
+                        scrollToAnchor={this.scrollToAnchor}
+                        anchor={null}
+                        text={"Hobbies"}
+                    >
+                        <PhotoLibrary />
+                    </NavItem>
                 </Link>
                 <Link
                     to="/contact"
                 >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <ContactMail />
-                        </ListItemIcon>
-                        <ListItemText primary="Contact" />
-                    </ListItem>
+                    <NavItem
+                        scrollToAnchor={this.scrollToAnchor}
+                        anchor={null}
+                        text={"Contact"}
+                    >
+                        <ContactMail />
+                    </NavItem>
                 </Link>
                 <Link
                     to="/follow"
                 >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <GroupAdd />
-                        </ListItemIcon>
-                        <ListItemText primary="Follow Me" />
-                    </ListItem>
+                    <NavItem
+                        scrollToAnchor={this.scrollToAnchor}
+                        anchor={null}
+                        text={"Follow Me"}
+                    >
+                        <GroupAdd />
+                    </NavItem>
                 </Link>
                 <NavPortfolio
                     open={this.state.open}

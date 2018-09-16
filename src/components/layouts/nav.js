@@ -161,7 +161,9 @@ class Nav extends Component {
                                         className={classNames(classes.text, classes.leftJust)}
                             >
                                 <img src={logo} className={classes.logo} alt="logo"/>
-                                <Link to="/">G.Dev</Link>
+                                <Link to="/">
+                                    G.Dev
+                                </Link>
                             </Typography>
                             <Typography variant="display1" color="inherit"
                                         className={classNames(classes.text, classes.rightJust)}
