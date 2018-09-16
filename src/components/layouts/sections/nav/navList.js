@@ -121,7 +121,7 @@ class NavList extends Component {
                 <Divider/>
                 <Typography
                 variant={'headline'}>
-                    Isloated Sections
+                    Isolated Sections
                 </Typography>
                 <Link
                     to="/"
