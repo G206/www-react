@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
-import {ListItem, ListItemIcon, ClickAwayListener,
+import {ClickAwayListener,
     Popover, Typography, Grid, IconButton } from '@material-ui/core';
 import {socialMediaList} from "../../../../data/itemList";
 
@@ -68,8 +67,7 @@ class FollowList extends Component {
                   key = {index}
 
             >
-                <a
-                    href = {item.href}
+                <div
                     className={classes.mediaBox}
                 >
                     <IconButton
@@ -82,7 +80,7 @@ class FollowList extends Component {
                     >
                         <i className={classNames(item.icon, classes.icon)}/>
                     </IconButton >
-                </a>
+                </div>
             </Grid>
         );
 

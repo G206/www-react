@@ -358,37 +358,37 @@ export const hobbyList = [
 
 export const socialMediaList = [
     {
-        href: '#',
+        href: '',
         icon: 'fab fa-facebook-f',
         des: 'Facebook',
         pos: 0,
     },
     {
-        href: '#',
+        href: '',
         icon: 'fab fa-twitter',
         des: 'Twitter',
         pos: 1,
     },
     {
-        href: '#',
+        href: '',
         icon: 'fab fa-google-plus',
         des: 'Google Plus',
         pos: 2,
     },
     {
-        href: '#',
+        href: '',
         icon: 'fab fa-youtube',
         des: 'YouTube',
         pos: 3,
     },
     {
-        href: '#',
+        href: '',
         icon: 'fab fa-instagram',
         des: 'Instagram',
         pos: 4,
     },
     {
-        href: '#',
+        href: '',
         icon: 'fab fa-linkedin',
         des: 'LinkedIn',
         pos: 5,

@@ -8,8 +8,7 @@ import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
     ContactMail, GroupAdd} from '@material-ui/icons';
 import NavPortfolio from './navPortfolio';
 import {portfolioList} from '../../../../data/itemList';
-import {goToAnchor, goToTop } from 'react-scrollable-anchor'
-import portfolio from "../portfolio";
+import {goToAnchor } from 'react-scrollable-anchor';
 
 const styles = {
     container: {
@@ -44,7 +43,6 @@ class NavList extends Component {
 
     render() {
         const { classes } = this.props;
-        const { open } = this.state;
 
         return (
             <div>

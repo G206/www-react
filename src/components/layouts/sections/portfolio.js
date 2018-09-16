@@ -30,27 +30,6 @@ const styles = {
 };
 
 class Portfoloio extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            open: false,
-            url: '/',
-            frameW: '100%',
-            frameH: '100%'
-        };
-    }
-    handleModalOpen = (pURL, pWidth, pHeight) => {
-        this.setState({
-            open: true,
-            url: '/' + pURL,
-            frameW: pWidth,
-            frameH: pHeight
-        });
-    };
-
-    handleModalClose = () => {
-        this.setState({ open: false });
-    };
 
     componentWillMount() {
         configureAnchors({

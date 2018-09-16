@@ -13,14 +13,15 @@ const styles = {
         maxHeight: '95%'
     },
     paper: {
-        margin: '4% 2% 1% 2%',
+        margin: '84px 3% 36px 3%',
         padding: '1%',
         backgroundColor: "white",
-        height: '95%',
+        height: '90%',
+        maxHeight: '90%',
     },
     frame: {
         maxWidth: '100%',
-        maxHeight: '95%'
+        maxHeight: '90%',
     }
 };
 
@@ -41,6 +42,9 @@ class ModalBox extends Component {
 
                 <Paper
                     className={classes.paper}
+                    styles={{
+                        height: this.props.frameH + '220px',
+                    }}
                 >
                     <Typography variant="display1">
                         Project or Assignment is displayed below.
@@ -58,6 +62,7 @@ class ModalBox extends Component {
                             // height={this.props.frameH}
                             width="100%"
                             height="90%"
+                            styles={{maxHeight: this.props.frameH}}
                             allowFullScreen
                             className={classes.frame}
                     />
