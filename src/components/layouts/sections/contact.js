@@ -5,14 +5,14 @@ import {Grid, Typography} from '@material-ui/core';
 import {AccountCircle, AlternateEmail, ContactPhone, Message} from '@material-ui/icons';
 import ContactField from './contact/contactField';
 import ContactButtons from './contact/contactButtons';
-import {Element} from 'react-scroll';
+import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 
 const styles = {
     container: {
         flexGrow: 1,
         backgroundColor: 'rgba(0, 0, 0, .6)',
         color: 'black',
-        margin: '10% 0'
+        margin: '15% 0'
     },
     innerContainer: {
 
@@ -102,102 +102,112 @@ class Contact extends Component {
             mailToLink:""
         })
     }
+    componentWillMount() {
+        configureAnchors({
+            offset: -72,
+            scrollDuration: 800,
+            keepLastAnchorHash: false
+        })
+    }
 
     render() {
         const {classes} = this.props;
         return (
-            <Element
-                className={classes.container}
+            <ScrollableAnchor
                 id="contact"
                 name="contact"
             >
-                <Grid container>
-                    <Grid item xs={12}>
-                        <Typography className={classes.heading} variant="display2">
-                            Contact Me
-                        </Typography>
-                        <Grid container
-                              direction="row"
-                              justify="center"
-                              alignItems="center">
-                            <Grid item xs={10}>
-                                <form id="contactForm">
-                                    <ContactField
-                                        classPaper={classes.paper}
-                                        classIconBox={classes.iconBox}
-                                        classInputBox={classes.inputBox}
-                                        classForm={classes.form}
-                                        classFormField={classes.formField}
-                                        label="Enter Your Name"
-                                        id="contactName"
-                                        contactField={this.state.contactName}
-                                        handleInput={this.handleInput}
-                                        multiline={false}
-                                        rowsMax="1"
-                                    >
-                                        <AccountCircle className={classes.icon} />
-                                    </ContactField>
-                                    <ContactField
-                                        classPaper={classes.paper}
-                                        classIconBox={classes.iconBox}
-                                        classInputBox={classes.inputBox}
-                                        classForm={classes.form}
-                                        classFormField={classes.formField}
-                                        label="Enter Your Email"
-                                        id="contactEmail"
-                                        contactField={this.state.contactEmail}
-                                        handleInput={this.handleInput}
-                                        multiline={false}
-                                        rowsMax="1"
-                                    >
-                                        <AlternateEmail className={classes.icon}/>
-                                    </ContactField>
-                                    <ContactField
-                                        classPaper={classes.paper}
-                                        classIconBox={classes.iconBox}
-                                        classInputBox={classes.inputBox}
-                                        classForm={classes.form}
-                                        classFormField={classes.formField}
-                                        label="Enter Your Phone Number"
-                                        id="contactPhone"
-                                        contactField={this.state.contactPhone}
-                                        handleInput={this.handleInput}
-                                        multiline={false}
-                                        rowsMax="1"
-                                    >
-                                        <ContactPhone className={classes.icon}/>
-                                    </ContactField>
-                                    <ContactField
-                                        classPaper={classes.paper}
-                                        classIconBox={classes.iconBox}
-                                        classInputBox={classes.inputBox}
-                                        classForm={classes.form}
-                                        classFormField={classes.formField}
-                                        label="Enter Your Message"
-                                        id="contactMessage"
-                                        contactField={this.state.contactMessage}
-                                        handleInput={this.handleInput}
-                                        multiline={true}
-                                        rowsMax="3"
-                                    >
-                                        <Message className={classes.icon}/>
-                                    </ContactField>
-                                    <ContactButtons
-                                        classBtnBox={classes.btnBox}
-                                        classButton={classes.button}
-                                        classPrimaryC={classes.primaryC}
-                                        classSecondaryC={classes.secondaryC}
-                                        mailToLink={this.state.mailToLink}
-                                        handleSubmit={this.handleSubmit}
-                                        handleReset={this.handleReset}
+                <section
+                    className={classes.container}
+                >
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <Typography className={classes.heading} variant="display2">
+                                Contact Me
+                            </Typography>
+                            <Grid container
+                                  direction="row"
+                                  justify="center"
+                                  alignItems="center">
+                                <Grid item xs={10}>
+                                    <form id="contactForm">
+                                        <ContactField
+                                            classPaper={classes.paper}
+                                            classIconBox={classes.iconBox}
+                                            classInputBox={classes.inputBox}
+                                            classForm={classes.form}
+                                            classFormField={classes.formField}
+                                            label="Enter Your Name"
+                                            id="contactName"
+                                            contactField={this.state.contactName}
+                                            handleInput={this.handleInput}
+                                            multiline={false}
+                                            rowsMax="1"
+                                        >
+                                            <AccountCircle className={classes.icon} />
+                                        </ContactField>
+                                        <ContactField
+                                            classPaper={classes.paper}
+                                            classIconBox={classes.iconBox}
+                                            classInputBox={classes.inputBox}
+                                            classForm={classes.form}
+                                            classFormField={classes.formField}
+                                            label="Enter Your Email"
+                                            id="contactEmail"
+                                            contactField={this.state.contactEmail}
+                                            handleInput={this.handleInput}
+                                            multiline={false}
+                                            rowsMax="1"
+                                        >
+                                            <AlternateEmail className={classes.icon}/>
+                                        </ContactField>
+                                        <ContactField
+                                            classPaper={classes.paper}
+                                            classIconBox={classes.iconBox}
+                                            classInputBox={classes.inputBox}
+                                            classForm={classes.form}
+                                            classFormField={classes.formField}
+                                            label="Enter Your Phone Number"
+                                            id="contactPhone"
+                                            contactField={this.state.contactPhone}
+                                            handleInput={this.handleInput}
+                                            multiline={false}
+                                            rowsMax="1"
+                                        >
+                                            <ContactPhone className={classes.icon}/>
+                                        </ContactField>
+                                        <ContactField
+                                            classPaper={classes.paper}
+                                            classIconBox={classes.iconBox}
+                                            classInputBox={classes.inputBox}
+                                            classForm={classes.form}
+                                            classFormField={classes.formField}
+                                            label="Enter Your Message"
+                                            id="contactMessage"
+                                            contactField={this.state.contactMessage}
+                                            handleInput={this.handleInput}
+                                            multiline={true}
+                                            rowsMax="3"
+                                        >
+                                            <Message className={classes.icon}/>
+                                        </ContactField>
+                                        <ContactButtons
+                                            classBtnBox={classes.btnBox}
+                                            classButton={classes.button}
+                                            classPrimaryC={classes.primaryC}
+                                            classSecondaryC={classes.secondaryC}
+                                            mailToLink={this.state.mailToLink}
+                                            handleSubmit={this.handleSubmit}
+                                            handleReset={this.handleReset}
 
-                                    />
-                                </form>
+                                        />
+                                    </form>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
-            </Element>
+                </section>
+            </ScrollableAnchor>
         );
     }
 }

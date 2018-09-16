@@ -5,14 +5,14 @@ import {Grid, Paper, Typography} from '@material-ui/core';
 import {hobbyList} from "../../../data/itemList";
 // import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselNuka from './slides/carouselNuka';
-import {Element} from 'react-scroll';
+import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
 const styles = {
     container: {
         flexGrow: 1,
         backgroundColor: "rgba(255, 255, 255, .6)",
         color: "black",
-        margin: "10% 0"
+        margin: "15% 0"
     },
     heading: {
         fontFamily: "Avengeance",
@@ -27,33 +27,43 @@ const styles = {
 };
 
 class Hobbies extends Component {
+    componentWillMount() {
+        configureAnchors({
+            offset: -72,
+            scrollDuration: 800,
+            keepLastAnchorHash: false
+        })
+    }
     render() {
         const { classes } = this.props;
         return (
-            <Element
-                className={classes.container}
+            <ScrollableAnchor
                 id="hobbies"
                 name="hobbies"
             >
-                <Grid container>
-                    <Grid item xs={12}>
-                        <Typography className={classes.heading} variant="display2">
-                            Hobbies
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Paper className={classes.slides}>
-                            {/*<CarouselReactSlider*/}
+                <section
+                    className={classes.container}
+                >
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <Typography className={classes.heading} variant="display2">
+                                Hobbies
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.slides}>
+                                {/*<CarouselReactSlider*/}
                                 {/*slides={hobbyList}*/}
-                            {/*/>*/}
-                            <CarouselNuka
-                                slides={hobbyList}
-                            />
-                        </Paper>
-                    </Grid>
+                                {/*/>*/}
+                                <CarouselNuka
+                                    slides={hobbyList}
+                                />
+                            </Paper>
+                        </Grid>
 
-                </Grid>
-            </Element>
+                    </Grid>
+                </section>
+            </ScrollableAnchor>
         );
     }
 }

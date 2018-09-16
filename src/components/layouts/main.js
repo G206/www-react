@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import ModalBox from './sections/modalBox';
 import Home from './sections/home';
 import { Route } from "react-router-dom";
-import {Element} from 'react-scroll';
 import About from './sections/about';
 import Portfolio from './sections/portfolio';
 import Yoga from './sections/yoga';
@@ -47,10 +46,8 @@ class Main extends Component {
 
         return (
             <Fragment>
-                <Element
+                <main
                     className={classes.container}
-                    id="containerElement"
-                    name="containerElement"
                 >
                     <Route exact path="/" render={(props) =>
                         <Home
@@ -75,7 +72,7 @@ class Main extends Component {
                     <Route path="/hobbies" component={Hobbies} />
                     <Route path="/contact" component={Contact} />
                     <Route path="/follow" component={Follow} />
-                </Element>
+                </main>
                 <ModalBox
                     openModal={this.state.open}
                     handleModalClose={this.handleModalClose}

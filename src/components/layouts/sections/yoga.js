@@ -5,14 +5,14 @@ import {Grid, Paper, Typography} from '@material-ui/core';
 import {yogaList} from "../../../data/itemList";
 // import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselNuka from './slides/carouselNuka';
-import {Element} from 'react-scroll';
+import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
 const styles = {
     container: {
         flexGrow: 1,
         backgroundColor: "rgba(0, 0, 0, .6)",
         color: "white",
-        margin: "10% 0"
+        margin: "15% 0",
     },
     heading: {
         fontFamily: "Avengeance",
@@ -22,39 +22,49 @@ const styles = {
     },
     slides: {
         backgroundColor: "rgba(255, 255, 255, .2)",
-        padding: "2%"
+        padding: "2%",
     },
 };
 
 class Yoga extends Component {
+    componentWillMount() {
+        configureAnchors({
+            offset: -72,
+            scrollDuration: 800,
+            keepLastAnchorHash: false
+        })
+    }
+
     render() {
         const { classes } = this.props;
 
         return (
-            <Element
-                className={classes.container}
+            <ScrollableAnchor
                 id="yoga"
                 name="yoga"
             >
-                <Grid container>
-                    <Grid item xs={12}>
-                        <Typography className={classes.heading} variant="display2">
-                            Yoga
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Paper className={classes.slides}>
-                            {/*<CarouselReactSlider*/}
+                <section
+                    className={classes.container}
+                >
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <Typography className={classes.heading} variant="display2">
+                                Yoga
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.slides}>
+                                {/*<CarouselReactSlider*/}
                                 {/*slides={yogaList}*/}
-                            {/*/>*/}
-                            <CarouselNuka
-                                slides={yogaList}
-                            />
-                        </Paper>
+                                {/*/>*/}
+                                <CarouselNuka
+                                    slides={yogaList}
+                                />
+                            </Paper>
+                        </Grid>
                     </Grid>
-
-                </Grid>
-            </Element>
+                </section>
+            </ScrollableAnchor>
         );
     }
 }

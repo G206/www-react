@@ -31,7 +31,6 @@ const styles = {
 class CarouselNuka extends Component {
 
     render() {
-
         const { classes } = this.props;
         const customSlideCpnts = this.props.slides.map((item, index) =>
             <div

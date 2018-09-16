@@ -8,6 +8,10 @@ const styles = {
         position: "fixed",
         width: "100%",
         bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, .6)',
+        color: 'white',
+        textAlign: 'center',
+        padding: '12px 0'
     },
 };
 class Footer extends Component {

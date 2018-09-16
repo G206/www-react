@@ -35,9 +35,10 @@ class CarouselNukaCustom extends Component {
 
         const { classes } = this.props;
         const customSlideCpnts = this.props.slides.map((item, index) =>
-            <Link to = {'/'} key = {index}
-                  onClick={event => this.props.handleModalOpen(item.href,
-                      item.width, item.height, event)}
+            <div
+                key = {index}
+                onClick={event => this.props.handleModalOpen(item.href,
+                    item.width, item.height, event)}
             >
                 <img
                     src = {item.imgSrc}
@@ -50,27 +51,25 @@ class CarouselNukaCustom extends Component {
                 >
                     {item.des}
                 </p>
-            </Link>
+            </div>
         );
         return (
-            <div id="carousel-tilePortfolio">
-                <Carousel
-                    slidesToShow={3}
-                    cellAlign="center"
-                    // autoplay={true}
-                    // autoplayInterval={6000}
-                    cellSpacing={24}
-                    heightMode={'max'}
-                    speed={1000}
-                    dragging={true}
-                    swiping={true}
-                    wrapAround={true}
-                    slideIndex={this.props.portfolioIndex}
-                    afterSlide={slideIndex => this.props.advancePortfolio(slideIndex)}
-                >
-                    {customSlideCpnts}
-                </Carousel>
-            </div>
+            <Carousel
+                slidesToShow={3}
+                cellAlign="center"
+                // autoplay={true}
+                // autoplayInterval={6000}
+                cellSpacing={24}
+                heightMode={'max'}
+                speed={1000}
+                dragging={true}
+                swiping={true}
+                wrapAround={true}
+                slideIndex={this.props.portfolioIndex}
+                afterSlide={slideIndex => this.props.advancePortfolio(slideIndex)}
+            >
+                {customSlideCpnts}
+            </Carousel>
         );
     }
 }

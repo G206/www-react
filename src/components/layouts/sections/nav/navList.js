@@ -8,8 +8,8 @@ import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
     ContactMail, GroupAdd} from '@material-ui/icons';
 import NavPortfolio from './navPortfolio';
 import {portfolioList} from '../../../../data/itemList';
-import {Scroll, Link as LinkScroll, Element , Events, animateScroll as scroll,
-    scrollSpy, scroller} from 'react-scroll';
+import {goToAnchor, goToTop } from 'react-scrollable-anchor'
+import portfolio from "../portfolio";
 
 const styles = {
     container: {
@@ -28,10 +28,11 @@ class NavList extends Component {
     }
 
     handleToggle = (node) => {
+        goToAnchor("portfolio");
         this.setState({
             open: !this.state.open
         });
-        this.anchorEl= node
+        this.anchorEl= node;
     };
 
 
@@ -47,13 +48,88 @@ class NavList extends Component {
 
         return (
             <div>
-                <LinkScroll
-                    activeClass="active"
-                    to="bannerWeb"
-                    spy={true}
-                    smooth={true}
-                    duration={250}
-                    containerId="containerElement"
+                <ListItem
+                    button
+                    onClick={() => {
+                        goToAnchor("bannerWeb");
+                    }}
+                >
+                    <ListItemIcon>
+                        <Home />
+                    </ListItemIcon>
+                    <ListItemText primary="Home" />
+                </ListItem>
+                <Divider/>
+                <ListItem
+                    button
+                    onClick={() => goToAnchor("about")}
+                >
+
+                    <ListItemIcon>
+                        <Work />
+                    </ListItemIcon>
+                    <ListItemText primary="About" />
+                </ListItem>
+                <ListItem
+                    button
+                    buttonRef={node => {
+                        this.anchors[0] = node;
+                    }}
+                    aria-owns={this.state.open ? 'NAV-list-grow' : null}
+                    aria-haspopup="true"
+                    onClick={event => this.handleToggle(this.anchors[0], event)}
+                >
+                    <ListItemIcon>
+                        <Web/>
+                    </ListItemIcon>
+                    <ListItemText primary="Portfolio" />
+                </ListItem>
+                <Divider/>
+                <ListItem
+                    button
+                    onClick={() => goToAnchor("yoga")}
+                >
+
+                    <ListItemIcon>
+                        <AccessibilityNew />
+                    </ListItemIcon>
+                    <ListItemText primary="Yoga" />
+                </ListItem>
+                <ListItem
+                    button
+                    onClick={() => goToAnchor("hobbies")}
+                >
+                    <ListItemIcon>
+                        <PhotoLibrary />
+                    </ListItemIcon>
+                    <ListItemText primary="Hobbies" />
+                </ListItem>
+                <Divider/>
+                <ListItem
+                    button
+                    onClick={() => goToAnchor("contact")}
+                >
+                    <ListItemIcon>
+                        <ContactMail />
+                    </ListItemIcon>
+                    <ListItemText primary="Contact" />
+                </ListItem>
+                <ListItem
+                    button
+                    onClick={() => goToAnchor("followMe")}
+                >
+                    <ListItemIcon>
+                        <GroupAdd />
+                    </ListItemIcon>
+                    <ListItemText primary="Follow Me" />
+                </ListItem>
+                <Divider/>
+                <Typography
+                variant={'headline'}>
+                    Isloated View
+                </Typography>
+                <Link
+                    to="/"
                 >
                     <ListItem button>
                         <ListItemIcon>
@@ -61,125 +137,7 @@ class NavList extends Component {
                         </ListItemIcon>
                         <ListItemText primary="Home" />
                     </ListItem>
-                </LinkScroll>
-                <Divider/>
-                <LinkScroll
-                    activeClass="active"
-                    to="about"
-                    spy={true}
-                    smooth={true}
-                    duration={250}
-                    containerId="containerElement"
-                >
-                    <ListItem button>
-
-                        <ListItemIcon>
-                            <Work />
-                        </ListItemIcon>
-                        <ListItemText primary="About" />
-                    </ListItem>
-                </LinkScroll>
-                <LinkScroll
-                    activeClass="active"
-                    to="portfolio"
-                    spy={true}
-                    smooth={true}
-                    duration={250}
-                    containerId="containerElement"
-                >
-                    <ListItem
-                        button
-                        buttonRef={node => {
-                            this.anchors[0] = node;
-                        }}
-                        aria-owns={this.state.open ? 'NAV-list-grow' : null}
-                        aria-haspopup="true"
-                        onClick={event => this.handleToggle(this.anchors[0], event)}
-                    >
-                        <ListItemIcon>
-                            <Web/>
-                        </ListItemIcon>
-                        <ListItemText primary="Portfolio" />
-                    </ListItem>
-                </LinkScroll>
-                <NavPortfolio
-                    open={this.state.open}
-                    handleClose={this.handleClose}
-                    handleToggle={this.handleToggle}
-                    list={portfolioList}
-                    anchorEl = {this.anchorEl}
-                    advancePortfolio={this.props.advancePortfolio}
-                >
-                </NavPortfolio>
-                <Divider/>
-                <LinkScroll
-                    activeClass="active"
-                    to="yoga"
-                    spy={true}
-                    smooth={true}
-                    duration={250}
-                    containerId="containerElement"
-                >
-                    <ListItem button>
-
-                        <ListItemIcon>
-                            <AccessibilityNew />
-                        </ListItemIcon>
-                        <ListItemText primary="Yoga" />
-                    </ListItem>
-                </LinkScroll>
-                <LinkScroll
-                    activeClass="active"
-                    to="hobbies"
-                    spy={true}
-                    smooth={true}
-                    duration={250}
-                    containerId="containerElement"
-                >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <PhotoLibrary />
-                        </ListItemIcon>
-                        <ListItemText primary="Hobbies" />
-                    </ListItem>
-                </LinkScroll>
-                <Divider/>
-                <LinkScroll
-                    activeClass="active"
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    duration={250}
-                    containerId="containerElement"
-                >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <ContactMail />
-                        </ListItemIcon>
-                        <ListItemText primary="Contact" />
-                    </ListItem>
-                </LinkScroll>
-                <LinkScroll
-                    activeClass="active"
-                    to="followMe"
-                    spy={true}
-                    smooth={true}
-                    duration={250}
-                    containerId="containerElement"
-                >
-                    <ListItem button>
-                        <ListItemIcon>
-                            <GroupAdd />
-                        </ListItemIcon>
-                        <ListItemText primary="Follow Me" />
-                    </ListItem>
-                </LinkScroll>
-                <Divider/>
-                <Typography
-                variant={'headline'}>
-                    Isloated View
-                </Typography>
-
+                </Link>
                 <Link
                     to="/about"
                 >
@@ -248,6 +206,15 @@ class NavList extends Component {
                         <ListItemText primary="Follow Me" />
                     </ListItem>
                 </Link>
+                <NavPortfolio
+                    open={this.state.open}
+                    handleClose={this.handleClose}
+                    handleToggle={this.handleToggle}
+                    list={portfolioList}
+                    anchorEl = {this.anchorEl}
+                    advancePortfolio={this.props.advancePortfolio}
+                >
+                </NavPortfolio>
             </div>
         );
 

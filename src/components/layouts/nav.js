@@ -12,8 +12,6 @@ import NavList from './sections/nav/navList';
 import Header from './header';
 import Main from './main';
 import Footer from './footer';
-import {Scroll, Element , Events, animateScroll as scroll,
-    scrollSpy, scroller} from 'react-scroll';
 
 const drawerWidth = 240;
 
@@ -132,37 +130,13 @@ class Nav extends Component {
         this.setState({ openDrawer: false });
     };
 
-    componentDidMount = () =>  {
-
-        Events.scrollEvent.register('begin', function(to, element) {
-            console.log("begin", arguments);
-        });
-
-        Events.scrollEvent.register('end', function(to, element) {
-            console.log("end", arguments);
-        });
-
-        scrollSpy.update();
-
-    };
-    componentWillUnmount = () =>  {
-        Events.scrollEvent.remove('begin');
-        Events.scrollEvent.remove('end');
-    };
-    scrollToTop = () =>  {
-        scroll.scrollToTop();
-    };
-    scrollToBottom = () =>  {
-        scroll.scrollToBottom();
-    };
-
     render() {
         const { classes } = this.props;
         const {anchor, openDrawer} = this.state;
 
         return (
             <Router>
-                <div
+                <nav
                     className={classNames(classes.root)}
                     id="mainNav"
                 >
@@ -236,7 +210,7 @@ class Nav extends Component {
                         />
                     </div>
                     <Footer/>
-                </div>
+                </nav>
             </Router>
         );
     }

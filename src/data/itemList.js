@@ -6,7 +6,7 @@ export const portfolioList = [
         des: 'DMA 263 Project 1',
         className: 'item active',
         id: 'dma263_p1',
-        href: 'w3dev.io/src/dma263_p1/index.html',
+        href: 'w3dev.azurewebsites.net/src/dma263_p1/index.html',
         target: '',
         width: '1024px',
         height: '1200px'
@@ -17,7 +17,7 @@ export const portfolioList = [
         des: 'DMA263 Project 2',
         className: 'item',
         id: 'dma263_p2',
-        href: 'w3dev.io/src/dma263_p2/index.html',
+        href: 'w3dev.azurewebsites.net/src/dma263_p2/index.html',
         target: '',
         width: '1024px',
         height: '1200px'
@@ -28,7 +28,7 @@ export const portfolioList = [
         des: 'PROG 109 Assignment 4',
         className: 'item',
         id: 'prog109_a4',
-        href: 'w3dev.io/src/prog109_a4/index.html',
+        href: 'w3dev.azurewebsites.net/src/prog109_a4/index.html',
         target: '',
         width: '1024px',
         height: '1200px'
@@ -39,7 +39,7 @@ export const portfolioList = [
         des: 'PROG 109 Project 3',
         className: 'item',
         id: 'prog109_p3',
-        href: 'w3dev.io/src/prog109_p3/index.html',
+        href: 'w3dev.azurewebsites.net/src/prog109_p3/index.html',
         target: '',
         width: '1024px',
         height: '860px'
@@ -50,7 +50,7 @@ export const portfolioList = [
         des: 'PROG 209 Assignment 2',
         className: 'item',
         id: 'prog209_a2',
-        href: 'w3dev.io/src/prog209_a2/index.html',
+        href: 'w3dev.azurewebsites.net/src/prog209_a2/index.html',
         target: '',
         width: '500px',
         height: '440px'
@@ -61,7 +61,7 @@ export const portfolioList = [
         des: 'PROG 209 Assignment 7',
         className: 'item',
         id: 'prog209_a7',
-        href: 'w3dev.io/src/prog209_a7/index.html',
+        href: 'w3dev.azurewebsites.net/src/prog209_a7/index.html',
         target: '',
         width: '860px',
         height: '440px'
@@ -72,7 +72,7 @@ export const portfolioList = [
         des: 'PROG 209 Project 1',
         className: 'item',
         id: 'prog209_p1',
-        href: 'w3dev.io/src/prog209_p1/index.html',
+        href: 'w3dev.azurewebsites.net/src/prog209_p1/index.html',
         target: '',
         width: '1045px',
         height: '9350px'
@@ -83,7 +83,7 @@ export const portfolioList = [
         des: 'PROG 209 Project 2',
         className: 'item',
         id: 'prog209_p2',
-        href: 'w3dev.io/src/prog209_p2/index.html',
+        href: 'w3dev.azurewebsites.net/src/prog209_p2/index.html',
         target: '',
         width: '1045px',
         height: '1240px'
@@ -94,7 +94,7 @@ export const portfolioList = [
         des: 'PROG 209 Project 3',
         className: 'item',
         id: 'prog209_p3',
-        href: 'w3dev.io/src/prog209_p3/index.html',
+        href: 'w3dev.azurewebsites.net/src/prog209_p3/index.html',
         target: '',
         width: '940px',
         height: '1024px'
@@ -105,7 +105,7 @@ export const portfolioList = [
         des: 'GALAGA - Play in New Window',
         className: 'item',
         id: 'galaga',
-        href: 'galaga.w3dev.io/index.html',
+        href: 'galaga.w3dev.azurewebsites.net/index.html',
         target: '',
         width: '1024px',
         height: '1200px'
