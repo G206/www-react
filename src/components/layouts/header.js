@@ -5,14 +5,14 @@ import { withStyles } from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core';
 import ScrollableAnchor from 'react-scrollable-anchor';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1
     },
     headerImg: {
         width: "100%"
     },
-};
+});
 
 class Header extends Component {
     render() {

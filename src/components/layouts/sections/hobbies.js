@@ -7,7 +7,7 @@ import {hobbyList} from "../../../data/itemList";
 import CarouselNuka from './slides/carouselNuka';
 import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
         backgroundColor: "rgba(255, 255, 255, .6)",
@@ -24,7 +24,7 @@ const styles = {
         backgroundColor: "rgba(0, 0, 0, .2)",
         padding: "2%"
     },
-};
+});
 
 class Hobbies extends Component {
     componentWillMount() {

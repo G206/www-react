@@ -6,9 +6,9 @@ import {Grid, Button} from '@material-ui/core';
 import {Send, Clear} from '@material-ui/icons';
 
 
-const styles = {
+const styles = theme => ({
 
-};
+});
 
 class ContactButtons extends Component {
     render() {

@@ -6,7 +6,7 @@ import {Paper, Typography, Modal} from '@material-ui/core';
 import Iframe from 'react-iframe';
 
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
         maxWidth: '100%',
@@ -23,7 +23,7 @@ const styles = {
         maxWidth: '100%',
         maxHeight: '90%',
     }
-};
+});
 
 class ModalBox extends Component {
 

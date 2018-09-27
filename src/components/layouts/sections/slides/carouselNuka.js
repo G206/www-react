@@ -5,7 +5,7 @@ import Carousel from 'nuka-carousel';
 
 
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
@@ -26,7 +26,7 @@ const styles = {
         padding: '10px'
     }
 
-};
+});
 
 class CarouselNuka extends Component {
 

@@ -9,14 +9,14 @@ import CarouselLeftArrow from './carouselLeftArrow';
 import CarouselRightArrow from './carouselRightArrow'
 import '../../../../css/master.css';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
     slideImage: {
         height: "260px"
     },
-};
+});
 
 class Carousel extends Component {
     constructor(props) {

@@ -4,9 +4,9 @@ import {withStyles} from '@material-ui/core/styles';
 import {Grid, Paper, FormControl, Input, InputLabel} from '@material-ui/core';
 
 
-const styles = {
+const styles = theme => ({
 
-};
+});
 
 class ContactField extends Component {
     render() {

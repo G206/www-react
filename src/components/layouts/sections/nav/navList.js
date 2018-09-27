@@ -12,11 +12,11 @@ import NavItem from './navItem';
 import {portfolioList} from '../../../../data/itemList';
 import {goToAnchor } from 'react-scrollable-anchor';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
-};
+});
 
 class NavList extends Component {
     constructor(props){
@@ -120,7 +120,7 @@ class NavList extends Component {
                 </NavItem>
                 <Divider/>
                 <Typography
-                variant={'headline'}>
+                variant={'title'}>
                     Isolated Sections
                 </Typography>
                 <Link

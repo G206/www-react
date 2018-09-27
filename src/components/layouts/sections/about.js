@@ -1,36 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../../../css/master.css';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
 import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
-        backgroundColor: "rgba(0, 0, 0, .6)",
-        color: "black",
+        backgroundColor: theme.palette.canvas,
+        color: theme.palette.primary2.main,
         margin: "15% 0"
     },
     heading: {
-        fontFamily: "Avengeance",
-        color: "red",
+        color: theme.palette.primary.main,
         margin: "2% 0",
         textAlign: "center"
     },
     paper: {
-        backgroundColor: "rgba(255, 255, 255, .6)",
-        color: "black",
+        backgroundColor: theme.palette.canvas2,
         borderStyle: "solid",
-        borderColor: "white",
-        borderWidth: "thin"
+        borderColor: theme.palette.primary3.main,
+        borderWidth: "thin",
+        color: theme.palette.primary2.main,
     },
     text: {
         padding: "5%",
-        fontFamily: "Xolonium",
-        textAlign: "justify"
+        textAlign: "justify",
+        color: theme.palette.primary2.main,
     },
-};
+});
 
 class About extends Component {
     componentWillMount() {

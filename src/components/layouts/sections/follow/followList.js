@@ -6,7 +6,7 @@ import {ClickAwayListener,
     Popover, Typography, Grid, IconButton } from '@material-ui/core';
 import {socialMediaList} from "../../../../data/itemList";
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
@@ -30,7 +30,7 @@ const styles = {
         textAlign: "center",
     }
 
-};
+});
 
 class FollowList extends Component {
     constructor(props){

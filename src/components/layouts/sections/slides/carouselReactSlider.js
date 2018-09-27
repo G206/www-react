@@ -4,7 +4,7 @@ import CarouselSlider from 'react-carousel-slider';
 
 // import { withStyles } from '@material-ui/core/styles';
 //
-// const styles = {
+// const styles = theme => ({
 //     container: {
 //         flexGrow: 1,
 //     },
@@ -12,7 +12,7 @@ import CarouselSlider from 'react-carousel-slider';
 //         height: "260px"
 //     },
 //
-// };
+// });
 
 class CarouselReactSlider extends Component {
 

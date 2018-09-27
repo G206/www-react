@@ -3,14 +3,14 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from "prop-types";
 import '../../../../css/master.css';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
     slideImage: {
         height: "260px"
     }
-};
+});
 
 class CarouselSlide extends Component {
 

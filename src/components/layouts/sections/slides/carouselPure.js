@@ -6,7 +6,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 // import './../../../../css/react-carousel.es.css';
 
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
@@ -15,7 +15,7 @@ const styles = {
         width: "200px"
     },
 
-};
+});
 
 class CarouselPure extends Component {
 

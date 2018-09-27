@@ -8,12 +8,12 @@ import Hobbies from './hobbies';
 import Contact from './contact';
 import Follow from './follow';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
-        backgroundColor: "rgba(0, 0, 0, 0)",
+        backgroundColor: theme.palette.primary2.main
     },
-};
+});
 
 class Home extends Component {
 

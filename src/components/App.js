@@ -1,48 +1,36 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Nav from './layouts/nav';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 import {hobbyList, portfolioList, yogaList} from "../data/itemList";
 
-const theme = createMuiTheme(
-    {
-        type: "dark",
-        "palette": {
-            "primary1Color": "#d50000",
-            "canvasColor": "rgba(0, 0, 0, 0.6)",
-            "accent3Color": "rgba(213, 0, 0, 0.6)",
-            "accent1Color": "#ffd600",
-            "primary2Color": "rgba(0, 0, 0, 0.6)",
-            "primary3Color": "rgba(255, 255, 255, 0.6)",
-            "accent2Color": "#6200ea",
-            "secondaryTextColor": "#000000",
-            "alternateTextColor": "#d50000",
-            "borderColor": "#ffd600",
-            "disabledColor": "#00c853",
-            "pickerHeaderColor": "rgba(255, 255, 255, 0.6)",
-            "shadowColor": "rgba(255, 214, 0, 0.6)"
-        },
-        "appBar": {
-            "color": "rgba(213, 0, 0, 0.6)",
-            "textColor": "#ffffff"
-        },
-        "tabs": {
-            "backgroundColor": "rgba(213, 0, 0, 0.6)",
-            "textColor": "#ffffff",
-            "selectedTextColor": "#ffd600"
-        },
-        "textField": {
-            "floatingLabelColor": "rgba(0, 0, 0, 0.6)",
-            "hintColor": "#6200ea"
-        }
-    });
-
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1
     },
-};
+    '@global': {
+        'a:link':{
+            textDecoration: "none",
+            color: theme.palette.primary2.main
+        },
+        'a:visited': {
+            textDecoration: "none",
+            color: theme.palette.primary2.main
+        },
+        'a:hover': {
+            textDecoration: "none",
+            color: theme.palette.secondary.main
+        },
+
+        'a:active': {
+            textDecoration: "none",
+            color: theme.palette.primary.main
+        },
+        '.slider-list': {
+            minHeight: "400px"
+        },
+    },
+});
 
 class App extends Component {
 
@@ -62,11 +50,9 @@ class App extends Component {
             item.imgSrc = assetsPath('./' + item.imgSrc);
         });
         return (
-            <MuiThemeProvider theme={theme}>
-                <div id="pageTop" className={classes.container}>
-                    <Nav/>
-                </div>
-            </MuiThemeProvider>
+            <div id="pageTop" className={classes.container}>
+                <Nav />
+            </div>
         );
     }
 }

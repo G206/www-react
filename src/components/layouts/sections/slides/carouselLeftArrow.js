@@ -4,11 +4,11 @@ import {withStyles} from "@material-ui/core/styles/index";
 import {ArrowBackIos} from '@material-ui/icons';
 import '../../../../css/master.css';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
-};
+});
 
 class CarouselLeftArrow extends Component {
     render() {

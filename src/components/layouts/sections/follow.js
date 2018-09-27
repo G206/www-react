@@ -5,7 +5,7 @@ import {Grid, Paper, Typography} from '@material-ui/core';
 import FollowList from './follow/followList';
 import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
         backgroundColor: "rgba(255, 255, 255, .6)",
@@ -37,7 +37,7 @@ const styles = {
         borderColor: "white",
         borderWidth: "thin"
     }
-};
+});
 
 class Follow extends Component {
     componentWillMount() {

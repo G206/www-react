@@ -11,12 +11,12 @@ import Hobbies from './sections/hobbies';
 import Contact from './sections/contact';
 import Follow from './sections/follow';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
-        backgroundColor: "rgba(0, 0, 0, 0)",
+        backgroundColor: theme.palette.transparent
     },
-};
+});
 
 class Main extends Component {
     constructor(props){

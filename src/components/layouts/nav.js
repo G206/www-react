@@ -21,7 +21,7 @@ const styles = theme => ({
         backgroundColor: "rgba(0,0,0,0)"
     },
     text: {
-        fontFamily: "Avengeance"
+
     },
     leftJust: {
         display: 'inline-block',
@@ -73,16 +73,12 @@ const styles = theme => ({
         backgroundColor: "rgba(255,214,0,.6)"
     },
     drawerHeader: {
-        // display: 'flex',
-        // alignItems: 'flex-start',
-        // justifyContent: 'flex-start',
         padding: '0 8px',
         ...theme.mixins.toolbar,
     },
     content: {
         flexGrow: 1,
         backgroundColor: "rgba(0,0,0,0)",
-        // backgroundColor: theme.palette.background.default,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

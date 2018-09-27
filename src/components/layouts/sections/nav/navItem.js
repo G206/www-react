@@ -4,11 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import {ListItem, ListItemIcon, ListItemText,} from '@material-ui/core';
 
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
-};
+});
 
 class NavItem extends Component {
 

@@ -5,7 +5,7 @@ import CarouselSlider from 'react-carousel-slider';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
     },
@@ -13,7 +13,7 @@ const styles = {
         height: "260px"
     },
 
-};
+});
 
 class CarouselCustomSlider extends Component {
 

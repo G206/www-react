@@ -9,7 +9,7 @@ import {portfolioList} from '../../../data/itemList';
 import CarouselNukaCustom from './slides/carouselNukaCustom';
 import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
         backgroundColor: "rgba(255, 255, 255, .6)",
@@ -27,9 +27,9 @@ const styles = {
         backgroundColor: "rgba(0, 0, 0, .2)",
         padding: "2%",
     },
-};
+});
 
-class Portfoloio extends Component {
+class Portfolio extends Component {
 
     componentWillMount() {
         configureAnchors({
@@ -84,9 +84,9 @@ class Portfoloio extends Component {
 }
 
 
-Portfoloio.propTypes = {
+Portfolio.propTypes = {
     classes: PropTypes.object,
     theme: PropTypes.object
 };
 
-export default withStyles(styles)(Portfoloio);
+export default withStyles(styles)(Portfolio);
