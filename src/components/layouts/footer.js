@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../css/master.css';
+import {Grid, Typography} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -19,8 +19,18 @@ class Footer extends Component {
         const { classes } = this.props;
         return (
             <footer className={classes.container}>
-                Copyright Gabe &copy; 2018 - This site has been created using React JS. Social Media Links Not Active Yet - Please
-                Email Gabe@w3dev.io
+                <Grid container
+                      direction="row"
+                      justify="center"
+                      alignItems="center"
+                >
+                    <Grid item xs={12}>
+                        <Typography className={classes.heading} variant="body1">
+                            Copyright Gabe &copy; 2018 - This site has been created using React JS. Social Media Links Not Active Yet - Please
+                            Email Gabe@w3dev.io
+                        </Typography>
+                    </Grid>
+                </Grid>
             </footer>
         );
     }

@@ -16,6 +16,9 @@ const styles = theme => ({
     container: {
         flexGrow: 1,
     },
+    text: {
+        color: theme.palette.primary2.main,
+    }
 });
 
 class NavList extends Component {
@@ -120,7 +123,9 @@ class NavList extends Component {
                 </NavItem>
                 <Divider/>
                 <Typography
-                variant={'title'}>
+                    variant={'title'}
+                    className={classes.text}
+                >
                     Isolated Sections
                 </Typography>
                 <Link

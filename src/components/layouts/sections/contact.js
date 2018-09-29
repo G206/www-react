@@ -10,22 +10,21 @@ import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 const styles = theme => ({
     container: {
         flexGrow: 1,
-        backgroundColor: 'rgba(0, 0, 0, .6)',
-        color: 'black',
-        margin: '15% 0'
+        backgroundColor: theme.palette.canvas,
+        color: theme.palette.primary2.main,
+        margin: '15% 0',
+        padding: "2% 0 5% 0",
     },
     innerContainer: {
 
     },
     heading: {
-        fontFamily: 'Avengeance',
-        color: 'red',
+        color: theme.palette.primary.main,
         margin: '2% 0',
         textAlign: 'center'
     },
     iconBox: {
-        // backgroundColor: 'rgba(0, 0, 0, .6)',
-        color: 'blue',
+        color: theme.palette.accent.main,
         width: '10%',
         textAlign: 'center'
     },
@@ -52,10 +51,10 @@ const styles = theme => ({
         fontSize: '1.5em'
     },
     primaryC: {
-        color: 'black'
+        color: theme.palette.primary2.main,
     },
     secondaryC: {
-        color: 'white'
+        color: theme.palette.primary3.main,
     }
 });
 

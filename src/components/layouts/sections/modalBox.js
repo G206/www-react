@@ -15,7 +15,7 @@ const styles = theme => ({
     paper: {
         margin: '84px 3% 36px 3%',
         padding: '1%',
-        backgroundColor: "white",
+        backgroundColor: theme.palette.primary3.main,
         height: '90%',
         maxHeight: '90%',
     },

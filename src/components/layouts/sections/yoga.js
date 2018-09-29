@@ -7,24 +7,25 @@ import {yogaList} from "../../../data/itemList";
 import CarouselNuka from './slides/carouselNuka';
 import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
-const styles = {
+const styles = theme => ({
     container: {
         flexGrow: 1,
-        backgroundColor: "rgba(0, 0, 0, .6)",
-        color: "white",
+        backgroundColor: theme.palette.canvas,
+        color: theme.palette.primary3.main,
         margin: "15% 0",
+        padding: "2% 0 5% 0",
     },
     heading: {
-        fontFamily: "Avengeance",
-        color: "red",
+        // fontFamily: "Avengeance",
+        color: theme.palette.primary.main,
         margin: "2% 0",
         textAlign: "center"
     },
     slides: {
-        backgroundColor: "rgba(255, 255, 255, .2)",
+        backgroundColor: theme.palette.canvas4,
         padding: "2%",
     },
-};
+});
 
 class Yoga extends Component {
     componentWillMount() {

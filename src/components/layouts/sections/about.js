@@ -9,7 +9,8 @@ const styles = theme => ({
         flexGrow: 1,
         backgroundColor: theme.palette.canvas,
         color: theme.palette.primary2.main,
-        margin: "15% 0"
+        margin: "15% 0",
+        padding: "2% 0 5% 0",
     },
     heading: {
         color: theme.palette.primary.main,
@@ -19,7 +20,7 @@ const styles = theme => ({
     paper: {
         backgroundColor: theme.palette.canvas2,
         borderStyle: "solid",
-        borderColor: theme.palette.primary3.main,
+        borderColor: theme.palette.secondary.main,
         borderWidth: "thin",
         color: theme.palette.primary2.main,
     },

@@ -28,10 +28,13 @@ const theme = createMuiTheme(
             },
             secondary:{
                 main: yellow.A700,
+                transparent: "rgba(255, 214, 0, 0.6)",
             },
             transparent: "rgba(0, 0, 0, 0)",
             canvas: "rgba(0, 0, 0, 0.6)",
             canvas2: "rgba(255, 255, 255, 0.6)",
+            canvas3: "rgba(0, 0, 0, .2)",
+            canvas4: "rgba(255, 255, 255, .2)",
             text: {
                 primary: "#ffffff",
                 secondary: "#000000",
@@ -42,18 +45,18 @@ const theme = createMuiTheme(
             "shadowColor": "rgba(255, 214, 0, 0.6)"
         },
         typography: {
-            fontFamily: "'Xolonium', 'Franklin', 'Arial', sans-serif",
+            fontFamily: "'Xolonium', 'Franklin', 'Roboto', 'Arial', sans-serif",
             display4: {
-                fontFamily: "'Avengeance', 'Franklin', 'Arial', sans-serif",
+                fontFamily: "'Avengeance', 'Franklin', 'Roboto', 'Arial', sans-serif",
             },
             display3: {
-                fontFamily: "'Avengeance', 'Franklin', 'Arial', sans-serif",
+                fontFamily: "'Avengeance', 'Franklin', 'Roboto', 'Arial', sans-serif",
             },
             display2: {
-                fontFamily: "'Avengeance', 'Franklin', 'Arial', sans-serif",
+                fontFamily: "'Avengeance', 'Franklin', 'Roboto', 'Arial', sans-serif",
             },
             display1: {
-                fontFamily: "'Avengeance', 'Franklin', 'Arial', sans-serif",
+                fontFamily: "'Avengeance', 'Franklin', 'Roboto', 'Arial', sans-serif",
             },
         },
         "appBar": {

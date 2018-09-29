@@ -18,7 +18,7 @@ const drawerWidth = 240;
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        backgroundColor: "rgba(0,0,0,0)"
+        backgroundColor: theme.palette.transparent,
     },
     text: {
 
@@ -39,7 +39,7 @@ const styles = theme => ({
         maxHeight: 60
     },
     navBar: {
-        backgroundColor: "rgba(255, 0, 0, .6)",
+        backgroundColor: theme.palette.primary.transparent,
     },
     appBar: {
         position: 'fixed',
@@ -70,7 +70,7 @@ const styles = theme => ({
     drawerPaper: {
         position: 'fixed',
         width: drawerWidth,
-        backgroundColor: "rgba(255,214,0,.6)"
+        backgroundColor: theme.palette.secondary.transparent,
     },
     drawerHeader: {
         padding: '0 8px',
@@ -78,7 +78,7 @@ const styles = theme => ({
     },
     content: {
         flexGrow: 1,
-        backgroundColor: "rgba(0,0,0,0)",
+        backgroundColor: theme.palette.transparent,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
