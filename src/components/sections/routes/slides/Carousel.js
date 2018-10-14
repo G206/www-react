@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
 import {portfolioList} from '../../../../data/itemList';
-import CarouselSlide from './carouselSlide';
-import CarouselIndicator from './carouselIndicator';
-import CarouselLeftArrow from './carouselLeftArrow';
-import CarouselRightArrow from './carouselRightArrow'
+import CarouselSlide from './CarouselSlide';
+import CarouselIndicator from './CarouselIndicator';
+import CarouselLeftArrow from './CarouselLeftArrow';
+import CarouselRightArrow from './CarouselRightArrow'
 import '../../../../css/master.css';
 
 const styles = theme => ({

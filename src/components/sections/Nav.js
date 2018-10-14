@@ -8,10 +8,10 @@ import {AppBar, Toolbar, IconButton, Typography,
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import logo from '../../images/web_design.png';
-import NavList from './sections/nav/navList';
-import Header from './header';
-import Main from './main';
-import Footer from './footer';
+import NavList from './routes/nav/NavList';
+import Header from './Header';
+import Routes from './Routes';
+import Footer from './Footer';
 
 const drawerWidth = 240;
 
@@ -202,7 +202,7 @@ class Nav extends Component {
                         )}
                     >
                         <Header/>
-                        <Main
+                        <Routes
                             portfolioIndex={this.state.portfolioIndex}
                             advancePortfolio={this.advancePortfolio}
                         />

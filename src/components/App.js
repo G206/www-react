@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Nav from './layouts/nav';
+import Nav from './sections/Nav';
 import { withStyles } from '@material-ui/core/styles';
 import {hobbyList, portfolioList, yogaList} from "../data/itemList";
 
@@ -36,7 +36,7 @@ class App extends Component {
 
     render() {
         const { classes } = this.props;
-        const assetsPath = require.context('./layouts/sections/slides/images', false, /\.(png|jpe?g|svg)$/);
+        const assetsPath = require.context('./sections/routes/slides/images', false, /\.(png|jpe?g|svg)$/);
 
         // Substituting the imgSrc from file name in .../images to their corresponding path after they are bundled.
         portfolioList.map((item, index) => {

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import {Grid, Typography} from '@material-ui/core';
 import {AccountCircle, AlternateEmail, ContactPhone, Message} from '@material-ui/icons';
-import ContactField from './contact/contactField';
-import ContactButtons from './contact/contactButtons';
+import ContactField from './contact/ContactField';
+import ContactButtons from './contact/ContactButtons';
 import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 
 const styles = theme => ({

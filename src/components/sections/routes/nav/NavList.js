@@ -6,9 +6,9 @@ import {ListItem, ListItemIcon, ListItemText,
     Divider, Typography, Collapse } from '@material-ui/core';
 import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
     ContactMail, GroupAdd, ExpandLess, ExpandMore } from '@material-ui/icons';
-import NavPortfolio from './navPortfolio';
-import NavPortfolioList from './navPortfolioList';
-import NavItem from './navItem';
+import NavPortfolio from './NavPortfolio';
+import NavPortfolioList from './NavPortfolioList';
+import NavItem from './NavItem';
 import {portfolioList} from '../../../../data/itemList';
 import {goToAnchor } from 'react-scrollable-anchor';
 

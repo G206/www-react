@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
 import {yogaList} from "../../../data/itemList";
 // import CarouselReactSlider from './slides/carouselReactSlider';
-import CarouselNuka from './slides/carouselNuka';
+import CarouselNuka from './slides/CarouselNuka';
 import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
 const styles = theme => ({

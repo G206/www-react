@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import {portfolioList} from '../../../data/itemList';
-// import Carousel from './slides/carousel';
+import {hobbyList} from "../../../data/itemList";
 // import CarouselReactSlider from './slides/carouselReactSlider';
-// import CarouselCustomSlider from './slides/carouselCustomSlider';
-import CarouselNukaCustom from './slides/carouselNukaCustom';
+import CarouselNuka from './slides/CarouselNuka';
 import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
 const styles = theme => ({
@@ -25,12 +23,11 @@ const styles = theme => ({
     },
     slides: {
         backgroundColor: theme.palette.canvas3,
-        padding: "2%",
+        padding: "2%"
     },
 });
 
-class Portfolio extends Component {
-
+class Hobbies extends Component {
     componentWillMount() {
         configureAnchors({
             offset: -72,
@@ -38,14 +35,12 @@ class Portfolio extends Component {
             keepLastAnchorHash: false
         })
     }
-
     render() {
         const { classes } = this.props;
-
         return (
             <ScrollableAnchor
-                id="portfolio"
-                name="portfolio"
+                id="hobbies"
+                name="hobbies"
             >
                 <section
                     className={classes.container}
@@ -53,40 +48,29 @@ class Portfolio extends Component {
                     <Grid container>
                         <Grid item xs={12}>
                             <Typography className={classes.heading} variant="display2">
-                                Portfolio
+                                Hobbies
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Paper className={classes.slides}>
-                                {/*<Carousel slides={portfolioList} />*/}
                                 {/*<CarouselReactSlider*/}
-                                {/*slides={portfolioList}*/}
+                                {/*slides={hobbyList}*/}
                                 {/*/>*/}
-                                {/*<CarouselCustomSlider*/}
-                                {/*slides={portfolioList}*/}
-                                {/*openModal={this.props.openModal}*/}
-                                {/*handleModalOpen={this.props.handleModalOpen}*/}
-                                {/*/>*/}
-                                <CarouselNukaCustom
-                                    slides={portfolioList}
-                                    openModal={this.props.openModal}
-                                    handleModalOpen={this.props.handleModalOpen}
-                                    portfolioIndex={this.props.portfolioIndex}
-                                    advancePortfolio={this.props.advancePortfolio}
+                                <CarouselNuka
+                                    slides={hobbyList}
                                 />
                             </Paper>
                         </Grid>
+
                     </Grid>
                 </section>
             </ScrollableAnchor>
         );
     }
 }
-
-
-Portfolio.propTypes = {
+Hobbies.propTypes = {
     classes: PropTypes.object,
     theme: PropTypes.object
 };
 
-export default withStyles(styles)(Portfolio);
+export default withStyles(styles)(Hobbies);

@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import ModalBox from './sections/modalBox';
-import Home from './sections/home';
+import ModalBox from './routes/ModalBox';
+import Home from './routes/Home';
 import { Route } from "react-router-dom";
-import About from './sections/about';
-import Portfolio from './sections/portfolio';
-import Yoga from './sections/yoga';
-import Hobbies from './sections/hobbies';
-import Contact from './sections/contact';
-import Follow from './sections/follow';
+import About from './routes/About';
+import Portfolio from './routes/Portfolio';
+import Yoga from './routes/Yoga';
+import Hobbies from './routes/Hobbies';
+import Contact from './routes/Contact';
+import Follow from './routes/Follow';
 
 const styles = theme => ({
     container: {
@@ -18,7 +18,7 @@ const styles = theme => ({
     },
 });
 
-class Main extends Component {
+class Routes extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -85,9 +85,9 @@ class Main extends Component {
         );
     }
 }
-Main.propTypes = {
+Routes.propTypes = {
     classes: PropTypes.object,
     theme: PropTypes.object
 };
 
-export default withStyles(styles)(Main);
+export default withStyles(styles)(Routes);

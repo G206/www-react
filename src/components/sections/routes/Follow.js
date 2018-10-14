@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {Grid, Paper, Typography} from '@material-ui/core';
-import FollowList from './follow/followList';
+import FollowList from './follow/FollowList';
 import ScrollableAnchor, { configureAnchors }  from 'react-scrollable-anchor';
 
 const styles = theme => ({
