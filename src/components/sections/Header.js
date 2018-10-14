@@ -14,26 +14,24 @@ const styles = theme => ({
     },
 });
 
-class Header extends Component {
-    render() {
-        const { classes } = this.props;
-        return (
-            <ScrollableAnchor
-                id="bannerWeb"
-                name="bannerWeb"
+function Header(props) {
+    const { classes } = props;
+    return (
+        <ScrollableAnchor
+            id="bannerWeb"
+            name="bannerWeb"
+        >
+            <header
+                className={classes.container}
             >
-                <header
-                    className={classes.container}
-                >
-                    <Grid container>
-                        <Grid item xs={12}>
-                            <img src={logo} className={classes.headerImg} alt="Banner Logo" />
-                        </Grid>
+                <Grid container>
+                    <Grid item xs={12}>
+                        <img src={logo} className={classes.headerImg} alt="Banner Logo" />
                     </Grid>
-                </header>
-            </ScrollableAnchor>
-        );
-    }
+                </Grid>
+            </header>
+        </ScrollableAnchor>
+    );
 }
 Header.propTypes = {
     classes: PropTypes.object,

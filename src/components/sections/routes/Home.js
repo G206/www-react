@@ -11,27 +11,24 @@ import Follow from './Follow';
 const styles = theme => ({
     container: {
         flexGrow: 1,
-        backgroundColor: theme.palette.primary2.main
     },
 });
 
-class Home extends Component {
+function Home(props) {
 
-    render() {
-        const { classes } = this.props;
+    const { classes } = props;
 
-        return (
-            <Fragment>
-                <About/>
-                <Portfolio {...this.props} />
-                <Yoga/>
-                <Hobbies/>
-                <Contact/>
-                <Follow/>
-            </Fragment>
+    return (
+        <Fragment>
+            <About/>
+            <Portfolio {...props} />
+            <Yoga/>
+            <Hobbies/>
+            <Contact/>
+            <Follow/>
+        </Fragment>
 
-        );
-    }
+    );
 }
 Home.propTypes = {
     classes: PropTypes.object,

@@ -16,7 +16,6 @@ const styles = theme => ({
         padding: "2% 0 5% 0",
     },
     heading: {
-        // fontFamily: "Avengeance",
         color: theme.palette.primary.main,
         margin: "2% 0",
         textAlign: "center"

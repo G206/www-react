@@ -32,29 +32,27 @@ const styles = theme => ({
     },
 });
 
-class App extends Component {
+function App (props) {
 
-    render() {
-        const { classes } = this.props;
-        const assetsPath = require.context('./sections/routes/slides/images', false, /\.(png|jpe?g|svg)$/);
+    const { classes } = props;
+    const assetsPath = require.context('./sections/routes/slides/images', false, /\.(png|jpe?g|svg)$/);
 
-        // Substituting the imgSrc from file name in .../images to their corresponding path after they are bundled.
-        portfolioList.map((item, index) => {
-            // console.log(assetsPath.keys(), assetsPath.id);
-            item.imgSrc = assetsPath('./' + item.imgSrc);
-        });
-        yogaList.map((item, index) => {
-            item.imgSrc = assetsPath('./' + item.imgSrc);
-        });
-        hobbyList.map((item, index) => {
-            item.imgSrc = assetsPath('./' + item.imgSrc);
-        });
-        return (
-            <div id="pageTop" className={classes.container}>
-                <Nav />
-            </div>
-        );
-    }
+    // Substituting the imgSrc from file name in .../images to their corresponding path after they are bundled.
+    portfolioList.map((item, index) => {
+        // console.log(assetsPath.keys(), assetsPath.id);
+        item.imgSrc = assetsPath('./' + item.imgSrc);
+    });
+    yogaList.map((item, index) => {
+        item.imgSrc = assetsPath('./' + item.imgSrc);
+    });
+    hobbyList.map((item, index) => {
+        item.imgSrc = assetsPath('./' + item.imgSrc);
+    });
+    return (
+        <div id="pageTop" className={classes.container}>
+            <Nav />
+        </div>
+    );
 }
 
 App.propTypes = {
