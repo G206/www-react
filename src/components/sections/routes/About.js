@@ -19,10 +19,10 @@ const styles = theme => ({
     },
     paper: {
         backgroundColor: theme.palette.canvas2,
+        color: theme.palette.primary2.main,
         borderStyle: "solid",
         borderColor: theme.palette.secondary.main,
         borderWidth: "thin",
-        color: theme.palette.primary2.main,
     },
     text: {
         padding: "5%",

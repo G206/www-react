@@ -7,23 +7,28 @@ const styles = theme => ({
     container: {
         flexGrow: 1,
         display: 'flex',
+        backgroundColor: theme.palette.transparent,
     },
+    paper: {
+        backgroundColor: theme.palette.canvas,
+    },
+    menu: {
+        color: theme.palette.primary2.main,
+    }
 
 });
 
 function NavPortfolio(props) {
-
-    // const { classes } = props;
-
+    const { classes } = props;
     const createMenuItems = props.list.map((item, index) =>
         <MenuItem
             key = {index}
             onClick={event => props.advancePortfolio(index, event)}
+            className={classes.menu}
         >
             {item.des}
         </MenuItem>
     );
-
     return (
         <ClickAwayListener onClickAway={props.handleClose}>
             <Popover
@@ -39,8 +44,9 @@ function NavPortfolio(props) {
                     vertical: 'top',
                     horizontal: 'left',
                 }}
+                className={classes.container}
             >
-                <Paper>
+                <Paper className={classes.paper}>
                     <MenuList>
                         {createMenuItems}
                     </MenuList>
