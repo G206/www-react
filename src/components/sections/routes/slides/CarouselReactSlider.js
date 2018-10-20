@@ -14,52 +14,50 @@ import CarouselSlider from 'react-carousel-slider';
 //
 // });
 
-class CarouselReactSlider extends Component {
+function CarouselReactSlider(props) {
 
-    render() {
-        // const {classes} = this.props;
-        const manner = {
-            autoSliding: {interval: "6s"},
-            duration: "2s"
-        }
+    // const {classes} = this.props;
+    const manner = {
+        autoSliding: {interval: "6s"},
+        duration: "2s"
+    };
 
-        const buttonSetting = {
-            placeOn: "middle-inside",
-            style: {
-                left: {
-                    height: "50px",
-                    width: "50px",
-                    color: "#ffd600",
-                    fontWeight: "Bold",
-                    background: "rgba(0, 0, 0, 0.8)",
-                    borderRadius: "50%",
-                },
-                right: {
-                    height: "50px",
-                    width: "50px",
-                    color: "#ffd600",
-                    fontWeight: "Bold",
-                    background: "rgba(0, 0, 0, 0.8)",
-                    borderRadius: "50%",
-                }
+    const buttonSetting = {
+        placeOn: "middle-inside",
+        style: {
+            left: {
+                height: "50px",
+                width: "50px",
+                color: "#ffd600",
+                fontWeight: "Bold",
+                background: "rgba(0, 0, 0, 0.8)",
+                borderRadius: "50%",
+            },
+            right: {
+                height: "50px",
+                width: "50px",
+                color: "#ffd600",
+                fontWeight: "Bold",
+                background: "rgba(0, 0, 0, 0.8)",
+                borderRadius: "50%",
             }
         }
+    };
 
-        const sliderBoxStyle = {
-            background: "rgba(0,0,0,0)",
-            width: "100%",
-            height: "480px"
-        }
+    const sliderBoxStyle = {
+        background: "rgba(0,0,0,0)",
+        width: "100%",
+        height: "480px"
+    };
 
-        return (
-            <CarouselSlider
-                slideItems = {this.props.slides}
-                manner = {manner}
-                buttonSetting = {buttonSetting}
-                sliderBoxStyle = {sliderBoxStyle}
-            />
-        );
-    }
+    return (
+        <CarouselSlider
+            slideItems = {props.slides}
+            manner = {manner}
+            buttonSetting = {buttonSetting}
+            sliderBoxStyle = {sliderBoxStyle}
+        />
+    );
 }
 
 CarouselReactSlider.propTypes = {

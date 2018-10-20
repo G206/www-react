@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import {Grid, Paper, FormControl, Input, InputLabel} from '@material-ui/core';
@@ -8,37 +8,34 @@ const styles = theme => ({
 
 });
 
-class ContactField extends Component {
-    render() {
-
-        return (
-            <Paper className={this.props.classPaper}>
-                <Grid container
-                      direction="row"
-                      spacing={16}
-                      justify="flex-start"
-                      alignItems="flex-end">
-                    <Grid item className={this.props.classIconBox}>
-                        {this.props.children}
-                    </Grid>
-                    <Grid item className={this.props.classInputBox}>
-                        <FormControl className={this.props.classForm}>
-                            <InputLabel htmlFor="contactName">{this.props.label}</InputLabel>
-                            <Input id={this.props.id}
-                                   fullWidth
-                                   type="text"
-                                   value={this.props.contactField}
-                                   onChange={this.props.handleInput}
-                                   multiline={this.props.multiline}
-                                   rowsMax={this.props.rowsMax}
-                                   className={this.props.classFormField}
-                            />
-                        </FormControl>
-                    </Grid>
+function ContactField(props) {
+    return (
+        <Paper className={props.classPaper}>
+            <Grid container
+                  direction="row"
+                  spacing={16}
+                  justify="flex-start"
+                  alignItems="flex-end">
+                <Grid item className={props.classIconBox}>
+                    {props.children}
                 </Grid>
-            </Paper>
-        );
-    }
+                <Grid item className={props.classInputBox}>
+                    <FormControl className={props.classForm}>
+                        <InputLabel htmlFor="contactName">{props.label}</InputLabel>
+                        <Input id={props.id}
+                               fullWidth
+                               type="text"
+                               value={props.contactField}
+                               onChange={props.handleInput}
+                               multiline={props.multiline}
+                               rowsMax={props.rowsMax}
+                               className={props.classFormField}
+                        />
+                    </FormControl>
+                </Grid>
+            </Grid>
+        </Paper>
+    );
 }
 
 ContactField.propTypes = {

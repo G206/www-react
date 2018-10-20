@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {ListItem, ListItemIcon, ListItemText,} from '@material-ui/core';
@@ -10,30 +10,27 @@ const styles = theme => ({
     },
 });
 
-class NavItem extends Component {
+function NavItem(props) {
 
-    render() {
-        const { classes } = this.props;
+    // const { classes } = props;
 
-        return (
-            <ListItem
-                button
-                onClick={() => {
-                    this.props.scrollToAnchor(this.props.anchor);
-                }}
-            >
-                <ListItemIcon>
-                    {this.props.children}
-                </ListItemIcon>
-                <ListItemText primary={this.props.text} />
-            </ListItem>
-        );
-
-    }
+    return (
+        <ListItem
+            button
+            onClick={() => {
+                props.scrollToAnchor(props.anchor);
+            }}
+        >
+            <ListItemIcon>
+                {props.children}
+            </ListItemIcon>
+            <ListItemText primary={props.text} />
+        </ListItem>
+    );
 }
 
 NavItem.propTypes = {
-    classes: PropTypes.object,
+    // classes: PropTypes.object,
     theme: PropTypes.object
 };
 

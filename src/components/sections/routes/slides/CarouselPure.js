@@ -17,34 +17,31 @@ const styles = theme => ({
 
 });
 
-class CarouselPure extends Component {
+function CarouselPure(props) {
 
-    render() {
+    const { classes } = props;
 
-        const { classes } = this.props;
+    return (
+        <CarouselProvider
+            naturalSlideWidth={100}
+            naturalSlideHeight={125}
+            totalSlides={3}
+        >
+            <Slider>
+                <Slide index={0} className={classes.slideImage}>I am the first Slide.</Slide>
+                <Slide index={1} className={classes.slideImage}>I am the second Slide.</Slide>
+                <Slide index={2} className={classes.slideImage}>I am the third Slide.</Slide>
+            </Slider>
+            <DotGroup/>
+            {/*<Dot slide={0}/>*/}
+            {/*<Dot slide={1}/>*/}
+            {/*<Dot slide={2}/>*/}
 
-        return (
-            <CarouselProvider
-                naturalSlideWidth={100}
-                naturalSlideHeight={125}
-                totalSlides={3}
-            >
-                <Slider>
-                    <Slide index={0} className={classes.slideImage}>I am the first Slide.</Slide>
-                    <Slide index={1} className={classes.slideImage}>I am the second Slide.</Slide>
-                    <Slide index={2} className={classes.slideImage}>I am the third Slide.</Slide>
-                </Slider>
-                <DotGroup/>
-                    {/*<Dot slide={0}/>*/}
-                    {/*<Dot slide={1}/>*/}
-                    {/*<Dot slide={2}/>*/}
 
-                
-                <ButtonBack>Back</ButtonBack>
-                <ButtonNext>Next</ButtonNext>
-            </CarouselProvider>
-        );
-    }
+            <ButtonBack>Back</ButtonBack>
+            <ButtonNext>Next</ButtonNext>
+        </CarouselProvider>
+    );
 }
 
 CarouselPure.propTypes = {

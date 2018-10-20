@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Carousel from 'nuka-carousel';
@@ -28,49 +28,46 @@ const styles = theme => ({
 
 });
 
-class CarouselNukaCustom extends Component {
+function CarouselNukaCustom(props) {
 
-    render() {
-
-        const { classes } = this.props;
-        const customSlideCpnts = this.props.slides.map((item, index) =>
-            <div
-                key = {index}
-                onClick={event => this.props.handleModalOpen(item.href,
-                    item.width, item.height, event)}
+    const { classes } = props;
+    const customSlideCpnts = props.slides.map((item, index) =>
+        <div
+            key = {index}
+            onClick={event => props.handleModalOpen(item.href,
+                item.width, item.height, event)}
+        >
+            <img
+                src = {item.imgSrc}
+                alt = {item.alt}
+                id = {item.id}
+                className={classes.slideImage}
+            />
+            <p
+                className={classes.caption}
             >
-                <img
-                    src = {item.imgSrc}
-                    alt = {item.alt}
-                    id = {item.id}
-                    className={classes.slideImage}
-                />
-                <p
-                    className={classes.caption}
-                >
-                    {item.des}
-                </p>
-            </div>
-        );
-        return (
-            <Carousel
-                slidesToShow={3}
-                cellAlign="center"
-                // autoplay={true}
-                // autoplayInterval={6000}
-                cellSpacing={24}
-                heightMode={'max'}
-                speed={1000}
-                dragging={true}
-                swiping={true}
-                wrapAround={true}
-                slideIndex={this.props.portfolioIndex}
-                afterSlide={slideIndex => this.props.advancePortfolio(slideIndex)}
-            >
-                {customSlideCpnts}
-            </Carousel>
-        );
-    }
+                {item.des}
+            </p>
+        </div>
+    );
+    return (
+        <Carousel
+            slidesToShow={3}
+            cellAlign="center"
+            // autoplay={true}
+            // autoplayInterval={6000}
+            cellSpacing={24}
+            heightMode={'max'}
+            speed={1000}
+            dragging={true}
+            swiping={true}
+            wrapAround={true}
+            slideIndex={props.portfolioIndex}
+            afterSlide={slideIndex => props.advancePortfolio(slideIndex)}
+        >
+            {customSlideCpnts}
+        </Carousel>
+    );
 }
 
 CarouselNukaCustom.propTypes = {

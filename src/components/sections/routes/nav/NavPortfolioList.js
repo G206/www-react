@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {List, ListItem, ListItemText, ListItemIcon} from '@material-ui/core';
@@ -25,36 +25,34 @@ const styles = theme => ({
     },
 });
 
-class NavPortfolioList extends Component {
+function NavPortfolioList(props) {
 
-    render() {
-        const { classes } = this.props;
+    const { classes } = props;
 
-        const createMenuItems = this.props.list.map((item, index) =>
-            <ListItem
-                key = {index}
-                button
-                className={classes.nested}
-                onClick={event => this.props.advancePortfolio(index, event)}
+    const createMenuItems = props.list.map((item, index) =>
+        <ListItem
+            key = {index}
+            button
+            className={classes.nested}
+            onClick={event => props.advancePortfolio(index, event)}
+        >
+            <ListItemIcon
+                className={classes.icon}
             >
-                <ListItemIcon
-                    className={classes.icon}
-                >
-                    <AssignmentTurnedInTwoTone/>
-                </ListItemIcon>
-                <ListItemText
-                    primary={item.des}
-                    className={classes.text}
-                />
-            </ListItem>
-        );
+                <AssignmentTurnedInTwoTone/>
+            </ListItemIcon>
+            <ListItemText
+                primary={item.des}
+                className={classes.text}
+            />
+        </ListItem>
+    );
 
-        return (
-            <List component="div" disablePadding>
-                {createMenuItems}
-            </List>
-        );
-    }
+    return (
+        <List component="div" disablePadding>
+            {createMenuItems}
+        </List>
+    );
 }
 
 NavPortfolioList.propTypes = {

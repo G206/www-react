@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Carousel from 'nuka-carousel';
@@ -28,42 +28,40 @@ const styles = theme => ({
 
 });
 
-class CarouselNuka extends Component {
+function CarouselNuka(props) {
 
-    render() {
-        const { classes } = this.props;
-        const customSlideCpnts = this.props.slides.map((item, index) =>
-            <div
-                key = {index}
-            >
-                <img
-                    src = {item.imgSrc}
-                    alt = {item.alt}
-                    id = {item.id}
-                    className={classes.slideImage}
-                />
-                <p
-                    className={classes.caption}
-                >{item.des}</p>
-            </div>
-        );
-        return (
-            <Carousel
-                slidesToShow={3}
-                cellAlign="center"
-                autoplay={true}
-                autoplayInterval={6000}
-                cellSpacing={24}
-                heightMode={'max'}
-                speed={1000}
-                dragging={true}
-                swiping={true}
-                wrapAround={true}
-            >
-                {customSlideCpnts}
-            </Carousel>
-        );
-    }
+    const { classes } = props;
+    const customSlideCpnts = props.slides.map((item, index) =>
+        <div
+            key = {index}
+        >
+            <img
+                src = {item.imgSrc}
+                alt = {item.alt}
+                id = {item.id}
+                className={classes.slideImage}
+            />
+            <p
+                className={classes.caption}
+            >{item.des}</p>
+        </div>
+    );
+    return (
+        <Carousel
+            slidesToShow={3}
+            cellAlign="center"
+            autoplay={true}
+            autoplayInterval={6000}
+            cellSpacing={24}
+            heightMode={'max'}
+            speed={1000}
+            dragging={true}
+            swiping={true}
+            wrapAround={true}
+        >
+            {customSlideCpnts}
+        </Carousel>
+    );
 }
 
 CarouselNuka.propTypes = {

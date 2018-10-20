@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from "@material-ui/core/styles/index";
 import {ArrowForwardIos} from '@material-ui/icons';
@@ -10,19 +10,17 @@ const styles = theme => ({
     },
 });
 
-class CarouselRightArrow extends Component {
-    render() {
-        const { classes } = this.props;
-        return (
-            <a
-                href="#"
-                className="carousel__arrow carousel__arrow--right"
-                onClick={this.props.onClick}
-            >
-                <ArrowForwardIos/>
-            </a>
-        );
-    }
+function CarouselRightArrow(props) {
+    const { classes } = props;
+    return (
+        <a
+            href="#"
+            className="carousel__arrow carousel__arrow--right"
+            onClick={props.onClick}
+        >
+            <ArrowForwardIos/>
+        </a>
+    );
 }
 
 CarouselRightArrow.propTypes = {

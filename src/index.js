@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './css/master.css';
 import App from './components/App';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import {red, grey, deepPurple, yellow} from '@material-ui/core/colors';
+import {red, deepPurple, yellow} from '@material-ui/core/colors';
 import registerServiceWorker from './registerServiceWorker';
 
 const theme = createMuiTheme(

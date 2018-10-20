@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {withStyles} from '@material-ui/core/styles';
@@ -10,49 +10,46 @@ const styles = theme => ({
 
 });
 
-class ContactButtons extends Component {
-    render() {
-
-        return (
-            <Grid container
-                  direction="row"
-                  spacing={16}
-                  justify="space-between"
-                  alignItems="center">
-                <Grid item xs className={this.props.classBtnBox}>
-                    <a
-                        href={this.props.mailToLink}
-                        onClick={event => this.props.handleSubmit(event)}
-                    >
-                        <Button variant="contained"
-                                size="large"
-                                id="btnSubmit"
-                                color="primary"
-                                type="button"
-                                className={classNames(this.props.classButton, this.props.classPrimaryC)}
-                        >
-                            Send Message
-                            <Send/>
-                        </Button>
-                    </a>
-
-                </Grid>
-                <Grid item xs className={this.props.classBtnBox}>
+function ContactButtons(props) {
+    return (
+        <Grid container
+              direction="row"
+              spacing={16}
+              justify="space-between"
+              alignItems="center">
+            <Grid item xs className={props.classBtnBox}>
+                <a
+                    href={props.mailToLink}
+                    onClick={event => props.handleSubmit(event)}
+                >
                     <Button variant="contained"
                             size="large"
-                            id="btnReset"
-                            color="secondary"
-                            type="reset"
-                            onClick={event => this.props.handleReset(event)}
-                            className={classNames(this.props.classButton, this.props.classSecondaryC)}
+                            id="btnSubmit"
+                            color="primary"
+                            type="button"
+                            className={classNames(props.classButton, props.classPrimaryC)}
                     >
-                        Reset Form
-                        <Clear/>
+                        Send Message
+                        <Send/>
                     </Button>
-                </Grid>
+                </a>
+
             </Grid>
-        );
-    }
+            <Grid item xs className={props.classBtnBox}>
+                <Button variant="contained"
+                        size="large"
+                        id="btnReset"
+                        color="secondary"
+                        type="reset"
+                        onClick={event => props.handleReset(event)}
+                        className={classNames(props.classButton, props.classSecondaryC)}
+                >
+                    Reset Form
+                    <Clear/>
+                </Button>
+            </Grid>
+        </Grid>
+    );
 }
 
 ContactButtons.propTypes = {

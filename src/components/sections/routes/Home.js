@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import About from './About';
@@ -16,7 +16,7 @@ const styles = theme => ({
 
 function Home(props) {
 
-    const { classes } = props;
+    // const { classes } = props;
 
     return (
         <Fragment>
@@ -31,7 +31,7 @@ function Home(props) {
     );
 }
 Home.propTypes = {
-    classes: PropTypes.object,
+    // classes: PropTypes.object,
     theme: PropTypes.object
 };
 
