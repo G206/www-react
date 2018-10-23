@@ -8,7 +8,7 @@ import {AppBar, Toolbar, IconButton, Typography,
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import logo from '../../images/web_design.png';
-import NavList from './routes/nav/NavList';
+import NavList from './nav/NavList';
 import Header from './Header';
 import Routes from './Routes';
 import Footer from './Footer';

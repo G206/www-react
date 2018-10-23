@@ -30,8 +30,11 @@ function NavPortfolio(props) {
         </MenuItem>
     );
     return (
-        <ClickAwayListener onClickAway={props.handleClose}>
+        <ClickAwayListener
+            onClickAway={props.handleClose}
+        >
             <Popover
+                className={classes.container}
                 open={props.open}
                 onClose={props.handleClose}
                 anchorEl={props.anchorEl}
@@ -44,7 +47,6 @@ function NavPortfolio(props) {
                     vertical: 'top',
                     horizontal: 'left',
                 }}
-                className={classes.container}
             >
                 <Paper className={classes.paper}>
                     <MenuList>

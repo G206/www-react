@@ -10,18 +10,27 @@ const styles = theme => ({
     container: {
         flexGrow: 1,
         maxWidth: '100%',
-        maxHeight: '95%'
+        maxHeight: '95%',
+        backgroundColor: theme.palette.transparent,
+        color: theme.palette.primary2.main,
     },
     paper: {
         margin: '84px 3% 36px 3%',
         padding: '1%',
-        backgroundColor: theme.palette.primary3.main,
+        backgroundColor: theme.palette.canvas6,
+        color: theme.palette.primary2.main,
         height: '90%',
         maxHeight: '90%',
     },
     frame: {
         maxWidth: '100%',
         maxHeight: '90%',
+    },
+    title: {
+        color: theme.palette.accent.main,
+    },
+    text: {
+        color: theme.palette.primary2.main,
     }
 });
 
@@ -46,10 +55,16 @@ class ModalBox extends Component {
                         height: this.props.frameH + '220px',
                     }}
                 >
-                    <Typography variant="display1">
+                    <Typography
+                        variant="display1"
+                        className={classes.title}
+                    >
                         Project or Assignment is displayed below.
                     </Typography>
-                    <Typography variant="headline">
+                    <Typography
+                        variant="headline"
+                        className={classes.text}
+                    >
                         Most assignments and projects display correctly when viewed
                         from a desktop PC and Not using any display Scaling.
                         Please <a href={'http:/' + this.props.modalURL} id='aModalIframe'

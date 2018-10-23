@@ -9,7 +9,7 @@ import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
 import NavPortfolio from './NavPortfolio';
 import NavPortfolioList from './NavPortfolioList';
 import NavItem from './NavItem';
-import {portfolioList} from '../../../../data/itemList';
+import {portfolioList} from '../../../data/itemList';
 import {goToAnchor } from 'react-scrollable-anchor';
 
 const styles = theme => ({
