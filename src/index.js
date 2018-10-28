@@ -39,9 +39,11 @@ const theme = createMuiTheme(
             canvas6: "rgba(255, 255, 255, .9)",
             text: {
                 primary: "#ffffff",
-                secondary: "#000000",
+                alternate: "#000000",
+                secondary: yellow.A700,
                 disabled: "#00c853",
-                alternate: "#d50000",
+                main: "#d50000",
+                accent: deepPurple.A700,
             },
             "pickerHeaderColor": "rgba(255, 255, 255, 0.6)",
             "shadowColor": "rgba(255, 214, 0, 0.6)"

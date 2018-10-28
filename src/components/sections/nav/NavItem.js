@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {ListItem, ListItemIcon, ListItemText,} from '@material-ui/core';
+import {ListItem, ListItemIcon, Typography} from '@material-ui/core';
 
 
 const styles = theme => ({
@@ -24,7 +24,16 @@ function NavItem(props) {
             <ListItemIcon>
                 {props.children}
             </ListItemIcon>
-            <ListItemText primary={props.text} />
+            <Typography
+                variant={"subheading"}
+                className={props.textColor}
+            >
+                {props.text}
+            </Typography>
+            {/*<ListItemText*/}
+                {/*primary={props.text}*/}
+                {/*classes={props.textColor}*/}
+            {/*/>*/}
         </ListItem>
     );
 }

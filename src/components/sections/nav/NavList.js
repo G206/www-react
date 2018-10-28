@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-import {ListItem, ListItemIcon, ListItemText,
+import {ListItem, ListItemIcon,
     Divider, Typography, Collapse } from '@material-ui/core';
 import {Home, Work, Web, AccessibilityNew, PhotoLibrary,
     ContactMail, GroupAdd, ExpandLess, ExpandMore } from '@material-ui/icons';
@@ -18,7 +18,25 @@ const styles = theme => ({
     },
     text: {
         color: theme.palette.primary2.main,
-    }
+    },
+    textColorPrimary:{
+        color: theme.palette.text.primary
+    },
+    textColorAlternate:{
+        color: theme.palette.text.alternate
+    },
+    textColorSecondary:{
+        color: theme.palette.text.secondary
+    },
+    textColorDisabled:{
+        color: theme.palette.text.disabled
+    },
+    textColorMain:{
+        color: theme.palette.text.main
+    },
+    textColorAccent: {
+        color: theme.palette.text.accent
+    },
 });
 
 class NavList extends Component {
@@ -62,10 +80,17 @@ class NavList extends Component {
 
         return (
             <div>
+                <Typography
+                    variant={'title'}
+                    className={classes.text}
+                >
+                    Scrollable Sections
+                </Typography>
                 <NavItem
                     scrollToAnchor={this.scrollToAnchor}
                     anchor={"bannerWeb"}
                     text={"Home"}
+                    textColor={classes.textColorPrimary}
                 >
                     <Home />
                 </NavItem>
@@ -74,6 +99,7 @@ class NavList extends Component {
                     scrollToAnchor={this.scrollToAnchor}
                     anchor={"about"}
                     text={"About"}
+                    textColor={classes.textColorMain}
                 >
                     <Work />
                 </NavItem>
@@ -89,13 +115,19 @@ class NavList extends Component {
                     <ListItemIcon>
                         <Web/>
                     </ListItemIcon>
-                    <ListItemText primary="Portfolio" />
+                    <Typography
+                        variant={"subheading"}
+                        className={classes.textColorMain}
+                    >
+                        Portfolio
+                    </Typography>
                 </ListItem>
                 <Divider/>
                 <NavItem
                     scrollToAnchor={this.scrollToAnchor}
                     anchor={"yoga"}
                     text={"Yoga"}
+                    textColor={classes.textColorMain}
                 >
                     <AccessibilityNew />
                 </NavItem>
@@ -103,6 +135,7 @@ class NavList extends Component {
                     scrollToAnchor={this.scrollToAnchor}
                     anchor={"hobbies"}
                     text={"Hobbies"}
+                    textColor={classes.textColorMain}
                 >
                     <PhotoLibrary />
                 </NavItem>
@@ -111,6 +144,7 @@ class NavList extends Component {
                     scrollToAnchor={this.scrollToAnchor}
                     anchor={"contact"}
                     text={"Contact"}
+                    textColor={classes.textColorMain}
                 >
                     <ContactMail />
                 </NavItem>
@@ -118,6 +152,7 @@ class NavList extends Component {
                     scrollToAnchor={this.scrollToAnchor}
                     anchor={"followMe"}
                     text={"Follow Me"}
+                    textColor={classes.textColorMain}
                 >
                     <GroupAdd />
                 </NavItem>
@@ -135,6 +170,7 @@ class NavList extends Component {
                         scrollToAnchor={this.scrollToAnchor}
                         anchor={null}
                         text={"Home - All Sections"}
+                        textColor={classes.textColorAccent}
                     >
                         <Home />
                     </NavItem>
@@ -162,7 +198,11 @@ class NavList extends Component {
                         <ListItemIcon>
                             <Web/>
                         </ListItemIcon>
-                        <ListItemText primary="Portfolio" />
+                        <Typography
+                            variant={"subheading"}
+                        >
+                            Portfolio
+                        </Typography>
                         {this.state.openNest ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                 </Link>
