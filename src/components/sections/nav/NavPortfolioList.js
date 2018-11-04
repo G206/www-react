@@ -1,7 +1,8 @@
 import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import {List, ListItem, ListItemText, ListItemIcon} from '@material-ui/core';
+import {List, ListItem, ListItemText, ListItemIcon, Typography} from '@material-ui/core';
 import {AssignmentTurnedInTwoTone } from '@material-ui/icons';
 
 const styles = theme => ({
@@ -41,10 +42,17 @@ function NavPortfolioList(props) {
             >
                 <AssignmentTurnedInTwoTone/>
             </ListItemIcon>
-            <ListItemText
-                primary={item.des}
-                className={classes.text}
-            />
+            {/*<ListItemText*/}
+                {/*primary={item.des}*/}
+                {/*className={props.textColor}*/}
+                {/*// className={classes.text}*/}
+            {/*/>*/}
+            <Typography
+                variant={"subheading"}
+                className={classNames(props.textColor,classes.text)}
+            >
+                {item.des}
+            </Typography>
         </ListItem>
     );
 

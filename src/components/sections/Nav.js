@@ -21,7 +21,7 @@ const styles = theme => ({
         backgroundColor: theme.palette.transparent,
     },
     text: {
-
+        color: theme.palette.text.accent,
     },
     leftJust: {
         display: 'inline-block',

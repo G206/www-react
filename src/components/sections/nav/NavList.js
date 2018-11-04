@@ -25,9 +25,6 @@ const styles = theme => ({
     textColorAlternate:{
         color: theme.palette.text.alternate
     },
-    textColorSecondary:{
-        color: theme.palette.text.secondary
-    },
     textColorDisabled:{
         color: theme.palette.text.disabled
     },
@@ -84,7 +81,7 @@ class NavList extends Component {
                     variant={'title'}
                     className={classes.text}
                 >
-                    Scrollable Sections
+                    Scrolled Sections
                 </Typography>
                 <NavItem
                     scrollToAnchor={this.scrollToAnchor}
@@ -117,7 +114,7 @@ class NavList extends Component {
                     </ListItemIcon>
                     <Typography
                         variant={"subheading"}
-                        className={classes.textColorMain}
+                        className={classes.textColorAccent}
                     >
                         Portfolio
                     </Typography>
@@ -182,6 +179,7 @@ class NavList extends Component {
                         scrollToAnchor={this.scrollToAnchor}
                         anchor={null}
                         text={"About"}
+                        textColor={classes.textColorDisabled}
                     >
                         <Work />
                     </NavItem>
@@ -200,6 +198,7 @@ class NavList extends Component {
                         </ListItemIcon>
                         <Typography
                             variant={"subheading"}
+                            className={classes.textColorPrimary}
                         >
                             Portfolio
                         </Typography>
@@ -210,6 +209,7 @@ class NavList extends Component {
                     <NavPortfolioList
                         list={portfolioList}
                         advancePortfolio={this.props.advancePortfolio}
+                        textColor={classes.textColorAccent}
                     />
                 </Collapse>
                 <Link
@@ -219,6 +219,7 @@ class NavList extends Component {
                         scrollToAnchor={this.scrollToAnchor}
                         anchor={null}
                         text={"Yoga"}
+                        textColor={classes.textColorDisabled}
                     >
                         <AccessibilityNew />
                     </NavItem>
@@ -230,6 +231,7 @@ class NavList extends Component {
                         scrollToAnchor={this.scrollToAnchor}
                         anchor={null}
                         text={"Hobbies"}
+                        textColor={classes.textColorDisabled}
                     >
                         <PhotoLibrary />
                     </NavItem>
@@ -241,6 +243,7 @@ class NavList extends Component {
                         scrollToAnchor={this.scrollToAnchor}
                         anchor={null}
                         text={"Contact"}
+                        textColor={classes.textColorDisabled}
                     >
                         <ContactMail />
                     </NavItem>
@@ -252,6 +255,7 @@ class NavList extends Component {
                         scrollToAnchor={this.scrollToAnchor}
                         anchor={null}
                         text={"Follow Me"}
+                        textColor={classes.textColorDisabled}
                     >
                         <GroupAdd />
                     </NavItem>
@@ -263,6 +267,7 @@ class NavList extends Component {
                     list={portfolioList}
                     anchorEl = {this.anchorEl}
                     advancePortfolio={this.props.advancePortfolio}
+                    textColor={classes.textColorPrimary}
                 >
                 </NavPortfolio>
             </div>

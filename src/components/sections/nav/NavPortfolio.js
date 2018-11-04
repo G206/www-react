@@ -12,9 +12,6 @@ const styles = theme => ({
     paper: {
         backgroundColor: theme.palette.canvas,
     },
-    menu: {
-        color: theme.palette.primary2.main,
-    }
 
 });
 
@@ -24,7 +21,7 @@ function NavPortfolio(props) {
         <MenuItem
             key = {index}
             onClick={event => props.advancePortfolio(index, event)}
-            className={classes.menu}
+            className={props.textColor}
         >
             {item.des}
         </MenuItem>
