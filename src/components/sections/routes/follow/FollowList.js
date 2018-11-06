@@ -11,8 +11,11 @@ const styles = theme => ({
         flexGrow: 1,
     },
     modalBox: {
-        padding: "1%",
-        maxWidth: "1170px"
+        padding: "2%",
+        maxWidth: "960px",
+    },
+    modalItem: {
+        width: "100%",
     },
     mediaContainer: {
         margin: "1% 0"
@@ -28,6 +31,15 @@ const styles = theme => ({
     },
     icon: {
         textAlign: "center",
+        color: theme.palette.text.accent,
+    },
+    text: {
+        color: theme.palette.text.alternate,
+    },
+    paper: {
+        borderStyle: "solid",
+        borderColor: theme.palette.secondary.main,
+        borderWidth: "thin",
     }
 
 });
@@ -98,6 +110,7 @@ class FollowList extends Component {
                     <Popover
                         open={this.state.open}
                         onClose={this.handleClose}
+                        className={classes.paper}
                         anchorEl={this.anchorEl}
                         anchorReference={'anchorEl'}
                         anchorOrigin={{
@@ -116,11 +129,16 @@ class FollowList extends Component {
                               spacing={40}
                               className={classes.modalBox}
                         >
-                            <Grid item xs={10}>
-                                <Typography variant="title">
+                            <Grid item xs={12}
+                                  className={classes.modalItem}
+                            >
+                                <Typography
+                                    variant="title"
+                                    className={classes.text}
+                                >
                                     Currently, I am not on social media and therefore the links to the various social media sites do not
                                     currently work. Please email me directly at gabe@w3dev.io with any inquiries you might have. You
-                                    can optionally also use the contact form above to prepopulate your email message. Eventually, I plan
+                                    can optionally also use the contact form above to help you to start your email message. Eventually, I plan
                                     on using social media for my various hobbies and to update the links as I create the profiles. Thank
                                     you...Gabe
                                 </Typography>

@@ -14,7 +14,6 @@ const styles = theme => ({
         padding: "2% 0 5% 0",
     },
     heading: {
-        // fontFamily: "Avengeance",
         color: theme.palette.primary.main,
         margin: "2% 0",
         textAlign: "center"
@@ -22,8 +21,7 @@ const styles = theme => ({
     text: {
         padding: "3% 2%",
         backgroundColor: theme.palette.canvas,
-        color: theme.palette.primary3.main,
-        // fontFamily: "Xolonium",
+        color: theme.palette.text.primary,
         textAlign: "center"
     },
     mediaBox: {
