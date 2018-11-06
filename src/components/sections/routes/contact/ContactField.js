@@ -21,7 +21,12 @@ function ContactField(props) {
                 </Grid>
                 <Grid item className={props.classInputBox}>
                     <FormControl className={props.classForm}>
-                        <InputLabel htmlFor="contactName">{props.label}</InputLabel>
+                        <InputLabel
+                            className={props.classLabel}
+                            htmlFor="contactName"
+                        >
+                            {props.label}
+                        </InputLabel>
                         <Input id={props.id}
                                fullWidth
                                type="text"
@@ -40,11 +45,12 @@ function ContactField(props) {
 
 ContactField.propTypes = {
     classes: PropTypes.object,
-    classPaper: PropTypes.string,
-    classIconBox: PropTypes.string,
-    classInputBox: PropTypes.string,
-    classForm: PropTypes.string,
-    classFormField: PropTypes.string,
+    classPaper: PropTypes.object,
+    classIconBox: PropTypes.object,
+    classInputBox: PropTypes.object,
+    classForm: PropTypes.object,
+    classFormField: PropTypes.object,
+    classLabel: PropTypes.object,
     label: PropTypes.string,
     id: PropTypes.string,
     contactField: PropTypes.string,

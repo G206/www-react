@@ -24,6 +24,9 @@ const styles = theme => ({
     slides: {
         backgroundColor: theme.palette.canvas4,
         padding: "2%",
+        borderStyle: "solid",
+        borderColor: theme.palette.secondary.main,
+        borderWidth: "thin",
     },
 });
 

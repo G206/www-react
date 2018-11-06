@@ -54,10 +54,10 @@ function ContactButtons(props) {
 
 ContactButtons.propTypes = {
     classes: PropTypes.object,
-    classBtnBox: PropTypes.string,
-    classButton: PropTypes.string,
-    classPrimaryC: PropTypes.string,
-    classSecondaryC: PropTypes.string,
+    classBtnBox: PropTypes.object,
+    classButton: PropTypes.object,
+    classPrimaryC: PropTypes.object,
+    classSecondaryC: PropTypes.object,
     label: PropTypes.string,
     id: PropTypes.string,
     contactField: PropTypes.string,

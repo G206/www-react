@@ -22,7 +22,10 @@ const styles = theme => ({
     },
     slides: {
         backgroundColor: theme.palette.canvas3,
-        padding: "2%"
+        padding: "2%",
+        borderStyle: "solid",
+        borderColor: theme.palette.accent.main,
+        borderWidth: "thin",
     },
 });
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { withStyles } from '@material-ui/core/styles';
 import {Paper, Typography, Modal} from '@material-ui/core';
 import Iframe from 'react-iframe';
@@ -21,10 +20,18 @@ const styles = theme => ({
         color: theme.palette.primary2.main,
         height: '90%',
         maxHeight: '90%',
+        borderStyle: "solid",
+        borderColor: theme.palette.text.disabled,
+        borderWidth: "thin",
     },
     frame: {
         maxWidth: '100%',
         maxHeight: '90%',
+        marginTop: '1%',
+        padding: '1% 0',
+        borderStyle: "solid",
+        borderColor: theme.palette.accent.main,
+        borderWidth: "thin",
     },
     title: {
         color: theme.palette.accent.main,

@@ -15,9 +15,6 @@ const styles = theme => ({
         margin: '15% 0',
         padding: "2% 0 5% 0",
     },
-    innerContainer: {
-
-    },
     heading: {
         color: theme.palette.primary.main,
         margin: '2% 0',
@@ -32,7 +29,7 @@ const styles = theme => ({
         fontSize: '2.5em'
     },
     inputBox: {
-        width: '85%'
+        width: '85%',
     },
     form: {
         width: '100%'
@@ -42,6 +39,9 @@ const styles = theme => ({
     },
     paper: {
         margin: '1% 0 3% 0',
+        borderStyle: "solid",
+        borderColor: theme.palette.secondary.main,
+        borderWidth: "thin",
     },
     btnBox: {
 
@@ -51,11 +51,11 @@ const styles = theme => ({
         fontSize: '1.5em'
     },
     primaryC: {
-        color: theme.palette.primary2.main,
+        color: theme.palette.text.primary,
     },
     secondaryC: {
-        color: theme.palette.primary3.main,
-    }
+        color: theme.palette.text.alternate,
+    },
 });
 
 class Contact extends Component {
@@ -136,6 +136,7 @@ class Contact extends Component {
                                             classInputBox={classes.inputBox}
                                             classForm={classes.form}
                                             classFormField={classes.formField}
+                                            classLabel={classes.secondaryC}
                                             label="Enter Your Name"
                                             id="contactName"
                                             contactField={this.state.contactName}
@@ -151,6 +152,7 @@ class Contact extends Component {
                                             classInputBox={classes.inputBox}
                                             classForm={classes.form}
                                             classFormField={classes.formField}
+                                            classLabel={classes.secondaryC}
                                             label="Enter Your Email"
                                             id="contactEmail"
                                             contactField={this.state.contactEmail}
@@ -166,6 +168,7 @@ class Contact extends Component {
                                             classInputBox={classes.inputBox}
                                             classForm={classes.form}
                                             classFormField={classes.formField}
+                                            classLabel={classes.secondaryC}
                                             label="Enter Your Phone Number"
                                             id="contactPhone"
                                             contactField={this.state.contactPhone}
@@ -181,6 +184,7 @@ class Contact extends Component {
                                             classInputBox={classes.inputBox}
                                             classForm={classes.form}
                                             classFormField={classes.formField}
+                                            classLabel={classes.secondaryC}
                                             label="Enter Your Message"
                                             id="contactMessage"
                                             contactField={this.state.contactMessage}
