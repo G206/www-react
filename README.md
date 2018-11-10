@@ -1,3 +1,8 @@
+# Gabe's Personal Website
+## Written using ReactJS
+### This is a port of my existing personal site coded in Boostrap and jQuery.
+##### This site is used to showcase some of my class projects, assignments, and hobbies. If you wish to contact me, please email me at Gabe@w3dev.io
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
