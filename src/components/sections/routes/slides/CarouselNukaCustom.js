@@ -113,8 +113,8 @@ class CarouselNukaCustom extends Component {
                 )}
                 slidesToShow={3}
                 cellAlign="center"
-                // autoplay={true}
-                // autoplayInterval={6000}
+                autoplay={true}
+                autoplayInterval={6000}
                 cellSpacing={24}
                 heightMode={'max'}
                 speed={1000}

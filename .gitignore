@@ -67,3 +67,7 @@ platforms
 Thumbs.db
 *.zip
 npm-debug.log
+
+# production
+/build
+
