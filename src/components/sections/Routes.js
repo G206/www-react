@@ -22,7 +22,7 @@ class Routes extends Component {
     constructor(props){
         super(props);
         this.state = {
-            open: false,
+            openModal: false,
             url: '/',
             frameW: '100%',
             frameH: '100%'
@@ -30,7 +30,7 @@ class Routes extends Component {
     }
     handleModalOpen = (pURL, pWidth, pHeight) => {
         this.setState({
-            open: true,
+            openModal: true,
             url: '/' + pURL,
             frameW: pWidth,
             frameH: pHeight
@@ -38,7 +38,7 @@ class Routes extends Component {
     };
 
     handleModalClose = () => {
-        this.setState({ open: false });
+        this.setState({ openModal: false });
     };
 
     render() {
@@ -49,9 +49,9 @@ class Routes extends Component {
                 <main
                     className={classes.container}
                 >
-                    <Route exact path="/" render={(props) =>
+                    <Route exact path="/" render={() =>
                         <Home
-                            openModal={this.state.open}
+                            openModal={this.state.openModal}
                             handleModalClose={this.handleModalClose}
                             handleModalOpen={this.handleModalOpen}
                             portfolioIndex={this.props.portfolioIndex}
@@ -59,9 +59,9 @@ class Routes extends Component {
                         />}
                     />
                     <Route path="/about" component={About} />
-                    <Route exact path="/portfolio" render={(props) =>
+                    <Route exact path="/portfolio" render={() =>
                         <Portfolio
-                            openModal={this.state.open}
+                            openModal={this.state.openModal}
                             handleModalClose={this.handleModalClose}
                             handleModalOpen={this.handleModalOpen}
                             portfolioIndex={this.props.portfolioIndex}
@@ -74,7 +74,7 @@ class Routes extends Component {
                     <Route path="/follow" component={Follow} />
                 </main>
                 <ModalBox
-                    openModal={this.state.open}
+                    openModal={this.state.openModal}
                     handleModalClose={this.handleModalClose}
                     modalURL={this.state.url}
                     frameW={this.state.frameW}

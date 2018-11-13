@@ -37,6 +37,7 @@ const theme = createMuiTheme(
             canvas4: "rgba(255, 255, 255, .2)",
             canvas5: "rgba(0, 0, 0, .9)",
             canvas6: "rgba(255, 255, 255, 1)",
+            canvas7: "rgba(128, 128, 128, 0.6)",
             text: {
                 primary: "#ffffff",
                 alternate: "#000000",

@@ -45,12 +45,12 @@ function ContactField(props) {
 
 ContactField.propTypes = {
     classes: PropTypes.object,
-    classPaper: PropTypes.object,
-    classIconBox: PropTypes.object,
-    classInputBox: PropTypes.object,
-    classForm: PropTypes.object,
-    classFormField: PropTypes.object,
-    classLabel: PropTypes.object,
+    classPaper: PropTypes.string,
+    classIconBox: PropTypes.string,
+    classInputBox: PropTypes.string,
+    classForm: PropTypes.string,
+    classFormField: PropTypes.string,
+    classLabel: PropTypes.string,
     label: PropTypes.string,
     id: PropTypes.string,
     contactField: PropTypes.string,

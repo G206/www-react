@@ -41,6 +41,10 @@ class Portfolio extends Component {
         })
     }
 
+    componentDidMount(){
+        ()=>{setTimeout(()=>{}, 1500)}
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -71,10 +75,7 @@ class Portfolio extends Component {
                                 {/*/>*/}
                                 <CarouselNukaCustom
                                     slides={portfolioList}
-                                    openModal={this.props.openModal}
-                                    handleModalOpen={this.props.handleModalOpen}
-                                    portfolioIndex={this.props.portfolioIndex}
-                                    advancePortfolio={this.props.advancePortfolio}
+                                    {...this.props}
                                 />
                             </Paper>
                         </Grid>
