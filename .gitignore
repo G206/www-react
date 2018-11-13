@@ -69,5 +69,4 @@ Thumbs.db
 npm-debug.log
 
 # production
-/build
-
+# /build
