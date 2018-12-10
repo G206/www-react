@@ -10,10 +10,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import logo from '../../images/web_design.png';
-import NavList from './nav/NavList';
-import Header from './Header';
-import Routes from './Routes';
-import Footer from './Footer';
+
 
 const drawerWidth = 240;
 
@@ -106,127 +103,55 @@ const styles = theme => ({
   },
 });
 
-class Nav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      anchor: 'left',
-      openDrawer: false,
-      portfolioIndex: 0,
-    };
-  }
-
-  advancePortfolio = (slideIndex) => {
-    this.setState({ portfolioIndex: slideIndex });
-  };
-
-  handleDrawerOpen = () => {
-    this.setState({ openDrawer: true });
-  };
-
-  handleDrawerClose = () => {
-    this.setState({ openDrawer: false });
-  };
+const NavAppBar = (props) => {
 
   render() {
     const { classes } = this.props;
     const { anchor, openDrawer, portfolioIndex } = this.state;
 
     return (
-      <Router>
-        <nav
-          className={classNames(classes.root)}
-          id="mainNav"
-        >
-          <AppBar
+        <AppBar
             position="sticky"
             className={classNames(classes.navBar, classes.appBar, {
               [classes.appBarShift]: openDrawer,
               [classes[`appBarShift-${anchor}`]]: openDrawer,
             })}
-          >
-            <Toolbar>
-              <IconButton
+        >
+          <Toolbar>
+            <IconButton
                 color="inherit"
                 aria-label="Nav Bar"
                 onClick={this.handleDrawerOpen}
                 className={classNames(classes.menuButton, openDrawer && classes.hide)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
                 variant="display1"
                 color="inherit"
                 className={classNames(classes.text, classes.leftJust)}
-              >
-                <img src={logo} className={classes.logo} alt="logo" />
-                <Link to="/">
-                                  G.Dev
-                </Link>
-              </Typography>
-              <Typography
+            >
+              <img src={logo} className={classes.logo} alt="logo" />
+              <Link to="/">
+                G.Dev
+              </Link>
+            </Typography>
+            <Typography
                 variant="display1"
                 color="inherit"
                 className={classNames(classes.text, classes.rightJust)}
-              >
-                              React JS
-              </Typography>
-            </Toolbar>
-          </AppBar>
-
-          <Drawer
-            variant="persistent"
-            anchor="left"
-            open={openDrawer}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            <div className={classes.drawerHeader}>
-              <Typography
-                variant="display1"
-                color="inherit"
-                className={classes.text}
-              >
-                <img src={logo} className={classes.logo} alt="logo" />
-                {' '}
-G.Dev
-                <IconButton onClick={this.handleDrawerClose}>
-                  <ChevronLeftIcon />
-                </IconButton>
-              </Typography>
-              <Divider />
-              <List>
-                <NavList
-                  advancePortfolio={this.advancePortfolio}
-                />
-              </List>
-            </div>
-          </Drawer>
-          <div
-            className={classNames(classes.content, classes[`content-${anchor}`],
-              {
-                [classes.contentShift]: openDrawer,
-                [classes[`contentShift-${anchor}`]]: openDrawer,
-              },
-              'element')}
-          >
-            <Header />
-            <Routes
-              portfolioIndex={portfolioIndex}
-              advancePortfolio={this.advancePortfolio}
-            />
-          </div>
-          <Footer />
-        </nav>
-      </Router>
+            >
+              React JS
+            </Typography>
+          </Toolbar>
+        </AppBar>
     );
   }
-}
+};
 
 Nav.propTypes = {
   classes: PropTypes.object,
   theme: PropTypes.object,
 };
 
-export default withStyles(styles)(Nav);
+export default withStyles(styles)(NavAppBar);

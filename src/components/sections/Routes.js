@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { Route } from 'react-router-dom';
 import ModalBox from './routes/ModalBox';
 import Home from './routes/Home';
-import { Route } from "react-router-dom";
 import About from './routes/About';
 import Portfolio from './routes/Portfolio';
 import Yoga from './routes/Yoga';
@@ -12,82 +12,94 @@ import Contact from './routes/Contact';
 import Follow from './routes/Follow';
 
 const styles = theme => ({
-    container: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.transparent
-    },
+  container: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.transparent,
+  },
 });
 
 class Routes extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            openModal: false,
-            url: '/',
-            frameW: '100%',
-            frameH: '100%'
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      openModal: false,
+      url: '/',
+      frameW: '100%',
+      frameH: '100%',
+    };
+  }
+
     handleModalOpen = (pURL, pWidth, pHeight) => {
-        this.setState({
-            openModal: true,
-            url: '/' + pURL,
-            frameW: pWidth,
-            frameH: pHeight
-        });
+      this.setState({
+        openModal: true,
+        url: `/${pURL}`,
+        frameW: pWidth,
+        frameH: pHeight,
+      });
     };
 
     handleModalClose = () => {
-        this.setState({ openModal: false });
+      this.setState({ openModal: false });
     };
 
-    render() {
-        const { classes } = this.props;
+    renderHome = () => {
+      const { portfolioIndex, advancePortfolio } = this.props;
+      const { openModal } = this.state;
 
-        return (
-            <Fragment>
-                <main
-                    className={classes.container}
-                >
-                    <Route exact path="/" render={() =>
-                        <Home
-                            openModal={this.state.openModal}
-                            handleModalClose={this.handleModalClose}
-                            handleModalOpen={this.handleModalOpen}
-                            portfolioIndex={this.props.portfolioIndex}
-                            advancePortfolio={this.props.advancePortfolio}
-                        />}
-                    />
-                    <Route path="/about" component={About} />
-                    <Route exact path="/portfolio" render={() =>
-                        <Portfolio
-                            openModal={this.state.openModal}
-                            handleModalClose={this.handleModalClose}
-                            handleModalOpen={this.handleModalOpen}
-                            portfolioIndex={this.props.portfolioIndex}
-                            advancePortfolio={this.props.advancePortfolio}
-                        />}
-                    />
-                    <Route path="/yoga" component={Yoga} />
-                    <Route path="/hobbies" component={Hobbies} />
-                    <Route path="/contact" component={Contact} />
-                    <Route path="/follow" component={Follow} />
-                </main>
-                <ModalBox
-                    openModal={this.state.openModal}
-                    handleModalClose={this.handleModalClose}
-                    modalURL={this.state.url}
-                    frameW={this.state.frameW}
-                    frameH={this.state.frameH}
-                />
-            </Fragment>
+      return (
+        <Home
+          openModal={openModal}
+          handleModalClose={this.handleModalClose}
+          handleModalOpen={this.handleModalOpen}
+          portfolioIndex={portfolioIndex}
+          advancePortfolio={advancePortfolio}
+        />
+      );
+    };
 
-        );
-    }
+  renderPortfolio = () => {
+    const { portfolioIndex, advancePortfolio } = this.props;
+    const { openModal } = this.state;
+
+    return (
+      <Portfolio
+        openModal={openModal}
+        handleModalClose={this.handleModalClose}
+        handleModalOpen={this.handleModalOpen}
+        portfolioIndex={portfolioIndex}
+        advancePortfolio={advancePortfolio}
+      />
+    );
+  };
+
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <Fragment>
+        <main className={classes.container}>
+          <Route exact path="/" render={this.renderHome} />
+          <Route path="/about" component={About} />
+          <Route exact path="/portfolio" render={this.renderPortfolio} />
+          <Route path="/yoga" component={Yoga} />
+          <Route path="/hobbies" component={Hobbies} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/follow" component={Follow} />
+        </main>
+        <ModalBox
+          openModal={this.state.openModal}
+          handleModalClose={this.handleModalClose}
+          modalURL={this.state.url}
+          frameW={this.state.frameW}
+          frameH={this.state.frameH}
+        />
+      </Fragment>
+    );
+  }
 }
 Routes.propTypes = {
-    classes: PropTypes.object,
-    theme: PropTypes.object
+  classes: PropTypes.object,
+  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(Routes);

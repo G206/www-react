@@ -9,30 +9,29 @@ import Contact from './Contact';
 import Follow from './Follow';
 
 const styles = theme => ({
-    container: {
-        flexGrow: 1,
-    },
+  container: {
+    flexGrow: 1,
+  },
 });
 
 function Home(props) {
+  // const { classes } = props;
 
-    // const { classes } = props;
+  return (
+    <Fragment>
+      <About />
+      <Portfolio {...props} />
+      <Yoga />
+      <Hobbies />
+      <Contact />
+      <Follow />
+    </Fragment>
 
-    return (
-        <Fragment>
-            <About/>
-            <Portfolio {...props} />
-            <Yoga/>
-            <Hobbies/>
-            <Contact/>
-            <Follow/>
-        </Fragment>
-
-    );
+  );
 }
 Home.propTypes = {
-    // classes: PropTypes.object,
-    theme: PropTypes.object
+  // classes: PropTypes.object,
+  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(Home);
