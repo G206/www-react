@@ -1,45 +1,45 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { ListItem, ListItemIcon, Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 
-const styles = theme => ({
+const styles = () => ({
   container: {
-    flexGrow: 1,
   },
 });
 
 function NavItem(props) {
-  // const { classes } = props;
+  const {
+    anchor, children, scrollToAnchor, text, textColor,
+  } = props;
 
   return (
     <ListItem
       button
       onClick={() => {
-        props.scrollToAnchor(props.anchor);
+        scrollToAnchor(anchor);
       }}
     >
       <ListItemIcon>
-        {props.children}
+        {children}
       </ListItemIcon>
       <Typography
         variant="subheading"
-        className={props.textColor}
+        className={textColor}
       >
-        {props.text}
+        {text}
       </Typography>
-      {/* <ListItemText */}
-      {/* primary={props.text} */}
-      {/* classes={props.textColor} */}
-      {/* /> */}
     </ListItem>
   );
 }
 
 NavItem.propTypes = {
-  // classes: PropTypes.object,
-  theme: PropTypes.object,
+  anchor: PropTypes.string,
+  children: PropTypes.object,
+  scrollToAnchor: PropTypes.func,
+  textColor: PropTypes.string,
+  text: PropTypes.string,
 };
 
 export default withStyles(styles)(NavItem);

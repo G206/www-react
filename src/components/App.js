@@ -56,8 +56,6 @@ const App = (props) => {
 
 App.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
-  imgSrc: PropTypes.string,
 };
 
 export default withStyles(styles)(App);

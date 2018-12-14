@@ -18,25 +18,29 @@ const styles = theme => ({
 });
 
 function NavPortfolio(props) {
-  const { classes } = props;
-  const createMenuItems = props.list.map((item, index) => (
+  const {
+    anchorEl, classes, handleClose, list, open, textColor,
+  } = props;
+
+  const createMenuItems = list.map((item, index) => (
     <MenuItem
       key={index}
       onClick={event => props.advancePortfolio(index, event)}
-      className={props.textColor}
+      className={textColor}
     >
       {item.des}
     </MenuItem>
   ));
+
   return (
     <ClickAwayListener
-      onClickAway={props.handleClose}
+      onClickAway={handleClose}
     >
       <Popover
         className={classes.container}
-        open={props.open}
-        onClose={props.handleClose}
-        anchorEl={props.anchorEl}
+        open={open}
+        onClose={handleClose}
+        anchorEl={anchorEl}
         anchorReference="anchorEl"
         anchorOrigin={{
           vertical: 'bottom',
@@ -58,8 +62,7 @@ function NavPortfolio(props) {
 }
 
 NavPortfolio.propTypes = {
-  // classes: PropTypes.object,
-  theme: PropTypes.object,
+  classes: PropTypes.object,
 };
 
 export default withStyles(styles)(NavPortfolio);

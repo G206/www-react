@@ -73,8 +73,8 @@ class Follow extends Component {
                     className={classes.paper}
                   >
                     <Typography variant="title" className={classes.text}>
-                                            Follow me around the internet as I build projects, develop my
-                                            portfolio, and blog about technology.
+                      Follow me around the internet as I build projects, develop my
+                      portfolio, and blog about technology.
                     </Typography>
                   </Paper>
                   <FollowList />
@@ -89,7 +89,6 @@ class Follow extends Component {
 }
 Follow.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(Follow);

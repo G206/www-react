@@ -68,7 +68,7 @@ class NavList extends Component {
     };
 
     handleClick = () => {
-      const {openNest} = this.state;
+      const { openNest } = this.state;
       this.setState({
         openNest: !openNest,
       });
@@ -79,7 +79,8 @@ class NavList extends Component {
     };
 
     render() {
-      const { classes } = this.props;
+      const { classes, advancePortfolio } = this.props;
+      const { open, openNest } = this.state;
 
       return (
         <div>
@@ -87,7 +88,7 @@ class NavList extends Component {
             variant="title"
             className={classes.text}
           >
-                    Scrolled Sections
+            Scrolled Sections
           </Typography>
           <NavItem
             scrollToAnchor={this.scrollToAnchor}
@@ -111,7 +112,7 @@ class NavList extends Component {
             buttonRef={(node) => {
               this.anchors[0] = node;
             }}
-            aria-owns={this.state.open ? 'NAV-list-grow' : null}
+            aria-owns={open ? 'NAV-list-grow' : null}
             aria-haspopup="true"
             onClick={event => this.handleToggle(this.anchors[0], event)}
           >
@@ -195,7 +196,7 @@ class NavList extends Component {
           >
             <ListItem
               button
-              aria-owns={this.state.open ? 'Portfolio-list-grow' : null}
+              aria-owns={open ? 'Portfolio-list-grow' : null}
               aria-haspopup="true"
               onClick={this.handleClick}
             >
@@ -206,15 +207,15 @@ class NavList extends Component {
                 variant="subheading"
                 className={classes.textColorPrimary}
               >
-                            Portfolio
+                Portfolio
               </Typography>
-              {this.state.openNest ? <ExpandLess /> : <ExpandMore />}
+              {openNest ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
           </Link>
-          <Collapse in={this.state.openNest} timeout="auto" unmountOnExit>
+          <Collapse in={openNest} timeout="auto" unmountOnExit>
             <NavPortfolioList
               list={portfolioList}
-              advancePortfolio={this.props.advancePortfolio}
+              advancePortfolio={advancePortfolio}
               textColor={classes.textColorAccent}
             />
           </Collapse>
@@ -267,12 +268,12 @@ class NavList extends Component {
             </NavItem>
           </Link>
           <NavPortfolio
-            open={this.state.open}
+            open={open}
             handleClose={this.handleClose}
             handleToggle={this.handleToggle}
             list={portfolioList}
             anchorEl={this.anchorEl}
-            advancePortfolio={this.props.advancePortfolio}
+            advancePortfolio={advancePortfolio}
             textColor={classes.textColorPrimary}
           />
         </div>
@@ -282,7 +283,6 @@ class NavList extends Component {
 
 NavList.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(NavList);

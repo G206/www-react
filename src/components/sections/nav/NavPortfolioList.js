@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import { AssignmentTurnedInTwoTone } from '@material-ui/icons';
 
-const styles = theme => ({
+const styles = () => ({
   container: {
     flexGrow: 1,
     display: 'flex',
@@ -29,28 +29,25 @@ const styles = theme => ({
 });
 
 function NavPortfolioList(props) {
-  const { classes } = props;
+  const {
+    advancePortfolio, classes, list, textColor,
+  } = props;
 
-  const createMenuItems = props.list.map((item, index) => (
+  const createMenuItems = list.map((item, index) => (
     <ListItem
       key={index}
       button
       className={classes.nested}
-      onClick={event => props.advancePortfolio(index, event)}
+      onClick={event => advancePortfolio(index, event)}
     >
       <ListItemIcon
         className={classes.icon}
       >
         <AssignmentTurnedInTwoTone />
       </ListItemIcon>
-      {/* <ListItemText */}
-      {/* primary={item.des} */}
-      {/* className={props.textColor} */}
-      {/* // className={classes.text} */}
-      {/* /> */}
       <Typography
         variant="subheading"
-        className={classNames(props.textColor, classes.text)}
+        className={classNames(textColor, classes.text)}
       >
         {item.des}
       </Typography>
@@ -66,7 +63,6 @@ function NavPortfolioList(props) {
 
 NavPortfolioList.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(NavPortfolioList);

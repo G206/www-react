@@ -73,7 +73,6 @@ class Hobbies extends Component {
 }
 Hobbies.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(Hobbies);

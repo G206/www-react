@@ -78,11 +78,16 @@ class Contact extends Component {
   }
 
   createMailTo() {
+    const {
+      contactEmail, contactMessage,
+      contactName, contactPhone, EMAIL,
+    } = this.state;
+
     this.setState({
-      mailToLink: `mailto:${this.state.EMAIL}?`
-            + `subject=Email%20from%20${this.state.contactName
-            }.%20Email:%20${this.state.contactEmail}.%20Contact%20Phone:%20${
-              this.state.contactPhone}&body=${this.state.contactMessage}`,
+      mailToLink: `mailto:${EMAIL}?`
+            + `subject=Email%20from%20${contactName
+            }.%20Email:%20${contactEmail}.%20Contact%20Phone:%20${
+              contactPhone}&body=${contactMessage}`,
     });
   }
 
@@ -120,6 +125,10 @@ class Contact extends Component {
 
   render() {
     const { classes } = this.props;
+    const {
+      contactEmail, contactMessage,
+      contactName, contactPhone, mailToLink,
+    } = this.state;
     return (
       <ScrollableAnchor
         id="contact"
@@ -142,15 +151,10 @@ class Contact extends Component {
                 <Grid item xs={10}>
                   <form id="contactForm">
                     <ContactField
-                      classPaper={classes.paper}
-                      classIconBox={classes.iconBox}
-                      classInputBox={classes.inputBox}
-                      classForm={classes.form}
-                      classFormField={classes.formField}
-                      classLabel={classes.secondaryC}
+                      {...classes}
                       label="Enter Your Name"
                       id="contactName"
-                      contactField={this.state.contactName}
+                      contactField={contactName}
                       handleInput={this.handleInput}
                       multiline={false}
                       rowsMax="1"
@@ -158,15 +162,10 @@ class Contact extends Component {
                       <AccountCircle className={classes.icon} />
                     </ContactField>
                     <ContactField
-                      classPaper={classes.paper}
-                      classIconBox={classes.iconBox}
-                      classInputBox={classes.inputBox}
-                      classForm={classes.form}
-                      classFormField={classes.formField}
-                      classLabel={classes.secondaryC}
+                      {...classes}
                       label="Enter Your Email"
                       id="contactEmail"
-                      contactField={this.state.contactEmail}
+                      contactField={contactEmail}
                       handleInput={this.handleInput}
                       multiline={false}
                       rowsMax="1"
@@ -174,15 +173,10 @@ class Contact extends Component {
                       <AlternateEmail className={classes.icon} />
                     </ContactField>
                     <ContactField
-                      classPaper={classes.paper}
-                      classIconBox={classes.iconBox}
-                      classInputBox={classes.inputBox}
-                      classForm={classes.form}
-                      classFormField={classes.formField}
-                      classLabel={classes.secondaryC}
+                      {...classes}
                       label="Enter Your Phone Number"
                       id="contactPhone"
-                      contactField={this.state.contactPhone}
+                      contactField={contactPhone}
                       handleInput={this.handleInput}
                       multiline={false}
                       rowsMax="1"
@@ -190,15 +184,10 @@ class Contact extends Component {
                       <ContactPhone className={classes.icon} />
                     </ContactField>
                     <ContactField
-                      classPaper={classes.paper}
-                      classIconBox={classes.iconBox}
-                      classInputBox={classes.inputBox}
-                      classForm={classes.form}
-                      classFormField={classes.formField}
-                      classLabel={classes.secondaryC}
+                      {...classes}
                       label="Enter Your Message"
                       id="contactMessage"
-                      contactField={this.state.contactMessage}
+                      contactField={contactMessage}
                       handleInput={this.handleInput}
                       multiline
                       rowsMax="3"
@@ -206,11 +195,8 @@ class Contact extends Component {
                       <Message className={classes.icon} />
                     </ContactField>
                     <ContactButtons
-                      classBtnBox={classes.btnBox}
-                      classButton={classes.button}
-                      classPrimaryC={classes.primaryC}
-                      classSecondaryC={classes.secondaryC}
-                      mailToLink={this.state.mailToLink}
+                      {...classes}
+                      mailToLink={mailToLink}
                       handleSubmit={this.handleSubmit}
                       handleReset={this.handleReset}
                     />

@@ -74,6 +74,9 @@ class Routes extends Component {
 
   render() {
     const { classes } = this.props;
+    const {
+      frameW, frameH, openModal, url,
+    } = this.state;
 
     return (
       <Fragment>
@@ -87,11 +90,11 @@ class Routes extends Component {
           <Route path="/follow" component={Follow} />
         </main>
         <ModalBox
-          openModal={this.state.openModal}
+          openModal={openModal}
           handleModalClose={this.handleModalClose}
-          modalURL={this.state.url}
-          frameW={this.state.frameW}
-          frameH={this.state.frameH}
+          modalURL={url}
+          frameW={frameW}
+          frameH={frameH}
         />
       </Fragment>
     );
@@ -99,7 +102,6 @@ class Routes extends Component {
 }
 Routes.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(Routes);

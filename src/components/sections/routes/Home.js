@@ -30,8 +30,12 @@ function Home(props) {
   );
 }
 Home.propTypes = {
-  // classes: PropTypes.object,
-  theme: PropTypes.object,
+  About: PropTypes.element,
+  Portfolio: PropTypes.element,
+  Yoga: PropTypes.element,
+  Hobbies: PropTypes.element,
+  Contact: PropTypes.element,
+  Follow: PropTypes.element,
 };
 
 export default withStyles(styles)(Home);

@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-import {
-  AppBar, Toolbar, IconButton, Typography,
-  Drawer, List, Divider,
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import logo from '../../images/web_design.png';
-import NavList from './nav/NavList';
+import NavAppBar from './nav/NavAppBar';
+import NavDrawer from './nav/NavDrawer';
 import Header from './Header';
 import Routes from './Routes';
 import Footer from './Footer';
@@ -57,10 +51,10 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  'appBarShift-left': {
+  appBarShiftLeft: {
     marginLeft: drawerWidth,
   },
-  'appBarShift-right': {
+  appBarShiftRight: {
     marginRight: drawerWidth,
   },
   menuButton: {
@@ -86,10 +80,10 @@ const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
-  'content-left': {
+  contentLeft: {
     marginLeft: 0,
   },
-  'content-right': {
+  contentRight: {
     marginRight: 0,
   },
   contentShift: {
@@ -98,10 +92,10 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
-  'contentShift-left': {
+  contentShiftLeft: {
     marginLeft: drawerWidth,
   },
-  'contentShift-right': {
+  contentShiftRight: {
     marginRight: drawerWidth,
   },
 });
@@ -110,7 +104,7 @@ class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      anchor: 'left',
+      anchor: 'Left',
       openDrawer: false,
       portfolioIndex: 0,
     };
@@ -138,76 +132,22 @@ class Nav extends Component {
           className={classNames(classes.root)}
           id="mainNav"
         >
-          <AppBar
-            position="sticky"
-            className={classNames(classes.navBar, classes.appBar, {
-              [classes.appBarShift]: openDrawer,
-              [classes[`appBarShift-${anchor}`]]: openDrawer,
-            })}
-          >
-            <Toolbar>
-              <IconButton
-                color="inherit"
-                aria-label="Nav Bar"
-                onClick={this.handleDrawerOpen}
-                className={classNames(classes.menuButton, openDrawer && classes.hide)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography
-                variant="display1"
-                color="inherit"
-                className={classNames(classes.text, classes.leftJust)}
-              >
-                <img src={logo} className={classes.logo} alt="logo" />
-                <Link to="/">
-                                  G.Dev
-                </Link>
-              </Typography>
-              <Typography
-                variant="display1"
-                color="inherit"
-                className={classNames(classes.text, classes.rightJust)}
-              >
-                              React JS
-              </Typography>
-            </Toolbar>
-          </AppBar>
-
-          <Drawer
-            variant="persistent"
-            anchor="left"
-            open={openDrawer}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-          >
-            <div className={classes.drawerHeader}>
-              <Typography
-                variant="display1"
-                color="inherit"
-                className={classes.text}
-              >
-                <img src={logo} className={classes.logo} alt="logo" />
-                {' '}
-G.Dev
-                <IconButton onClick={this.handleDrawerClose}>
-                  <ChevronLeftIcon />
-                </IconButton>
-              </Typography>
-              <Divider />
-              <List>
-                <NavList
-                  advancePortfolio={this.advancePortfolio}
-                />
-              </List>
-            </div>
-          </Drawer>
+          <NavAppBar
+            {...classes}
+            {...this.state}
+            handleDrawerOpen={this.handleDrawerOpen}
+          />
+          <NavDrawer
+            {...classes}
+            {...this.state}
+            handleDrawerClose={this.handleDrawerClose}
+            advancePortfolio={this.advancePortfolio}
+          />
           <div
             className={classNames(classes.content, classes[`content-${anchor}`],
               {
                 [classes.contentShift]: openDrawer,
-                [classes[`contentShift-${anchor}`]]: openDrawer,
+                [classes[`contentShift${anchor}`]]: openDrawer,
               },
               'element')}
           >

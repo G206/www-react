@@ -6,11 +6,16 @@ import { Grid, Button } from '@material-ui/core';
 import { Send, Clear } from '@material-ui/icons';
 
 
-const styles = theme => ({
+const styles = () => ({
 
 });
 
 function ContactButtons(props) {
+  const {
+    btnBox, button, handleReset, handleSubmit,
+    mailToLink, primaryC, secondaryC,
+  } = props;
+
   return (
     <Grid
       container
@@ -19,10 +24,10 @@ function ContactButtons(props) {
       justify="space-between"
       alignItems="center"
     >
-      <Grid item xs className={props.classBtnBox}>
+      <Grid item xs className={btnBox}>
         <a
-          href={props.mailToLink}
-          onClick={event => props.handleSubmit(event)}
+          href={mailToLink}
+          onClick={event => handleSubmit(event)}
         >
           <Button
             variant="contained"
@@ -30,25 +35,25 @@ function ContactButtons(props) {
             id="btnSubmit"
             color="primary"
             type="button"
-            className={classNames(props.classButton, props.classPrimaryC)}
+            className={classNames(button, primaryC)}
           >
-                        Send Message
+              Send Message
             <Send />
           </Button>
         </a>
 
       </Grid>
-      <Grid item xs className={props.classBtnBox}>
+      <Grid item xs className={btnBox}>
         <Button
           variant="contained"
           size="large"
           id="btnReset"
           color="secondary"
           type="reset"
-          onClick={event => props.handleReset(event)}
-          className={classNames(props.classButton, props.classSecondaryC)}
+          onClick={event => handleReset(event)}
+          className={classNames(button, secondaryC)}
         >
-                    Reset Form
+            Reset Form
           <Clear />
         </Button>
       </Grid>
@@ -57,15 +62,13 @@ function ContactButtons(props) {
 }
 
 ContactButtons.propTypes = {
-  classes: PropTypes.object,
-  classBtnBox: PropTypes.string,
-  classButton: PropTypes.string,
-  classPrimaryC: PropTypes.string,
-  classSecondaryC: PropTypes.string,
-  label: PropTypes.string,
-  id: PropTypes.string,
-  contactField: PropTypes.string,
-  handleInput: PropTypes.func,
+  btnBox: PropTypes.string,
+  button: PropTypes.string,
+  primaryC: PropTypes.string,
+  secondaryC: PropTypes.string,
+  handleReset: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  mailToLink: PropTypes.string,
 };
 
 export default withStyles(styles)(ContactButtons);

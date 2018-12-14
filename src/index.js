@@ -76,6 +76,9 @@ const theme = createMuiTheme(
       floatingLabelColor: 'rgba(0, 0, 0, 0.6)',
       hintColor: '#6200ea',
     },
+    image: {
+      width: '100%',
+    },
   },
 );
 

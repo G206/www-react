@@ -10,7 +10,7 @@ const styles = theme => ({
     flexGrow: 1,
   },
   headerImg: {
-    width: '100%',
+    width: theme.image.width,
   },
 });
 
@@ -36,6 +36,5 @@ const Header = (props) => {
 
 Header.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 export default withStyles(styles)(Header);

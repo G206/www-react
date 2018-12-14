@@ -6,13 +6,17 @@ import {
 } from '@material-ui/core';
 
 
-const styles = theme => ({
-
+const styles = () => ({
 });
 
 function ContactField(props) {
+  const {
+    children, contactField, form, formField, handleInput,
+    iconBox, id, inputBox, label, multiline, paper, rowsMax, secondaryC,
+  } = props;
+
   return (
-    <Paper className={props.classPaper}>
+    <Paper className={paper}>
       <Grid
         container
         direction="row"
@@ -20,26 +24,26 @@ function ContactField(props) {
         justify="flex-start"
         alignItems="flex-end"
       >
-        <Grid item className={props.classIconBox}>
-          {props.children}
+        <Grid item className={iconBox}>
+          {children}
         </Grid>
-        <Grid item className={props.classInputBox}>
-          <FormControl className={props.classForm}>
+        <Grid item className={inputBox}>
+          <FormControl className={form}>
             <InputLabel
-              className={props.classLabel}
+              className={secondaryC}
               htmlFor="contactName"
             >
-              {props.label}
+              {label}
             </InputLabel>
             <Input
-              id={props.id}
+              id={id}
               fullWidth
               type="text"
-              value={props.contactField}
-              onChange={props.handleInput}
-              multiline={props.multiline}
-              rowsMax={props.rowsMax}
-              className={props.classFormField}
+              value={contactField}
+              onChange={handleInput}
+              multiline={multiline}
+              rowsMax={rowsMax}
+              className={formField}
             />
           </FormControl>
         </Grid>
@@ -49,13 +53,13 @@ function ContactField(props) {
 }
 
 ContactField.propTypes = {
-  classes: PropTypes.object,
-  classPaper: PropTypes.string,
-  classIconBox: PropTypes.string,
-  classInputBox: PropTypes.string,
-  classForm: PropTypes.string,
-  classFormField: PropTypes.string,
-  classLabel: PropTypes.string,
+  children: PropTypes.object,
+  paper: PropTypes.string,
+  iconBox: PropTypes.string,
+  inputBox: PropTypes.string,
+  form: PropTypes.string,
+  formField: PropTypes.string,
+  secondaryC: PropTypes.string,
   label: PropTypes.string,
   id: PropTypes.string,
   contactField: PropTypes.string,

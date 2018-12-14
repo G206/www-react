@@ -57,8 +57,9 @@ class FollowList extends Component {
   }
 
     handleToggle = (node) => {
+      const { open } = this.state;
       this.setState({
-        open: !this.state.open,
+        open: !open,
       });
       this.anchorEl = node;
     };
@@ -71,6 +72,7 @@ class FollowList extends Component {
 
     render() {
       const { classes } = this.props;
+      const { open } = this.state;
 
       const SocialMediaLinks = socialMediaList.map((item, index) => (
         <Grid
@@ -108,7 +110,7 @@ class FollowList extends Component {
           {SocialMediaLinks}
           <ClickAwayListener onClickAway={this.handleClose}>
             <Popover
-              open={this.state.open}
+              open={open}
               onClose={this.handleClose}
               className={classes.paper}
               anchorEl={this.anchorEl}
@@ -139,11 +141,13 @@ class FollowList extends Component {
                     variant="title"
                     className={classes.text}
                   >
-                                    Currently, I am not on social media and therefore the links to the various social media sites do not
-                                    currently work. Please email me directly at gabe@w3dev.io with any inquiries you might have. You
-                                    can optionally also use the contact form above to help you to start your email message. Eventually, I plan
-                                    on using social media for my various hobbies and to update the links as I create the profiles. Thank
-                                    you...Gabe
+                    Currently, I am not on social media and therefore the links
+                    to the various social media sites do not currently work.
+                    Please email me directly at gabe@w3dev.io with any inquiries
+                    you might have. You can optionally also use the contact form
+                    above to help you to start your email message. Eventually,
+                    I plan on using social media for my various hobbies and to
+                    update the links as I create the profiles. Thank you...Gabe
                   </Typography>
                 </Grid>
               </Grid>
@@ -156,7 +160,6 @@ class FollowList extends Component {
 
 FollowList.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(FollowList);
