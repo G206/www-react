@@ -46,7 +46,6 @@ class CarouselNukaCustom extends Component {
     super(props);
     this.state = {
       portfolioIndex: 0,
-      // initialLoad: true,
     };
   }
 
@@ -59,30 +58,6 @@ class CarouselNukaCustom extends Component {
   advancePortfolio = (slideIndex) => {
     this.setState({ portfolioIndex: slideIndex });
   };
-
-  // slideCarousel = () => {
-  //   const { portfolioIndex } = this.props;
-  //   const { initialLoad } = this.state;
-  //   if (initialLoad) {
-  //     const newIndex = portfolioIndex + 1;
-  //     this.advancePortfolio(newIndex);
-  //     this.setState({ initialLoad: false });
-  //   }
-  // };
-
-  // componentWillMount(){
-  //
-  // }
-  //
-  // componentWillReceiveProps(nextProps) {
-  //     if(this.props.portfolioIndex !== nextProps.portfolioIndex) {
-  //
-  //     }
-  // }
-
-  // forceUpdate() {
-  //   this.slideCarousel();
-  // }
 
   render() {
     const {
