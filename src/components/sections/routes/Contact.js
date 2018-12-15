@@ -77,24 +77,19 @@ class Contact extends Component {
     this.handleReset = this.handleReset.bind(this);
   }
 
-  createMailTo() {
-    const {
-      contactEmail, contactMessage,
-      contactName, contactPhone, EMAIL,
-    } = this.state;
-
-    this.setState({
-      mailToLink: `mailto:${EMAIL}?`
-            + `subject=Email%20from%20${contactName
-            }.%20Email:%20${contactEmail}.%20Contact%20Phone:%20${
-              contactPhone}&body=${contactMessage}`,
+  componentWillMount() {
+    configureAnchors({
+      offset: -72,
+      scrollDuration: 800,
+      keepLastAnchorHash: false,
     });
   }
 
   handleInput(event) {
-    const target = event.target;
-    const value = target.value;
-    const id = target.id;
+    const { value, id } = event.target;
+    // const target = event.target;
+    // const value = target.value;
+    // const id = target.id;
     this.setState({
       [id]: value,
     });
@@ -102,7 +97,8 @@ class Contact extends Component {
   }
 
   handleSubmit() {
-    console.log(`MailToLink: ${this.state.mailToLink}`);
+    const { mailToLink } = this.state;
+    console.log(`MailToLink: ${mailToLink}`);
   }
 
   handleReset() {
@@ -115,11 +111,16 @@ class Contact extends Component {
     });
   }
 
-  componentWillMount() {
-    configureAnchors({
-      offset: -72,
-      scrollDuration: 800,
-      keepLastAnchorHash: false,
+  createMailTo() {
+    const {
+      contactEmail, contactMessage,
+      contactName, contactPhone, EMAIL,
+    } = this.state;
+
+    this.setState({
+      mailToLink: `mailto:${EMAIL}?`
+        + `subject=Email%20from%20${contactName}.%20Email:%20${contactEmail}.
+        %20Contact%20Phone:%20${contactPhone}&body=${contactMessage}`,
     });
   }
 

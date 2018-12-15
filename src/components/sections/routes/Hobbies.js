@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid, Paper, Typography } from '@material-ui/core';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import { hobbyList } from '../../../data/itemList';
-// import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselNuka from './slides/CarouselNuka';
 
 const styles = theme => ({
@@ -56,9 +55,6 @@ class Hobbies extends Component {
             </Grid>
             <Grid item xs={12}>
               <Paper className={classes.slides}>
-                {/* <CarouselReactSlider */}
-                {/* slides={hobbyList} */}
-                {/* /> */}
                 <CarouselNuka
                   slides={hobbyList}
                 />

@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { Grid, Paper, Typography } from '@material-ui/core';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import { yogaList } from '../../../data/itemList';
-// import CarouselReactSlider from './slides/carouselReactSlider';
 import CarouselNuka from './slides/CarouselNuka';
 
 const styles = theme => ({
@@ -16,7 +15,6 @@ const styles = theme => ({
     padding: '2% 0 5% 0',
   },
   heading: {
-    // fontFamily: "Avengeance",
     color: theme.palette.primary.main,
     margin: '2% 0',
     textAlign: 'center',
@@ -58,9 +56,6 @@ class Yoga extends Component {
             </Grid>
             <Grid item xs={12}>
               <Paper className={classes.slides}>
-                {/* <CarouselReactSlider */}
-                {/* slides={yogaList} */}
-                {/* /> */}
                 <CarouselNuka
                   slides={yogaList}
                 />
@@ -75,7 +70,6 @@ class Yoga extends Component {
 
 Yoga.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(Yoga);

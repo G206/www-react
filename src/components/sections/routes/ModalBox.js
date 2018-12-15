@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Paper, Typography, Modal } from '@material-ui/core';
 import Iframe from 'react-iframe';
-
 
 const styles = theme => ({
   container: {
@@ -41,73 +40,71 @@ const styles = theme => ({
   },
 });
 
-class ModalBox extends Component {
-  render() {
-    const { classes } = this.props;
+const ModalBox = (props) => {
+  const {
+    classes, frameH, handleModalClose, modalURL, openModal,
+  } = props;
 
-    return (
-      <Modal
-        className={classes.container}
-        id="modalBox"
-        aria-labelledby="Project / Assignment"
-        aria-describedby="Project / Assignment Displayed"
-        open={this.props.openModal}
-        onClose={this.props.handleModalClose}
+  return (
+    <Modal
+      className={classes.container}
+      id="modalBox"
+      aria-labelledby="Project / Assignment"
+      aria-describedby="Project / Assignment Displayed"
+      open={openModal}
+      onClose={handleModalClose}
+    >
+
+      <Paper
+        className={classes.paper}
+        styles={{
+          height: `${frameH}220px`,
+        }}
       >
-
-        <Paper
-          className={classes.paper}
-          styles={{
-            height: `${this.props.frameH}220px`,
-          }}
+        <Typography
+          variant="display1"
+          className={classes.title}
         >
-          <Typography
-            variant="display1"
-            className={classes.title}
+          Project or Assignment is displayed below.
+        </Typography>
+        <Typography
+          variant="headline"
+          className={classes.text}
+        >
+          Most assignments and projects display correctly when viewed
+          from a desktop PC and Not using any display Scaling.
+          Please
+          {' '}
+          <a
+            href={`http:/${modalURL}`}
+            id="aModalIframe"
+            target="_blank"
           >
-                        Project or Assignment is displayed below.
-          </Typography>
-          <Typography
-            variant="headline"
-            className={classes.text}
-          >
-                        Most assignments and projects display correctly when viewed
-                        from a desktop PC and Not using any display Scaling.
-                        Please
             {' '}
-            <a
-              href={`http:/${this.props.modalURL}`}
-              id="aModalIframe"
-              target="_blank"
-            >
-              {' '}
-CLICK HERE
-            </a>
-            {' '}
-to open in a new tab.
-          </Typography>
-          <Iframe
-            url={`http:/${this.props.modalURL}`}
-            position="relative"
-            id="modalIframe"
-                            // width={this.props.frameW}
-                            // height={this.props.frameH}
-            width="100%"
-            height="90%"
-            styles={{ maxHeight: this.props.frameH }}
-            allowFullScreen
-            className={classes.frame}
-          />
-        </Paper>
-      </Modal>
-    );
-  }
-}
-
+            CLICK HERE
+          </a>
+          {' '}
+          to open in a new tab.
+        </Typography>
+        <Iframe
+          url={`http:/${modalURL}`}
+          position="relative"
+          id="modalIframe"
+          // width={this.props.frameW}
+          // height={this.props.frameH}
+          width="100%"
+          height="90%"
+          styles={{ maxHeight: frameH }}
+          allowFullScreen
+          className={classes.frame}
+        />
+      </Paper>
+    </Modal>
+  );
+};
 
 ModalBox.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(ModalBox);

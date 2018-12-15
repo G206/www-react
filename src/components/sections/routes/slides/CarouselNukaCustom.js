@@ -37,7 +37,8 @@ const styles = theme => ({
     backgroundColor: theme.palette.canvas,
     color: theme.palette.text.secondary,
   },
-
+  headingText: {},
+  slideContainer: {},
 });
 
 class CarouselNukaCustom extends Component {
@@ -45,113 +46,119 @@ class CarouselNukaCustom extends Component {
     super(props);
     this.state = {
       portfolioIndex: 0,
-      initialLoad: true,
+      // initialLoad: true,
     };
   }
 
-    slideCarousel = () => {
-      if (this.state.initialLoad) {
-        const newIndex = this.props.portfolioIndex + 1;
-        this.advancePortfolio(newIndex);
-        this.setState({ initialLoad: false });
-      }
-    };
+  componentDidMount() {
+    const { advancePortfolio } = this.props;
+    const { portfolioIndex } = this.state;
+    advancePortfolio(portfolioIndex);
+  }
 
-    advancePortfolio = (slideIndex) => {
-      this.setState({ portfolioIndex: slideIndex });
-    };
+  advancePortfolio = (slideIndex) => {
+    this.setState({ portfolioIndex: slideIndex });
+  };
 
-    // componentWillMount(){
-    //
-    // }
-    //
-    // componentWillReceiveProps(nextProps) {
-    //     if(this.props.portfolioIndex !== nextProps.portfolioIndex) {
-    //
-    //     }
-    // }
+  // slideCarousel = () => {
+  //   const { portfolioIndex } = this.props;
+  //   const { initialLoad } = this.state;
+  //   if (initialLoad) {
+  //     const newIndex = portfolioIndex + 1;
+  //     this.advancePortfolio(newIndex);
+  //     this.setState({ initialLoad: false });
+  //   }
+  // };
 
-    componentDidMount() {
-      this.props.advancePortfolio(this.state.portfolioIndex);
-    }
+  // componentWillMount(){
+  //
+  // }
+  //
+  // componentWillReceiveProps(nextProps) {
+  //     if(this.props.portfolioIndex !== nextProps.portfolioIndex) {
+  //
+  //     }
+  // }
 
-    forceUpdate() {
-      this.slideCarousel();
-    }
+  // forceUpdate() {
+  //   this.slideCarousel();
+  // }
 
-    render() {
-      const { classes } = this.props;
-      const customSlideCpnts = this.props.slides.map((item, index) => (
-        <div
-          key={index}
-          onClick={event => this.props.handleModalOpen(item.href,
-            item.width, item.height, event)}
+  render() {
+    const {
+      classes, handleModalOpen, portfolioIndex, slides,
+    } = this.props;
+    const customSlideCpnts = slides.map((item, index) => (
+      <div
+        key={index}
+        onClick={event => handleModalOpen(item.href,
+          item.width, item.height, event)}
+      >
+        <img
+          src={item.imgSrc}
+          alt={item.alt}
+          id={item.id}
+          className={classes.slideImage}
+        />
+        <p
+          className={classes.caption}
         >
-          <img
-            src={item.imgSrc}
-            alt={item.alt}
-            id={item.id}
-            className={classes.slideImage}
-          />
-          <p
-            className={classes.caption}
-          >
-            {item.des}
-          </p>
-        </div>
-      ));
+          {item.des}
+        </p>
+      </div>
+    ));
 
-
-      return (
-        <Carousel
-          renderTopCenterControls={({ currentSlide }) => (
-            <div className={classes.text}>
+    return (
+      <Carousel
+        renderTopCenterControls={({ currentSlide }) => (
+          <div className={classes.text}>
 Slide No.:
-              {currentSlide + 1}
-            </div>
-          )}
-          renderCenterLeftControls={({ previousSlide }) => (
-            <div className={classes.buttonContainer}>
-              <button
-                onClick={previousSlide}
-                className={classes.button}
-              >
+            {currentSlide + 1}
+          </div>
+        )}
+        renderCenterLeftControls={({ previousSlide }) => (
+          <div className={classes.buttonContainer}>
+            <button
+              className={classes.button}
+              onClick={previousSlide}
+              type="button"
+            >
 Prev
-              </button>
-            </div>
-          )}
-          renderCenterRightControls={({ nextSlide }) => (
-            <div className={classes.buttonContainer}>
-              <button
-                onClick={nextSlide}
-                className={classes.button}
-              >
+            </button>
+          </div>
+        )}
+        renderCenterRightControls={({ nextSlide }) => (
+          <div className={classes.buttonContainer}>
+            <button
+              className={classes.button}
+              onClick={nextSlide}
+              type="button"
+            >
 Next
-              </button>
-            </div>
-          )}
-          slidesToShow={3}
-          cellAlign="center"
-          autoplay
-          autoplayInterval={6000}
-          cellSpacing={24}
-          heightMode="max"
-          speed={1000}
-          dragging
-          swiping
-          wrapAround
-          slideIndex={this.props.portfolioIndex}
-          afterSlide={slideIndex => this.advancePortfolio(slideIndex)}
-        >
-          {customSlideCpnts}
-        </Carousel>
-      );
-    }
+            </button>
+          </div>
+        )}
+        slidesToShow={3}
+        cellAlign="center"
+        autoplay
+        autoplayInterval={6000}
+        cellSpacing={24}
+        heightMode="max"
+        speed={1000}
+        dragging
+        swiping
+        wrapAround
+        slideIndex={portfolioIndex}
+        afterSlide={slideIndex => this.advancePortfolio(slideIndex)}
+      >
+        {customSlideCpnts}
+      </Carousel>
+    );
+  }
 }
 
 CarouselNukaCustom.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(CarouselNukaCustom);

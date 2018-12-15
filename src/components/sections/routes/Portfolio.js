@@ -5,7 +5,6 @@ import { Grid, Paper, Typography } from '@material-ui/core';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 import { portfolioList } from '../../../data/itemList';
 // import Carousel from './slides/carousel';
-// import CarouselReactSlider from './slides/carouselReactSlider';
 // import CarouselCustomSlider from './slides/carouselCustomSlider';
 import CarouselNukaCustom from './slides/CarouselNukaCustom';
 
@@ -17,12 +16,12 @@ const styles = theme => ({
     margin: '15% 0',
     padding: '2% 0 5% 0',
   },
-  heading: {
+  headingText: {
     color: theme.palette.primary.main,
     margin: '2% 0',
     textAlign: 'center',
   },
-  slides: {
+  slideContainer: {
     backgroundColor: theme.palette.canvas3,
     padding: '2%',
     borderStyle: 'solid',
@@ -57,21 +56,12 @@ class Portfolio extends Component {
         >
           <Grid container>
             <Grid item xs={12}>
-              <Typography className={classes.heading} variant="display2">
-                                Portfolio
+              <Typography className={classes.headingText} variant="display2">
+                Portfolio
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Paper className={classes.slides}>
-                {/* <Carousel slides={portfolioList} /> */}
-                {/* <CarouselReactSlider */}
-                {/* slides={portfolioList} */}
-                {/* /> */}
-                {/* <CarouselCustomSlider */}
-                {/* slides={portfolioList} */}
-                {/* openModal={this.props.openModal} */}
-                {/* handleModalOpen={this.props.handleModalOpen} */}
-                {/* /> */}
+              <Paper className={classes.slideContainer}>
                 <CarouselNukaCustom
                   slides={portfolioList}
                   {...this.props}

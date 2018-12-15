@@ -8,9 +8,8 @@ import Hobbies from './Hobbies';
 import Contact from './Contact';
 import Follow from './Follow';
 
-const styles = theme => ({
+const styles = () => ({
   container: {
-    flexGrow: 1,
   },
 });
 

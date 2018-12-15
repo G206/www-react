@@ -41,10 +41,11 @@ const styles = theme => ({
 
 });
 
-class CarouselNuka extends Component {
+class CarouselNuka extends Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const { classes } = this.props;
-    const customSlideCpnts = this.props.slides.map((item, index) => (
+    const { classes, slides } = this.props;
+
+    const customSlideCpnts = slides.map((item, index) => (
       <div
         key={index}
       >
@@ -61,11 +62,12 @@ class CarouselNuka extends Component {
         </p>
       </div>
     ));
+
     return (
       <Carousel
         renderTopCenterControls={({ currentSlide }) => (
           <div className={classes.text}>
-Slide No.:
+                  Slide No.:
             {currentSlide + 1}
           </div>
         )}
@@ -74,8 +76,9 @@ Slide No.:
             <button
               onClick={previousSlide}
               className={classes.button}
+              type="button"
             >
-Prev
+                    Prev
             </button>
           </div>
         )}
@@ -84,8 +87,9 @@ Prev
             <button
               onClick={nextSlide}
               className={classes.button}
+              type="button"
             >
-Next
+                    Next
             </button>
           </div>
         )}
@@ -108,7 +112,6 @@ Next
 
 CarouselNuka.propTypes = {
   classes: PropTypes.object,
-  theme: PropTypes.object,
 };
 
 export default withStyles(styles)(CarouselNuka);
