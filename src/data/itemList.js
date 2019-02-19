@@ -114,7 +114,7 @@ export const portfolioList = [
     des: 'GALAGA - Play in New Window',
     className: 'item',
     id: 'galaga',
-    href: 'galaga.w3dev.azurewebsites.net/index.html',
+    href: 'galaga.w3dev.io/',
     target: '',
     width: '1024px',
     height: '1200px',
