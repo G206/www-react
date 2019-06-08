@@ -70,3 +70,6 @@ npm-debug.log
 
 # production
 # /build
+
+# MacOS Specific 
+.DS_Store
