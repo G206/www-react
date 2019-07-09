@@ -127,7 +127,7 @@ class Nav extends Component {
     const { anchor, openDrawer, portfolioIndex } = this.state;
 
     return (
-      <Router>
+      <Router basename={'/www-react'}>
         <nav
           className={classNames(classes.root)}
           id="mainNav"
