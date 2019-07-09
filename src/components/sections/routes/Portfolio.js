@@ -40,6 +40,7 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
+    // eslint-disable-next-line
     () => { setTimeout(() => {}, 1500); };
   }
 

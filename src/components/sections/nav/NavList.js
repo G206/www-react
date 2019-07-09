@@ -75,6 +75,7 @@ class NavList extends Component {
     };
 
     scrollToAnchor = (anchor) => {
+      // eslint-disable-next-line
       (anchor != null) ? goToAnchor(anchor) : null;
     };
 
