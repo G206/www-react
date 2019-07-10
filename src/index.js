@@ -4,7 +4,8 @@ import './css/master.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { red, deepPurple, yellow } from '@material-ui/core/colors';
 import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
+
+import * as serviceWorker from './serviceWorker';
 
 const theme = createMuiTheme(
   {
@@ -88,4 +89,5 @@ ReactDOM.render(
   </MuiThemeProvider>,
   document.getElementById('root'),
 );
-registerServiceWorker();
+
+serviceWorker.unregister();
