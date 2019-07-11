@@ -19,6 +19,9 @@ const styles = theme => ({
   text: {
     color: theme.palette.text.accent,
   },
+  text2: {
+    color: theme.palette.text.alternate,
+  },
   leftJust: {
     display: 'inline-block',
     textAlign: 'left',

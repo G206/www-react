@@ -11,6 +11,7 @@ import logoImage from '../../../images/web_design.png';
 
 const styles = () => ({
   container: {
+    flexGrow: 1,
   },
 });
 
@@ -51,7 +52,7 @@ const NavAppBar = (props) => {
         </Typography>
         <Typography
           variant="display1"
-          color="inherit"
+
           className={classNames(text, rightJust)}
         >
           React JS

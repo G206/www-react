@@ -29,7 +29,7 @@ const Footer = (props) => {
         <Grid item xs={12}>
           <Typography className={classes.heading} variant="body1">
             Copyright Gabe &copy; 2018 - This site has been created using React JS.
-            Social Media Links Not Active Yet - Please Email Gabe@w3dev.io
+            Any Social Media Links on Site Not Active - Please Email Gabe@w3dev.io
           </Typography>
         </Grid>
       </Grid>
