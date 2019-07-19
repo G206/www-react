@@ -6,7 +6,6 @@ import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
     backgroundColor: theme.palette.canvas,
     color: theme.palette.primary2.main,
     margin: '15% 0',

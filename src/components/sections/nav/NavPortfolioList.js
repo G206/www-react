@@ -9,8 +9,8 @@ import { AssignmentTurnedInTwoTone } from '@material-ui/icons';
 
 const styles = () => ({
   container: {
-    flexGrow: 1,
     display: 'flex',
+    flexGrow: 1,
   },
   icon: {
     padding: '0',

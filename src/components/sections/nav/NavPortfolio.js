@@ -7,8 +7,8 @@ import {
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
     display: 'flex',
+    flexGrow: 1,
     backgroundColor: theme.palette.transparent,
   },
   paper: {

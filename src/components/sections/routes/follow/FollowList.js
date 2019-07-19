@@ -10,7 +10,6 @@ import { socialMediaList } from '../../../../data/itemList';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
   },
   modalBox: {
     padding: '2%',

@@ -8,7 +8,6 @@ import CarouselNuka from './slides/CarouselNuka';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
     backgroundColor: theme.palette.canvas,
     color: theme.palette.primary3.main,
     margin: '15% 0',

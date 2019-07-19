@@ -18,7 +18,6 @@ import { portfolioList } from '../../../data/itemList';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
   },
   text: {
     color: theme.palette.primary2.main,

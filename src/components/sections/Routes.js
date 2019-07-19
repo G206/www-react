@@ -13,7 +13,6 @@ import Follow from './routes/Follow';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
     backgroundColor: theme.palette.transparent,
   },
 });

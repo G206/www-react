@@ -11,7 +11,6 @@ import logoImage from '../../../images/web_design.png';
 
 const styles = () => ({
   container: {
-    flexGrow: 1,
   },
 });
 

@@ -7,7 +7,6 @@ import FollowList from './follow/FollowList';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
     backgroundColor: theme.palette.canvas2,
     color: theme.palette.primary2.main,
     margin: '15% 0',

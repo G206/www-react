@@ -7,7 +7,6 @@ import { hobbyList, portfolioList, yogaList } from '../data/itemList';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
   },
   '@global': {
     'a:link, a:visited, a:hover, a:active': {

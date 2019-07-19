@@ -6,7 +6,6 @@ import Iframe from 'react-iframe';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
     maxWidth: '100%',
     maxHeight: '95%',
     backgroundColor: theme.palette.transparent,

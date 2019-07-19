@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   container: {
-    flexGrow: 1,
     position: 'fixed',
     width: theme.image.width,
     bottom: 0,

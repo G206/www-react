@@ -13,7 +13,6 @@ const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
     backgroundColor: theme.palette.transparent,
   },
   text: {
