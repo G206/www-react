@@ -75,7 +75,7 @@ const ModalBox = (props) => {
           Please
           {' '}
           <a
-            href={`https://w3dev.azurewebsites.net/${modalURL}`}
+            href={`${modalURL}`}
             id="aModalIframe"
             target="_blank"
           >
