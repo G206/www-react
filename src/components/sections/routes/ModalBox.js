@@ -75,7 +75,7 @@ const ModalBox = (props) => {
           Please
           {' '}
           <a
-            href={`http:/${modalURL}`}
+            href={`https:/${modalURL}`}
             id="aModalIframe"
             target="_blank"
           >
@@ -86,7 +86,7 @@ const ModalBox = (props) => {
           to open in a new tab.
         </Typography>
         <Iframe
-          url={`http:/${modalURL}`}
+          url={`https:/${modalURL}`}
           position="relative"
           id="modalIframe"
           // width={this.props.frameW}
