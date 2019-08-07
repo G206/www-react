@@ -22,7 +22,7 @@ class Routes extends Component {
     super(props);
     this.state = {
       openModal: false,
-      url: '/',
+      url: '',
       frameW: '100%',
       frameH: '100%',
     };
@@ -31,7 +31,7 @@ class Routes extends Component {
     handleModalOpen = (pURL, pWidth, pHeight) => {
       this.setState({
         openModal: true,
-        url: `/${pURL}`,
+        url: `${pURL}`,
         frameW: pWidth,
         frameH: pHeight,
       });
