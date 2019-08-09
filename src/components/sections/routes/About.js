@@ -61,10 +61,11 @@ class About extends Component {
                 <Grid item xs={10} lg={8}>
                   <Paper className={classes.paper}>
                     <Typography variant="headline" className={classes.text}>
-                      My Name is Gabe and I am a full stack Mobile and Web Developer.
-                      This version of my web site has been created using React JS.
-                      I just completed the Mobile and Web Development Programming
-                      Certification and Mobile Technology Certification Programs at
+                      My Name is Gabe and I am a full stack Web and Mobile Developer.
+                      This version of my personal web site has been created using React JS.
+                      I am currently a secondary coding instructor at the University of
+                      Washington and tutor and teach at Bellevue College. I have Certifications
+                      in Mobile and Web Development Programming and Mobile Technology from
                       Bellevue College. I also have a Bachelor of Arts in Business
                       Administration from the University of Washington in Information
                       Systems (IS) and Finance. This site is designed to showcase my work,
