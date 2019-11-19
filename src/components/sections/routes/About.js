@@ -61,18 +61,18 @@ class About extends Component {
                 <Grid item xs={10} lg={8}>
                   <Paper className={classes.paper}>
                     <Typography variant="headline" className={classes.text}>
-                      My Name is Gabe and I am a full stack Web and Mobile Developer.
+                      My Name is Gabe and I am a full stack Web Applications and Software
+                      Developer. I am currently working with a startup to develop Microsoft
+                      Applications, also work as a secondary coding instructor at the University
+                      of Washington, and tutor and teach at Bellevue College.
                       This version of my personal web site has been created using React JS.
-                      I am currently a secondary coding instructor at the University of
-                      Washington and tutor and teach at Bellevue College. I have Certifications
-                      in Mobile and Web Development Programming and Mobile Technology from
-                      Bellevue College. I also have a Bachelor of Arts in Business
+                      I have multiple Certifications in Mobile and Web Programming and Mobile Technology
+                      from Bellevue College. I have a Bachelor of Arts in Business
                       Administration from the University of Washington in Information
-                      Systems (IS) and Finance. This site is designed to showcase my work,
+                      Systems (IS) and Finance. This site is designed to showcase some of my work,
                       hobbies, and anything else I have a passion for. You can browse some
-                      of the work I have done while at Bellevue College. You can use the
-                      Contact form to send me an email if you wish to discuss anything
-                      with me. Thank you for visiting my site.
+                      of the work I have done while at Bellevue College. You can send me an email
+                      at gabe@w3dev.io if you wish to discuss anything with me. Thank you for visiting my site.
                     </Typography>
                   </Paper>
                 </Grid>
